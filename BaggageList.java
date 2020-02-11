@@ -1,5 +1,14 @@
 package ase;
 
+/**
+ * Advanced Software Engineering - Coursework
+ * Creates an ArrayList to store the Baggage objects
+ * created from the GUI 
+ * 
+ * @author Lynsey Kirk
+ */
+
+
 import java.util.ArrayList;
 
 public class BaggageList {
