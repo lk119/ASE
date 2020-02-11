@@ -155,19 +155,44 @@ public class Baggage {
 		return excess;
 	}
 	
-	// additional code - maybe this will be required here? Problems with calculation - adding volume and weight doesn't really make sense
-	public double excessBaggageTotal() {
-		double totalExcess = 0;
+	// additional code
+	
+	/**
+	 * Calculates the cost of the excess weight
+	 * 
+	 * @return excess weight fee
+	 */
+	public double excessWeightFee() {
+		double excessFee = 0;
 		double excessWeight = excessBaggageWeight();
-		double excessVolume = excessBaggageVolume();
-		totalExcess = excessWeight + excessVolume;
-		return totalExcess;
+		excessFee = excessWeight * 5;
+		return excessFee;		
 	}
 	
-	public double excessBaggageFee() {
-		double totalExcess = excessBaggageTotal();
+	/**
+	 * Calculates the cost of the excess volume
+	 * 
+	 * @return excess volume fee
+	 */
+	public double excessVolumeFee() {
 		double excessFee = 0;
-		excessFee = totalExcess * 5;
+		double excessVolume = excessBaggageVolume();
+		if (excessVolume > 0) {
+		excessFee = 60;
+		}
+		return excessFee;		
+	}
+	
+	/**
+	 * Calculates the total cost of excesss baggage
+	 * 
+	 * @return excess baggage fee total
+	 */
+	public double excessBaggageFee() {
+		double excessFee = 0;
+		double excessWeight = excessWeightFee();
+		double excessVolume = excessVolumeFee();
+		excessFee = excessWeight + excessVolume;
 		return excessFee;
 	}
 }
