@@ -1,198 +1,47 @@
-package ase;
+package TP;
+
 
 /**
- * Advanced Software Engineering - Coursework
- * Class to construct the Baggage object
- * Holds Baggage information and calculates
- * any excess baggage 
- * 
- * @author Lynsey Kirk
+ * @author crs8
+ * baggage constants (weight, volume)
  */
+public enum Baggage {
+	FIRST(45.0, 150.0), BUSINESS(35.0, 100.0), ECONOMY(25.0, 75.0), FLIGHT(1000.0, 2500.0);
 
-public class Baggage {
+	private final double weight; // weight is calculated in kilograms (kg)
+	private final double volume; // volume is calculated in litres (ltr)
 
-	private double weight;
-	private double height;
-	private double width;
-	private double breadth;
-	private Passenger passenger;
-	private Flight flight;
-	
-	
-	/**
-	 * Constructor for the Baggage class
-	 * 
-	 * @param weight		Weight of the baggage
-	 * @param height		Height of the baggage
-	 * @param width			Width of the baggage
-	 * @param breadth		Breadth of the baggage
-	 * @param passenger		The passenger associated with the baggage
-	 * @param flight		The flight associated with the baggage
-	 * 
+	/**constructor
+	 * @param weight
+	 * @param volume
 	 */
-	public Baggage (double weight, double height, double width, double breadth, Passenger passenger, Flight flight) {
+	Baggage(double weight, double volume) {
 		this.weight = weight;
-		this.height = height;
-		this.width = width;
-		this.breadth = breadth;
-		this.passenger = passenger;
-		this.flight = flight;
+		this.volume = volume;
 	}
-	
+
 	/**
-	 * Returns the baggage weight
-	 * 
-	 * @return weight
+	 * @return
 	 */
-	public double getWeight() {
+	public double getweight() {
 		return weight;
 	}
-	
+
 	/**
-	 * Returns the baggage height
-	 * 
-	 * @return height
+	 * @return
 	 */
-	public double getHeight() {
-		return height;
-	}
-	
-	/**
-	 * Returns the baggage width
-	 * 
-	 * @return width
-	 */
-	public double getWidth() {
-		return width;
-	}
-	
-	/**
-	 * Returns the baggage breadth
-	 * 
-	 * @return breadth
-	 */
-	public double getBreadth() {
-		return breadth;
-	}
-	
-	/**
-	 * Sets the baggage weight
-	 * 
-	 * @param weight
-	 */
-	public void setWeight(double weight) {
-		this.weight = weight;
-	}
-	
-	/**
-	 * Sets the baggage height
-	 * 
-	 * @param height
-	 */
-	public void setHeight(double height) {
-		this.height = height;
-	}
-	
-	/**
-	 * Sets the baggage width
-	 * 
-	 * @param width
-	 */
-	public void setWidth(double width) {
-		this.width = width;
-	}
-	
-	/**
-	 * Sets the baggage breadth
-	 * 
-	 * @param breadth
-	 */
-	public void setBreadth(double breadth) {
-		this.breadth = breadth;
-	}
-	
-	/**
-	 * Calculates the overall volume of the baggage piece
-	 * 
-	 * @return the baggage volume
-	 */
-	public double baggageVolume() {
-		double volume = width*height*breadth;
+	public double getvolume() {
 		return volume;
 	}
 	
-	/**
-	 * Considers if the baggage weight exceeds the maximum baggage
-	 * allowance for the given flight and
-	 * calculates the amount of excess weight
-	 * 
-	 * @return excess baggage weight
-	 */
-	public double excessBaggageWeight() {
-		double excess = 0;
-		double maxWeight = getMaxBaggageWeightFlight(); //needs flight association
-		if (weight > maxWeight) {
-			excess = maxWeight - weight;
-		}
-		return excess;
-	}
-	
-	/**
-	 * Considers if the baggage volume exceeds the maximum baggage
-	 * allowance for the given flight and
-	 * calculates the amount of excess volume
-	 * 
-	 * @return excess baggage volume
-	 */
-	public double excessBaggageVolume() {
-		double excess = 0;
-		double volume = baggageVolume();
-		double maxVolume = getMaxBaggageVolumeFlight(); //needs flight association
-		// this calculation may need to change
-		if (volume > maxVolume) {
-			excess = maxVolume - volume;
-		}
-		return excess;
-	}
-	
-	// additional code
-	
-	/**
-	 * Calculates the cost of the excess weight
-	 * 
-	 * @return excess weight fee
-	 */
-	public double excessWeightFee() {
-		double excessFee = 0;
-		double excessWeight = excessBaggageWeight();
-		excessFee = excessWeight * 5;
-		return excessFee;		
-	}
-	
-	/**
-	 * Calculates the cost of the excess volume
-	 * 
-	 * @return excess volume fee
-	 */
-	public double excessVolumeFee() {
-		double excessFee = 0;
-		double excessVolume = excessBaggageVolume();
-		if (excessVolume > 0) {
-		excessFee = 60;
-		}
-		return excessFee;		
-	}
-	
-	/**
-	 * Calculates the total cost of excesss baggage
-	 * 
-	 * @return excess baggage fee total
-	 */
-	public double excessBaggageFee() {
-		double excessFee = 0;
-		double excessWeight = excessWeightFee();
-		double excessVolume = excessVolumeFee();
-		excessFee = excessWeight + excessVolume;
-		return excessFee;
+	public Baggage getNextBaggage() {
+		// get array of the baggage values
+		Baggage[] all = Baggage.values();
+		int size = all.length; // how many?
+		int ordinal = this.ordinal(); // index
+		// get next index position
+		int nextOrd = (ordinal + 1) % size;
+		// use index position
+		return all[nextOrd];
 	}
 }
