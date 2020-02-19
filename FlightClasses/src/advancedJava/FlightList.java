@@ -1,7 +1,11 @@
 package advancedJava;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
  * @author km184
@@ -72,6 +76,34 @@ class FlightList {
 
 	public int numberOfFlights() {
 		return flightList.size();
+	}
+
+	public void readFile(String filename) {
+		try {
+			File f = new File(filename);
+			Scanner scanner = new Scanner(f);
+			while (scanner.hasNextLine()) {
+				// read first line and process it
+				String inputLine = scanner.nextLine();
+				if (inputLine.length() != 0) {// ignored if blank line
+					processLine(inputLine);
+
+				}
+			}
+		}
+		// if the file is not found, stop with system exit
+		catch (FileNotFoundException fnf) {
+			System.out.println(filename + " not found ");
+			System.exit(0);
+		} catch (InputMismatchException ex) {
+			System.out.println("Error " + ex);
+		}
+		// Scanner may need to be closed
+	}
+
+	private void processLine(String inputLine) {
+		// TODO Auto-generated method stub
+
 	}
 
 }
