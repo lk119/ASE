@@ -22,7 +22,7 @@ public class BaggageList {
 		baggageList = new ArrayList<Baggage>();
 	}
 	
-	/**
+	/**Note that the samae bag may be added twice here!!!! code needs modification 
 	 * Allows the addition of a baggage object to the baggage arraylist
 	 * 
 	 * @param b the baggage object
