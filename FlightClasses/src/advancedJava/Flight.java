@@ -54,7 +54,7 @@ public class Flight {
 
 	@Override
 	public String toString() {
-		return "Flight destination=" + destination + "\n" + "carrier=" + carrier + "\n" + "flightCode=" + flightCode
-				+ "\n" + "\n" + " passangerCarryingCapacity=" + passangerCarryingCapacity;
+		return "Flight details:" + "\n" + "Destination:" + destination + "\n" + "Airline:" + carrier + "\n" + "Number:"
+				+ flightCode + "\n" + "totalBoarding" + passangerCarryingCapacity + "\n";
 	}
 }

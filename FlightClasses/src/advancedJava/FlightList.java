@@ -70,4 +70,8 @@ class FlightList {
 		return getAllFlights();
 	}
 
+	public int numberOfFlights() {
+		return flightList.size();
+	}
+
 }
