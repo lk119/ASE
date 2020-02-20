@@ -99,9 +99,36 @@ class FlightList {
 		// Scanner may need to be closed
 	}
 
-	private void processLine(String inputLine) {
-		// TODO Auto-generated method stub
+	private void processLine(String line) {
 
+		try {
+			String[] parts = line.split(",");
+			String destination = parts[0];
+			destination = destination.trim();
+			String car = parts[1];
+			car = car.trim();
+			String cod = parts[2];
+			cod = cod.trim();
+			String cap = parts[3];
+			int cap1 = Integer.parseInt(cap);
+			Flight f = new Flight(destination, car, cod, cap1);
+			this.addFlight(f);
+		}
+		// ignore lines in error and try and carry on
+
+		// this catches trying to convert a String to an integer
+		catch (NumberFormatException nfe) {
+			String error = "Number conversion error in '" + line + "'  - " + nfe.getMessage();
+			System.out.println(error);
+		}
+		// this catches missing items if only one or two items
+		// other omissions will result in other errors
+		catch (ArrayIndexOutOfBoundsException air) {
+			String error = "Not enough items in  : '" + line
+
+					+ "' index position : " + air.getMessage();
+			System.out.println(error);
+		}
 	}
 
 }
