@@ -132,29 +132,18 @@ public class Baggage {
 		return excess;
 	}
 
-	private double getMaxBaggageWeightFlight() {
+	public double getMaxBaggageWeightFlight() {
 		Passenger p = this.passenger;
-		MaxBaggage firstData = MaxBaggage.FIRST;
-		MaxBaggage BusinessData = MaxBaggage.BUSINESS;
-		MaxBaggage EconomyData = MaxBaggage.ECONOMY;
-		String Clas = p.getpClass();
-		double result1 = 1.0;
-		if (p.getClass().toString().equalsIgnoreCase("first")) {
-			double result = firstData.getweight();
-			return result1 = result1 * result;
-		}
-		if (p.getClass().toString().equalsIgnoreCase("Business")) {
-			double result = BusinessData.getweight();
-			return result1 = result * result1;
+		String clas = p.getpClass();
+		String result1 = " ";
+		for (MaxBaggage mx : MaxBaggage.values()) {
+			if (mx.name().equalsIgnoreCase(clas)) {
+				result1 = String.valueOf(mx.getweight());
+			}
 
 		}
-		if (p.getClass().toString().equalsIgnoreCase("Economy")) {
-			double result = EconomyData.getweight();
-			return result1 = result * result1;
+		return Double.parseDouble(result1);
 
-		}
-
-		return result1;
 	}
 
 	/**
@@ -174,29 +163,17 @@ public class Baggage {
 		return excess;
 	}
 
-	private double getMaxBaggageVolumeFlight() {
+	public double getMaxBaggageVolumeFlight() {
 		Passenger p = this.passenger;
-		MaxBaggage firstData = MaxBaggage.FIRST;
-		MaxBaggage BusinessData = MaxBaggage.BUSINESS;
-		MaxBaggage EconomyData = MaxBaggage.ECONOMY;
-		String Clas = p.getpClass();
-		double result1 = 1.0;
-		if (p.getClass().toString().equalsIgnoreCase("first")) {
-			double result = firstData.getvolume();
-			return result1 = result1 * result;
-		}
-		if (p.getClass().toString().equalsIgnoreCase("Business")) {
-			double result = BusinessData.getvolume();
-			return result1 = result * result1;
+		String clas = p.getpClass();
+		String result1 = " ";
+		for (MaxBaggage mx : MaxBaggage.values()) {
+			if (mx.name().equalsIgnoreCase(clas)) {
+				result1 = String.valueOf(mx.getvolume());
+			}
 
 		}
-		if (p.getClass().toString().equalsIgnoreCase("Economy")) {
-			double result = EconomyData.getvolume();
-			return result1 = result * result1;
-
-		}
-
-		return result1;
+		return Double.parseDouble(result1);
 	}
 
 	/**
