@@ -118,9 +118,9 @@ public class PassengerSet {
 	
 	
 	/**
-	 * Will find passenger based on booking reference number
+	 * Will find passenger based on last name
 	 * 
-	 * @param bookingRefernceNum from the input list
+	 * @param last name from the input list
 	 */
 	
 	public void findLastName(String LastName) throws NoMatchingLastNameException {
