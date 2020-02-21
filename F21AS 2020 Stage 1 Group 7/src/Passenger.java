@@ -25,12 +25,12 @@ public class Passenger {
 		}
 
 
-	public String getBookingRefernceNum() {
+	public String getBookingReferenceNum() {
 		return bookingReferenceNum;
 	}
 
 
-	public void setBookingRefernceNum(String bookingRefernceNum) {
+	public void setBookingReferenceNum(String bookingRefernceNum) {
 		this.bookingReferenceNum = bookingRefernceNum;
 	}
 
@@ -57,7 +57,7 @@ public class Passenger {
     //check functionality of this method 
 	public String getCheckInStatus() {
 		if (checkInStatus == null) {
-			return "Please proceed to Check-in";
+			return " Check-in pending ";
 		}
 		return checkInStatus;
 	}
