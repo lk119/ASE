@@ -1,9 +1,8 @@
 /**
- * Advanced Software Engineering Assignment Stage 1 
- * Class to define the varying instances of Names 
- * for the passengers
- * 
- * @author   Cameron Scott, Kuda Mugara, Lynsey Kirk, Rachana Patel, Robert Stone
+ * Advanced Software Engineering Assignment Stage 1 Class to define the varying
+ * instances of Names for the passengers
+ *
+ * @author Cameron Scott, Kuda Mugara, Lynsey Kirk, Rachana Patel, Robert Stone
  */
 
 public class Name {
@@ -23,6 +22,13 @@ public class Name {
 	 * @param mName the passenger's middle name
 	 * @param lName the passenger's last name
 	 */
+	public Name(String fName, String lName) {
+		// 2 name constructor
+		FirstName = fName;
+		MiddleName = "";
+		LastName = lName;
+	}
+
 	public Name(String fName, String mName, String lName) {
 
 		this.FirstName = fName;
@@ -33,23 +39,24 @@ public class Name {
 	/**
 	 * Creates the passenger's full name from the individual first, middle and last
 	 * names and takes into consideration if a passenger doesn't have a middle name
-	 * 
+	 *
 	 * @param fullName the passenger's full name
 	 */
 	public Name(String fullName) {
 		int spacePos1 = fullName.indexOf(' ');
 		FirstName = fullName.substring(0, spacePos1);
 		int spacePos2 = fullName.lastIndexOf(' ');
-		if (spacePos1 == spacePos2)
+		if (spacePos1 == spacePos2) {
 			MiddleName = "";
-		else
+		} else {
 			MiddleName = fullName.substring(spacePos1 + 1, spacePos2);
+		}
 		LastName = fullName.substring(spacePos2 + 1);
 	}
 
 	/**
 	 * Returns the passenger's full name
-	 * 
+	 *
 	 * @return the passenger's full name
 	 */
 	public String getFullName() {
@@ -58,7 +65,7 @@ public class Name {
 
 	/**
 	 * Return the passenger's first name
-	 * 
+	 *
 	 * @return the passenger's first name
 	 */
 	public String getLastName() {
