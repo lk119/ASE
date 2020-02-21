@@ -9,15 +9,15 @@
 
 public class Passenger {
 	
-	private String bookingRefernceNum;
+	private String bookingReferenceNum;
  	private String flightCode;
  	private Name passengerName;
  	private String checkInStatus;
  	private String pClass;
 	
 	
-	public Passenger(String bookingRefernceNum, String flightCode, Name passengerName, String checkInStatus, String pClass) {
-		this.bookingRefernceNum = bookingRefernceNum;
+	public Passenger(String bookingReferenceNum, String flightCode, Name passengerName, String checkInStatus, String pClass) {
+		this.bookingReferenceNum = bookingReferenceNum;
 		this.flightCode = flightCode;
 		this.passengerName = passengerName;
 		this.checkInStatus = checkInStatus;
@@ -26,12 +26,12 @@ public class Passenger {
 
 
 	public String getBookingRefernceNum() {
-		return bookingRefernceNum;
+		return bookingReferenceNum;
 	}
 
 
 	public void setBookingRefernceNum(String bookingRefernceNum) {
-		this.bookingRefernceNum = bookingRefernceNum;
+		this.bookingReferenceNum = bookingRefernceNum;
 	}
 
 

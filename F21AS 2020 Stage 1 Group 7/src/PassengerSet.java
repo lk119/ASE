@@ -49,18 +49,20 @@ public class PassengerSet {
 	 * @exception ArrayIndexOutOfBoundsException if the array index does not exist.
 	 * @param line the line processed from input file
 	 */
-	@SuppressWarnings("unused")
+	
 	private void processLine(String line) {
 		try {
 			String parts[] = line.split(",");
-			{
-				Name passengerName = new Name(parts[1], parts[2], parts[3]);
-				String bookingRefernceNum = parts[0];
+			    Name passengerName = new Name(parts[1], parts[2], parts[3]);
+				String bookingReferenceNum = parts[0];
 				String flightCode = parts[4];
 				String pClass = parts[5];
 				String checkInStatus = parts[6];
-			}			
-		}	
+						
+			Passenger p = new Passenger(bookingReferenceNum, flightCode, passengerName, checkInStatus, pClass);
+			this.add(p);
+		}
+		
 			catch (NumberFormatException ohno) {
 			String error = "Number conversion error in '" + line + "'  - " + ohno.getMessage();
 			System.out.println(error);
@@ -69,6 +71,7 @@ public class PassengerSet {
 			System.out.println(error);
 
 		}
+		
 	}
 	
 	/**
@@ -106,13 +109,14 @@ public class PassengerSet {
 	
 	public void findBookingRefNum(String bookingRefernceNum) throws NoMatchingBookingReference, InvalidBookingReference {
 		for (Passenger p : PassengerSet) {
-			if (p.getBookingRefernceNum() = )
-			
-			if (p.getBookingRefernceNum() == (bookingRefernceNum)) {
+			String s= p.getBookingRefernceNum();
+			if (s.length() < 0 || s.length() > 8) {
+	        	throw new InvalidBookingReference ();
+	        }
+			else if (p.getBookingRefernceNum() == (bookingRefernceNum)) {
 			}
 	
-		else // this has been kept for functional testing. To be removed for final version if the not needed.
-		  throw new NoMatchingBookingReference (bookingRefernceNum);
+		   else throw new NoMatchingBookingReference (bookingRefernceNum);
 		
 		return;
 	}
@@ -123,18 +127,18 @@ public class PassengerSet {
 	 * Will find passenger based on booking reference number
 	 * 
 	 * @param bookingRefernceNum from the input list
-	 * @return check in status 
 	 */
 	
-	public String findLastName(String LastName) {
+	public void findLastName(String LastName) throws NoMatchingLastNameException {
 		for (Passenger p : PassengerSet) {
 			if (p.getLastName() == (LastName)) {
-				return p.getCheckInStatus();
 			}
+			else throw new NoMatchingLastNameException (LastName);
+			}
+		return;
 		}
-		// this has been kept for functional testing. To be removed for final version if the not needed.
-		return "\nPassenger does not exist.";
-	}
+
+	
 	
 	/**
 	 * Will find number of passengers checked in

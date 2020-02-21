@@ -130,11 +130,11 @@ public class TPDetails extends JFrame {
 		if (searchString.length() > 0) {
 
 			
-			String bookingRefernceNum = searchString;
+			String bookingReferenceNum = searchString;
 			
 					
 			// return the passenger object
-			Passenger p = PassengerSet.findBookingRefNum(bookingRefernceNum);
+			Passenger p = PassengerSet.findBookingRefNum(bookingReferenceNum);
 			
 			
 
