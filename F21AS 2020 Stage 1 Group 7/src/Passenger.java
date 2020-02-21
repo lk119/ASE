@@ -1,4 +1,5 @@
 
+
 /**
  * Advanced Software Engineering Assignment Stage 1 GUI to allow the user to
  * search for a passenger last name and booking reference number to enable
@@ -9,15 +10,15 @@
 
 public class Passenger {
 	
-	private String bookingRefernceNum;
+	private String bookingReferenceNum;
  	private String flightCode;
  	private Name passengerName;
  	private String checkInStatus;
  	private String pClass;
 	
 	
-	public Passenger(String bookingRefernceNum, String flightCode, Name passengerName, String checkInStatus, String pClass) {
-		this.bookingRefernceNum = bookingRefernceNum;
+	public Passenger(String bookingReferenceNum, String flightCode, Name passengerName, String checkInStatus, String pClass) {
+		this.bookingReferenceNum = bookingReferenceNum;
 		this.flightCode = flightCode;
 		this.passengerName = passengerName;
 		this.checkInStatus = checkInStatus;
@@ -25,13 +26,13 @@ public class Passenger {
 		}
 
 
-	public String getBookingRefernceNum() {
-		return bookingRefernceNum;
+	public String getBookingReferenceNum() {
+		return bookingReferenceNum;
 	}
 
 
-	public void setBookingRefernceNum(String bookingRefernceNum) {
-		this.bookingRefernceNum = bookingRefernceNum;
+	public void setBookingReferenceNum(String bookingRefernceNum) {
+		this.bookingReferenceNum = bookingRefernceNum;
 	}
 
 
@@ -57,7 +58,7 @@ public class Passenger {
     //check functionality of this method 
 	public String getCheckInStatus() {
 		if (checkInStatus == null) {
-			return "Please proceed to Check-in";
+			return " Check-in pending ";
 		}
 		return checkInStatus;
 	}
