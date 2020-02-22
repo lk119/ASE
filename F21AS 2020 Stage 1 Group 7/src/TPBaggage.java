@@ -42,8 +42,6 @@ public class TPBaggage extends JFrame implements ActionListener {
 		setTitle("TravelPigeon Check-in");
 		setBackground(Color.WHITE);
 		setSize(600, 500);
-
-		pack();
 		setLocationRelativeTo(null); // sets position of JFrame to middle of screen
 
 		// show JOptionpane confirmation when close button pressed
