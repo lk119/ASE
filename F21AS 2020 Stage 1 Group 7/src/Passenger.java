@@ -10,6 +10,13 @@
 
 public class Passenger {
 	
+	@Override
+	public String toString() {
+		return "Customer Details:"+"\n"+"bookingReferenceNum=" + bookingReferenceNum + ", flightCode=" + flightCode
+				+ ", passengerName=" + passengerName.getFullName() + ", checkInStatus=" + checkInStatus + ", Class=" + pClass;
+	}
+
+
 	private String bookingReferenceNum;
  	private String flightCode;
  	private Name passengerName;

@@ -140,14 +140,15 @@ public class PassengerSet {
 	 * @param check in status from the input list
 	 * @return size of the set 
 	 */
+
 	
-	public int totalNumberOfPassengersCheckedIn() {
+	public String totalNumberOfPassengersCheckedIn() {
 		for (Passenger p : PassengerSet) {
 			if (p.getCheckInStatus()!= null) {
 		}
-		return PassengerSet.size();
+		return  "Number of passangers checkedin:"+ PassengerSet.size();
 		}
-		return 0;
+		return "";
 	}
 		
    
@@ -246,13 +247,37 @@ public class PassengerSet {
 		}
 		return report;
 	}
+  	
+  	
+  	public String fulldetails() {
+  		
+  		PassengerSet.forEach(System.out::println);
+		return "";
+  	}
 
 public void addingPassanger() {
 Passenger p1= new Passenger("Bn24322","BA234",new Name("Kuda","Mugara"),"checkedIn","Business");	
-Passenger p2= new Passenger("Bn24323","BA234",new Name("Amos","Kewandu"),"checkedIn","First");	
+Passenger p2= new Passenger("Bn24323","BA274",new Name("Amos","Kewandu"),"checkedIn","First");	
+Passenger p3= new Passenger("B344456","BA244",new Name("Keneddy","Kewasdu"),"checkedIn","First");	
+Passenger p4= new Passenger("B344460","BA245",new Name("Kenddy","ewasdu"),"checkedIn","First");	
+
 this.add(p1);
 this.add(p2);
+this.add(p3);
+this.add(p4);
+
 }
+
+public HashMap createAMap() {
+	HashMap<String,String> flyers=new  HashMap<String,String>();
+
+	for (Passenger p:PassengerSet ) {
+		flyers.put(p.getFullName(), p.getflightCode());
+	}
+	return flyers;
+}
+
+
 	
 	
 }
