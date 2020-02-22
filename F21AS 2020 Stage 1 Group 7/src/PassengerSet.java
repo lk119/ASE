@@ -262,6 +262,7 @@ Passenger p3= new Passenger("B344456","BA244",new Name("Keneddy","Kewasdu"),"che
 Passenger p4= new Passenger("B344460","BA244",new Name("Kenddy","ewasdu"),"checkedIn","First");	
 Passenger p5= new Passenger("B344460","BA234",new Name("Kinga","Mugara"),"checkedIn","First");	
 Passenger p6= new Passenger("B344460","BA234",new Name("Rob","Rachana"),"checkedIn","First");	
+Passenger p7= new Passenger("B344460","BA234",new Name("Bob","Tachana"),"checkedIn","First");	
 
 
 this.add(p1);
@@ -270,6 +271,7 @@ this.add(p3);
 this.add(p4);
 this.add(p5);
 this.add(p6);
+this.add(p7);
 
 }
 
