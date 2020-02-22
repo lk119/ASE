@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 /**
  * @author KudaMugara
  *
@@ -14,7 +16,6 @@ public class Flight {
 	private String carrier;
 	private String flightCode;
 	private int passangerCarryingCapacity;
-
 	public String getDestination() {
 		return destination;
 	}
@@ -52,4 +53,5 @@ public class Flight {
 		return "Flight details:" + "\n" + "Destination:" + destination + "\n" + "Airline:" + carrier + "\n" + "Number:"
 				+ flightCode + "\n" + "totalBoarding" + passangerCarryingCapacity + "\n";
 	}
+
 }

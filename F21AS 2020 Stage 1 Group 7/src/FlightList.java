@@ -135,12 +135,20 @@ class FlightList {
 
 	public void addingFlights() {
 		Flight p1 = new Flight("Gaborone", "virgin", "BA234", 200);
-		Flight p2 = new Flight("Gaborone", "BA", "BAdd5", 200);
+		Flight p2 = new Flight("Gaborone", "BA", "BA274", 200);
+		Flight p3 = new Flight("Gaborone", "BA", "BA244", 200);
+		this.addFlight(p3);
 		this.addFlight(p1);
 		this.addFlight(p2);
 	}
 
+	public HashMap createAMap() {
+		HashMap<String, String> planes = new HashMap<String, String>();
 
-	
+		for (Flight p : flightList) {
+			planes.put(p.getFlightCode(), p.getCarrier());
+		}
+		return planes;
+	}
 
 }
