@@ -12,11 +12,11 @@ public class Passenger {
 	private String bookingReferenceNum;
  	private String flightCode;
  	private Name passengerName;
- 	private String checkInStatus;
+ 	private boolean checkInStatus;
  	private String pClass;
 	
 	
-	public Passenger(String bookingReferenceNum, String flightCode, Name passengerName, String checkInStatus, String pClass) {
+	public Passenger(String bookingReferenceNum, String flightCode, Name passengerName, boolean checkInStatus, String pClass) {
 		this.bookingReferenceNum = bookingReferenceNum;
 		this.flightCode = flightCode;
 		this.passengerName = passengerName;
@@ -54,19 +54,14 @@ public class Passenger {
 		this.passengerName = passengerName;
 	}
 
-    //check functionality of this method 
-	public String getCheckInStatus() {
-		if (checkInStatus == null) {
-			return " Check-in pending ";
-		}
+	public boolean getCheckInStatus() {
 		return checkInStatus;
 	}
 
 
-	public void setCheckInStatus(String checkInStatus) {
+	public void setCheckInStatus(boolean checkInStatus) {
 		this.checkInStatus = checkInStatus;
 	}
-
 
 	public String getpClass() {
 		return pClass;
