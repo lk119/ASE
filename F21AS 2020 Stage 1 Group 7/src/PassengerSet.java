@@ -247,5 +247,16 @@ public class PassengerSet {
 		return report;
 	}
 	
+	// used in TPDetails to find booking details
+	public Passenger findBooking(String bookingRefernceNum, String LastName) throws NoMatchingBookingReference, InvalidBookingReference {
+		for (Passenger p : PassengerSet) {
+
+			if (p.getBookingRefernceNum() == (bookingRefernceNum) 
+					&& (p.getLastName() == (LastName))) {
+				return p;
+			}
+		}
+		return null;
+	}	
 	
 }
