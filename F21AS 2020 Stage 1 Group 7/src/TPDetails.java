@@ -27,9 +27,6 @@ public class TPDetails extends JFrame implements ActionListener {
 		setTitle("TravelPigeon Check-in");
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		setSize(600, 500);
-
-		pack();
-		setVisible(true);
 		setLocationRelativeTo(null); // sets position of JFrame to middle of screen
 
 		// disable standard close button
