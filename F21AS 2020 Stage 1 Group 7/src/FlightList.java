@@ -131,4 +131,11 @@ class FlightList {
 		}
 	}
 
+	public void addingFlights() {
+		Flight p1 = new Flight("Gaborone", "virgin", "BA234", 200);
+		Flight p2 = new Flight("Gaborone", "BA", "BAdd5", 200);
+		this.addFlight(p1);
+		this.addFlight(p2);
+	}
+
 }

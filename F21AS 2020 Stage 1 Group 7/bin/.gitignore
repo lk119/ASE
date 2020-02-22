@@ -5,6 +5,8 @@
 /FlightCodeComparator.class
 /FlightList.class
 /InvalidBookingReference.class
+/Manager.class
+/MaxBaggage.class
 /Name.class
 /NoMatchingBookingReference.class
 /Passenger.class
@@ -15,10 +17,7 @@
 /TPDetails.class
 /TPWelcome$1.class
 /TPWelcome.class
+/Tester.class
 /TravelPigeonMain.class
 /TravelPigeonManager.class
-/MaxBaggage.class
-/BaggageTest.class
-/BaggageManager.class
-/Tester.class
-/Manager.class
+/NoMatchingLastNameException.class
