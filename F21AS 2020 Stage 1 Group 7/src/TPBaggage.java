@@ -46,8 +46,6 @@ public class TPBaggage extends JFrame implements ActionListener {
 		pack();
 		setLocationRelativeTo(null); // sets position of JFrame to middle of screen
 
-		// disable standard close button
-		setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
 		// show JOptionpane confirmation when close button pressed
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
@@ -283,6 +281,8 @@ public class TPBaggage extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == submitCalcButton) {
 			input();
+			excessFeeCheck();
+			dispose();
 		}
 	}
 
@@ -336,6 +336,71 @@ public class TPBaggage extends JFrame implements ActionListener {
 		} catch (InvalidBookingReference e) {
 			JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
 		}
+	}
+
+	private void checkIn() {
+		// get input and trim to remove additional spaces
+		String bookingRef = bookingRefField.getText();
+		String bookingName = bookingNameField.getText();
+
+		Passenger p;
+		try {
+			p = passengerSet.findBooking(bookingRef, bookingName);
+			if (p != null) {
+				if (p.getCheckInStatus() != false) {
+					JOptionPane.showMessageDialog(null, "You are already checked-in");
+					// System.exit(0);
+				} else {
+					p.setCheckInStatus(true);
+					plane = new ImageIcon(getClass().getResource("Plane2.png"));
+					JOptionPane.showMessageDialog(null, "Check-In Complete. \nPlease head to your departure gate.",
+							"Check-In Complete", JOptionPane.INFORMATION_MESSAGE, plane);
+				}
+			}
+		} catch (NoMatchingBookingReference e) {
+			JOptionPane.showMessageDialog(null, "Booking Reference not found");
+		} catch (InvalidBookingReference e) {
+			JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
+		}
 
 	}
+
+	private void excessFeeCheck() {
+		// get input and trim to remove additional spaces
+		String bookingRef = bookingRefField.getText();
+		String bookingName = bookingNameField.getText();
+
+		Passenger p;
+		try {
+			p = passengerSet.findBooking(bookingRef, bookingName);
+			if (p != null) {
+
+				Baggage b = baggageList.findByPassenger(p);
+				double excessFee = b.excessBaggageFee();
+
+				if (excessFee > 0) {
+					Object[] options = { "Confirm and Check-In", "Return to Baggage Details" };
+					int choice = JOptionPane.showOptionDialog(null,
+							"Excess Baggage Charge Due: £" + excessFee
+									+ ". Please confirm below to proceed with Check-In.",
+							"Excess Baggage Fee", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+							options, options[0]);
+
+					if (choice == JOptionPane.YES_OPTION) {
+						checkIn();
+					} else {
+						JOptionPane.showMessageDialog(null,
+								"Please re-enter your baggage details in order to check-in.");
+					}
+				} else {
+					checkIn();
+				}
+			}
+		} catch (NoMatchingBookingReference e) {
+			JOptionPane.showMessageDialog(null, "Booking Reference not found");
+		} catch (InvalidBookingReference e) {
+			JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
+		}
+	}
+
 }
