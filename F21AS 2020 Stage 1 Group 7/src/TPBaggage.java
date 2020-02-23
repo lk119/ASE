@@ -3,6 +3,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DecimalFormat;
 
 import javax.swing.*;
@@ -347,12 +350,15 @@ public class TPBaggage extends JFrame implements ActionListener {
 			if (p != null) {
 				if (p.getCheckInStatus() != false) {
 					JOptionPane.showMessageDialog(null, "You are already checked-in");
-					// System.exit(0);
+					flightReport();
+					System.exit(0);
 				} else {
 					p.setCheckInStatus(true);
 					plane = new ImageIcon(getClass().getResource("Plane2.png"));
 					JOptionPane.showMessageDialog(null, "Check-In Complete. \nPlease head to your departure gate.",
 							"Check-In Complete", JOptionPane.INFORMATION_MESSAGE, plane);
+					flightReport();
+					System.exit(0);
 				}
 			}
 		} catch (NoMatchingBookingReference e) {
@@ -400,5 +406,29 @@ public class TPBaggage extends JFrame implements ActionListener {
 			JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
 		}
 	}
-
+	
+	private void flightReport() {
+		String flightReport = baggageList.baggageCapacityAnalysis();
+		writeToFile("FlightReport.txt", flightReport);
+	}
+	
+	private void writeToFile(String Report, String report) {
+		FileWriter fw;
+		try {
+			fw = new FileWriter(Report);
+			fw.write("FLIGHT REPORT\n");
+			fw.write(report);
+			fw.close();
+		}
+		// if file not found give message and stop
+		catch (FileNotFoundException fnf) {
+			System.out.println(Report + " not found ");
+			System.exit(0);
+		}
+		// stack trace here
+		catch (IOException ioe) {
+			ioe.printStackTrace();
+			System.exit(1);
+		}
+	}
 }
