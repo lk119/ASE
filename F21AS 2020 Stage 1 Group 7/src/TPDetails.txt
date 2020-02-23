@@ -18,14 +18,11 @@ public class TPDetails extends JFrame implements ActionListener {
 	public TPDetails(PassengerSet passengers) {
 		this.passengerSet = passengers;
 
-		// set up window title
-
 		setupNorthPanel();
 		setupCenterPanel();
 		setupSouthPanel();
 
 		setTitle("TravelPigeon Check-in");
-		getContentPane().setLayout(new BorderLayout(0, 0));
 		setSize(600, 500);
 		setLocationRelativeTo(null); // sets position of JFrame to middle of screen
 
@@ -62,8 +59,8 @@ public class TPDetails extends JFrame implements ActionListener {
 
 		northPanel.add(panel);
 		northPanel.add(label);
-
-		getContentPane().add(northPanel, BorderLayout.NORTH);
+		
+		this.add(northPanel, BorderLayout.NORTH);
 	}
 
 	// setup center panel
@@ -94,7 +91,7 @@ public class TPDetails extends JFrame implements ActionListener {
 
 		JLabel spacerLabel = new JLabel("");
 		JLabel spacerLabel2 = new JLabel("");
-
+		
 		detailsPanel.add(bookingRefLabel);
 		detailsPanel.add(bookingRefField);
 		detailsPanel.add(spacerLabel);
@@ -112,14 +109,14 @@ public class TPDetails extends JFrame implements ActionListener {
 
 		JPanel spacerPanel = new JPanel();
 		spacerPanel.setBackground(Color.WHITE);
-
+		
 		imagePanel.add(spacerPanel);
 		imagePanel.add(imagePin);
-
+		
 		centerPanel.add(detailsPanel);
 		centerPanel.add(imagePanel);
-
-		getContentPane().add(centerPanel, BorderLayout.CENTER);
+		
+		this.add(centerPanel, BorderLayout.CENTER);
 	}
 
 	// setup south panel
@@ -130,10 +127,10 @@ public class TPDetails extends JFrame implements ActionListener {
 		submitButton = new JButton("Submit");
 		submitButton.setForeground(new Color(0, 206, 209));
 		submitButton.addActionListener(this);
-
+		
 		southPanel.add(submitButton);
-
-		getContentPane().add(southPanel, BorderLayout.SOUTH);
+		
+		this.add(southPanel, BorderLayout.SOUTH);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -173,10 +170,12 @@ public class TPDetails extends JFrame implements ActionListener {
 					JOptionPane.showMessageDialog(null, "Booking Reference not found");
 				} catch (InvalidBookingReference e) {
 					JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
+				} catch (NoMatchingLastNameException e) {
+					JOptionPane.showMessageDialog(null, "No booking found for that name.");
 				}
 			} else {
 				JOptionPane.showMessageDialog(null, "Please enter your Last Name");
-			}
+			} 
 		} else {
 			JOptionPane.showMessageDialog(null, "Please enter your Booking Reference");
 		}
