@@ -139,11 +139,10 @@ public class TPDetails extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == submitButton) {
 			search();
-			this.dispose();
 		}
 	}
 
-	private void search() {
+private void search() {
 		// get input and trim to remove additional spaces
 		String bookingRef = getBookingRef();
 		String bookingName = getBookingName();
@@ -156,7 +155,19 @@ public class TPDetails extends JFrame implements ActionListener {
 				try {
 					p = passengerSet.findBooking(bookingRef, bookingName);
 					if (p != null) {
-						runTPBaggage();
+						if (p.getCheckInStatus() != false) {
+							JOptionPane.showMessageDialog(null, "You are already checked-in");
+							// System.exit(0);
+						} else {
+							TPBaggage baggage = new TPBaggage(baggageList);
+							baggage.setBookingReference(getBookingRef());
+							baggage.setBookingName(getBookingName());
+							baggage.setVisible(true);
+							baggage.setLocationRelativeTo(null);
+							System.out.println(baggage.getBookingReference());
+							System.out.println(baggage.getBookingLastName());
+							this.dispose();
+						}
 					}
 				} catch (NoMatchingBookingReference e) {
 					JOptionPane.showMessageDialog(null, "Booking Reference not found");
@@ -169,16 +180,6 @@ public class TPDetails extends JFrame implements ActionListener {
 		} else {
 			JOptionPane.showMessageDialog(null, "Please enter your Booking Reference");
 		}
-	}
-
-	public void runTPBaggage() {
-		TPBaggage baggage = new TPBaggage(baggageList);
-		baggage.setBookingReference(getBookingRef());
-		baggage.setBookingName(getBookingName());
-		baggage.setVisible(true);
-		baggage.setLocationRelativeTo(null);
-		System.out.println(baggage.getBookingReference());
-		System.out.println(baggage.getBookingLastName());
 	}
 
 	private String getBookingRef() {
