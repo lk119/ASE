@@ -8,7 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.*;
 
-
 public class TPBaggage extends JFrame implements ActionListener {
 
 	private BaggageList baggageList;
@@ -21,7 +20,7 @@ public class TPBaggage extends JFrame implements ActionListener {
 	private ImageIcon baggage, plane;
 	private JPanel northPanel, centerPanel, centerTopPanel, centerBottomPanel, heightPanel, lengthPanel, widthPanel,
 			eastPanel, westPanel, southPanel, bookingDetails, bookingRef, bookingName, containerSouthPanel,
-			centerMiddlePanel, weightPanel;
+			weightPanel;
 	private JButton submitCalcButton;
 	private String bookingReference, bookingLastName;
 
@@ -194,18 +193,7 @@ public class TPBaggage extends JFrame implements ActionListener {
 		// add components to length panel
 		lengthPanel.add(lengthLabel, BorderLayout.NORTH);
 		lengthPanel.add(lengthField, BorderLayout.SOUTH);
-
-		// add components to centre top panel
-		centerTopPanel.add(heightPanel);
-		centerTopPanel.add(widthPanel);
-		centerTopPanel.add(lengthPanel);
-
-		// setup centre middle panel
-		centerMiddlePanel = new JPanel();
-		centerMiddlePanel.setBackground(Color.WHITE);
-		centerMiddlePanel.setAlignmentX(1.0f);
-		centerMiddlePanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-
+		
 		// setup weight panel
 		weightPanel = new JPanel();
 		weightPanel.setBackground(Color.WHITE);
@@ -217,6 +205,15 @@ public class TPBaggage extends JFrame implements ActionListener {
 		weightField = new JTextField();
 		weightField.setToolTipText("Weight in kg");
 		weightField.setColumns(1);
+		
+		weightPanel.add(weightLabel, BorderLayout.NORTH);
+		weightPanel.add(weightField, BorderLayout.SOUTH);
+
+		// add components to centre top panel
+		centerTopPanel.add(heightPanel);
+		centerTopPanel.add(widthPanel);
+		centerTopPanel.add(lengthPanel);
+		centerTopPanel.add(weightPanel);
 
 		// setup centre bottom panel
 		centerBottomPanel = new JPanel();
@@ -305,8 +302,8 @@ public class TPBaggage extends JFrame implements ActionListener {
 		bookingNameField.setText(bookingLastName);
 		System.out.println(bookingLastName);
 	}
-	
-		private void input2() {
+
+	private void input2() {
 		// get input and trim to remove additional spaces
 		String bookingRef = bookingRefField.getText();
 		String bookingName = bookingNameField.getText();
@@ -321,8 +318,6 @@ public class TPBaggage extends JFrame implements ActionListener {
 			String widthString = widthField.getText();
 			String lengthString = lengthField.getText();
 			
-			System.out.println(weightString);
-
 			double weight = Double.parseDouble(weightString);
 			double height = Double.parseDouble(heightString);
 			double width = Double.parseDouble(widthString);
@@ -346,7 +341,7 @@ public class TPBaggage extends JFrame implements ActionListener {
 				System.exit(0);
 			} else {
 				p.setCheckInStatus(true);
-				plane = new ImageIcon(getClass().getResource("Plane2.png"));
+				plane = new ImageIcon(getClass().getResource("Plane.png"));
 				JOptionPane.showMessageDialog(null, "Check-In Complete. \nPlease head to your departure gate.",
 						"Check-In Complete", JOptionPane.INFORMATION_MESSAGE, plane);
 				flightReport();
@@ -385,118 +380,117 @@ public class TPBaggage extends JFrame implements ActionListener {
 
 	}
 
+//	private void input() {
+//		// get input and trim to remove additional spaces
+//		String bookingRef = bookingRefField.getText();
+//		String bookingName = bookingNameField.getText();
+//
+//		Passenger p;
+//		try {
+//			p = passengerSet.findBooking(bookingRef, bookingName);
+//			if (p != null) {
+//				String flightCode = p.getflightCode();
+//				Flight f = flightList.findByCode(flightCode);
+//
+//				String weightString = weightField.getText();
+//				String heightString = heightField.getText();
+//				String widthString = widthField.getText();
+//				String lengthString = lengthField.getText();
+//
+//				double weight = Double.parseDouble(weightString);
+//				double height = Double.parseDouble(heightString);
+//				double width = Double.parseDouble(widthString);
+//				double length = Double.parseDouble(lengthString);
+//
+//				Baggage b = new Baggage(weight, height, width, length, p, f);
+//				baggageList.addBaggage(b);
+//			}
+//		} catch (NoMatchingBookingReference e) {
+//			JOptionPane.showMessageDialog(null, "Booking Reference not found");
+//		} catch (InvalidBookingReference e) {
+//			JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
+//		} catch (NoMatchingLastNameException e) {
+//			JOptionPane.showMessageDialog(null, "No booking found for that name.");
+//		}
+//	}
+//
+//	private void checkIn() {
+//		// get input and trim to remove additional spaces
+//		String bookingRef = bookingRefField.getText();
+//		String bookingName = bookingNameField.getText();
+//
+//		Passenger p;
+//		try {
+//			p = passengerSet.findBooking(bookingRef, bookingName);
+//			if (p != null) {
+//				if (p.getCheckInStatus() != false) {
+//					JOptionPane.showMessageDialog(null, "You are already checked-in");
+//					flightReport();
+//					System.exit(0);
+//				} else {
+//					p.setCheckInStatus(true);
+//					plane = new ImageIcon(getClass().getResource("Plane2.png"));
+//					JOptionPane.showMessageDialog(null, "Check-In Complete. \nPlease head to your departure gate.",
+//							"Check-In Complete", JOptionPane.INFORMATION_MESSAGE, plane);
+//					flightReport();
+//					System.exit(0);
+//				}
+//			}
+//		} catch (NoMatchingBookingReference e) {
+//			JOptionPane.showMessageDialog(null, "Booking Reference not found");
+//		} catch (InvalidBookingReference e) {
+//			JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
+//		} catch (NoMatchingLastNameException e) {
+//			JOptionPane.showMessageDialog(null, "No booking found for that name.");
+//		}
+//
+//	}
+//
+//	private void excessFeeCheck() {
+//		// get input and trim to remove additional spaces
+//		String bookingRef = bookingRefField.getText();
+//		String bookingName = bookingNameField.getText();
+//
+//		Passenger p;
+//		try {
+//			p = passengerSet.findBooking(bookingRef, bookingName);
+//			if (p != null) {
+//
+//				Baggage b = baggageList.findByPassenger(p);
+//				double excessFee = b.excessBaggageFee();
+//
+//				if (excessFee > 0) {
+//					Object[] options = { "Confirm and Check-In", "Return to Baggage Details" };
+//					int choice = JOptionPane.showOptionDialog(null,
+//							"Excess Baggage Charge Due: £" + excessFee
+//									+ ". Please confirm below to proceed with Check-In.",
+//							"Excess Baggage Fee", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+//							options, options[0]);
+//
+//					if (choice == JOptionPane.YES_OPTION) {
+//						checkIn();
+//					} else {
+//						JOptionPane.showMessageDialog(null,
+//								"Please re-enter your baggage details in order to check-in.");
+//					}
+//				} else {
+//					checkIn();
+//				}
+//			}
+//		} catch (NoMatchingBookingReference e) {
+//			JOptionPane.showMessageDialog(null, "Booking Reference not found");
+//		} catch (InvalidBookingReference e) {
+//			JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
+//		} catch (NoMatchingLastNameException e) {
+//			JOptionPane.showMessageDialog(null, "No booking found for that name.");
+//		}
+//	}
 
-	private void input() {
-		// get input and trim to remove additional spaces
-		String bookingRef = bookingRefField.getText();
-		String bookingName = bookingNameField.getText();
-
-		Passenger p;
-		try {
-			p = passengerSet.findBooking(bookingRef, bookingName);
-			if (p != null) {
-				String flightCode = p.getflightCode();
-				Flight f = flightList.findByCode(flightCode);
-
-				String weightString = weightField.getText();
-				String heightString = heightField.getText();
-				String widthString = widthField.getText();
-				String lengthString = lengthField.getText();
-
-				double weight = Double.parseDouble(weightString);
-				double height = Double.parseDouble(heightString);
-				double width = Double.parseDouble(widthString);
-				double length = Double.parseDouble(lengthString);
-
-				Baggage b = new Baggage(weight, height, width, length, p, f);
-				baggageList.addBaggage(b);
-			}
-		} catch (NoMatchingBookingReference e) {
-			JOptionPane.showMessageDialog(null, "Booking Reference not found");
-		} catch (InvalidBookingReference e) {
-			JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
-		} catch (NoMatchingLastNameException e) {
-			JOptionPane.showMessageDialog(null, "No booking found for that name.");
-		}
-	}
-
-	private void checkIn() {
-		// get input and trim to remove additional spaces
-		String bookingRef = bookingRefField.getText();
-		String bookingName = bookingNameField.getText();
-
-		Passenger p;
-		try {
-			p = passengerSet.findBooking(bookingRef, bookingName);
-			if (p != null) {
-				if (p.getCheckInStatus() != false) {
-					JOptionPane.showMessageDialog(null, "You are already checked-in");
-					flightReport();
-					System.exit(0);
-				} else {
-					p.setCheckInStatus(true);
-					plane = new ImageIcon(getClass().getResource("Plane2.png"));
-					JOptionPane.showMessageDialog(null, "Check-In Complete. \nPlease head to your departure gate.",
-							"Check-In Complete", JOptionPane.INFORMATION_MESSAGE, plane);
-					flightReport();
-					System.exit(0);
-				}
-			}
-		} catch (NoMatchingBookingReference e) {
-			JOptionPane.showMessageDialog(null, "Booking Reference not found");
-		} catch (InvalidBookingReference e) {
-			JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
-		} catch (NoMatchingLastNameException e) {
-			JOptionPane.showMessageDialog(null, "No booking found for that name.");
-		}
-
-	}
-
-	private void excessFeeCheck() {
-		// get input and trim to remove additional spaces
-		String bookingRef = bookingRefField.getText();
-		String bookingName = bookingNameField.getText();
-
-		Passenger p;
-		try {
-			p = passengerSet.findBooking(bookingRef, bookingName);
-			if (p != null) {
-
-				Baggage b = baggageList.findByPassenger(p);
-				double excessFee = b.excessBaggageFee();
-
-				if (excessFee > 0) {
-					Object[] options = { "Confirm and Check-In", "Return to Baggage Details" };
-					int choice = JOptionPane.showOptionDialog(null,
-							"Excess Baggage Charge Due: £" + excessFee
-									+ ". Please confirm below to proceed with Check-In.",
-							"Excess Baggage Fee", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-							options, options[0]);
-
-					if (choice == JOptionPane.YES_OPTION) {
-						checkIn();
-					} else {
-						JOptionPane.showMessageDialog(null,
-								"Please re-enter your baggage details in order to check-in.");
-					}
-				} else {
-					checkIn();
-				}
-			}
-		} catch (NoMatchingBookingReference e) {
-			JOptionPane.showMessageDialog(null, "Booking Reference not found");
-		} catch (InvalidBookingReference e) {
-			JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
-		} catch (NoMatchingLastNameException e) {
-			JOptionPane.showMessageDialog(null, "No booking found for that name.");
-		}
-	}
-	
 	private void flightReport() {
 		String flightReport = baggageList.baggageCapacityAnalysis();
 		writeToFile("FlightReport.txt", flightReport);
 	}
-	
+
 	private void writeToFile(String Report, String report) {
 		FileWriter fw;
 		try {
