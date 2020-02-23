@@ -281,9 +281,8 @@ public class TPBaggage extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == submitCalcButton) {
-			input();
-			excessFeeCheck();
-			dispose();
+			input2();
+			excessFeeCheck2();
 		}
 	}
 
@@ -306,6 +305,86 @@ public class TPBaggage extends JFrame implements ActionListener {
 		bookingNameField.setText(bookingLastName);
 		System.out.println(bookingLastName);
 	}
+	
+		private void input2() {
+		// get input and trim to remove additional spaces
+		String bookingRef = bookingRefField.getText();
+		String bookingName = bookingNameField.getText();
+
+		Passenger p = passengerSet.findBooking2(bookingRef, bookingName);
+		if (p != null) {
+			String flightCode = p.getflightCode();
+			Flight f = flightList.findByCode(flightCode);
+
+			String weightString = weightField.getText();
+			String heightString = heightField.getText();
+			String widthString = widthField.getText();
+			String lengthString = lengthField.getText();
+			
+			System.out.println(weightString);
+
+			double weight = Double.parseDouble(weightString);
+			double height = Double.parseDouble(heightString);
+			double width = Double.parseDouble(widthString);
+			double length = Double.parseDouble(lengthString);
+
+			Baggage b = new Baggage(weight, height, width, length, p, f);
+			baggageList.addBaggage(b);
+		}
+	}
+
+	private void checkIn2() {
+		// get input and trim to remove additional spaces
+		String bookingRef = bookingRefField.getText();
+		String bookingName = bookingNameField.getText();
+
+		Passenger p = passengerSet.findBooking2(bookingRef, bookingName);
+		if (p != null) {
+			if (p.getCheckInStatus() != false) {
+				JOptionPane.showMessageDialog(null, "You are already checked-in");
+				flightReport();
+				System.exit(0);
+			} else {
+				p.setCheckInStatus(true);
+				plane = new ImageIcon(getClass().getResource("Plane2.png"));
+				JOptionPane.showMessageDialog(null, "Check-In Complete. \nPlease head to your departure gate.",
+						"Check-In Complete", JOptionPane.INFORMATION_MESSAGE, plane);
+				flightReport();
+				System.exit(0);
+			}
+		}
+	}
+
+	private void excessFeeCheck2() {
+		// get input and trim to remove additional spaces
+		String bookingRef = bookingRefField.getText();
+		String bookingName = bookingNameField.getText();
+
+		Passenger p = passengerSet.findBooking2(bookingRef, bookingName);
+		if (p != null) {
+
+			Baggage b = baggageList.findByPassenger(p);
+			double excessFee = b.excessBaggageFee();
+
+			if (excessFee > 0) {
+				Object[] options = { "Confirm and Check-In", "Return to Baggage Details" };
+				int choice = JOptionPane.showOptionDialog(null,
+						"Excess Baggage Charge Due: £" + excessFee + ". Please confirm below to proceed with Check-In.",
+						"Excess Baggage Fee", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,
+						options[0]);
+
+				if (choice == JOptionPane.YES_OPTION) {
+					checkIn2();
+				} else {
+					JOptionPane.showMessageDialog(null, "Please re-enter your baggage details in order to check-in.");
+				}
+			} else {
+				checkIn2();
+			}
+		}
+
+	}
+
 
 	private void input() {
 		// get input and trim to remove additional spaces
@@ -389,7 +468,7 @@ public class TPBaggage extends JFrame implements ActionListener {
 				if (excessFee > 0) {
 					Object[] options = { "Confirm and Check-In", "Return to Baggage Details" };
 					int choice = JOptionPane.showOptionDialog(null,
-							"Excess Baggage Charge Due: �" + excessFee
+							"Excess Baggage Charge Due: £" + excessFee
 									+ ". Please confirm below to proceed with Check-In.",
 							"Excess Baggage Fee", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
 							options, options[0]);
