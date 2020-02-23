@@ -55,8 +55,8 @@ public class PassengerSet {
 
 			Passenger p = new Passenger(bookingReferenceNum, flightCode, passengerName, checkInStatus, pClass);
 			this.add(p);
-			//System.out.println(getAllPassengers());
-			//System.out.println(findBookingTest2());
+			// System.out.println(getAllPassengers());
+			// System.out.println(findBookingTest2());
 		}
 
 		catch (NumberFormatException ohno) {
@@ -117,21 +117,32 @@ public class PassengerSet {
 			return;
 		}
 	}
-	
-	public String findBookingTest2() {
-		String report = "bananas are delicious";
-		return report;
-		
-	}
 
+//	public String findBookingTest2() {
+//		String report = "bananas are delicious";
+//		return report;
+//		
+//	}
+//
+//
+//	public String findBookingTest() {
+//		String report = "";
+//		for (Passenger p : PassengerSet) {
+//			report += String.format("%-30s", p.getFullName() + " " + p.getCheckInStatus());
+//			report += "\n";
+//		}
+//		return report;
+//	}
 
-	public String findBookingTest() {
-		String report = "";
+	public Passenger findBooking2(String bookingRef, String LastName) {
+		HashMap<String, Passenger> findBooking = new HashMap<String, Passenger>();
+		String key = "";
 		for (Passenger p : PassengerSet) {
-			report += String.format("%-30s", p.getFullName() + " " + p.getCheckInStatus());
-			report += "\n";
+			key = p.getBookingReferenceNum();
+			Passenger value = p;
+			findBooking.put(key, value);
 		}
-		return report;
+		return findBooking.get(bookingRef);
 	}
 
 	public Passenger findBooking(String bookingReferenceNum, String LastName)
