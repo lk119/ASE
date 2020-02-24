@@ -375,6 +375,8 @@ public class TPBaggage extends JFrame implements ActionListener {
 				}
 			} else {
 				checkIn2();
+				System.out.println("Passenger check-in count: " + passengerSet.passengerTotalCount());
+				System.out.println("Passenger check-in count: " + passengerSet.passengerFlightCount("BA808"));
 			}
 		}
 
