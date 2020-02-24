@@ -57,6 +57,10 @@ public class PassengerSet {
 			this.add(p);
 			// System.out.println(getAllPassengers());
 			// System.out.println(findBookingTest2());
+			System.out.println(passengerTotalCount());
+			System.out.println("Passenger check-in count: " + passengerFlightCount("EA101"));
+			System.out.println(p.getflightCode());
+			System.out.println(passengerFlight("BA806"));
 		}
 
 		catch (NumberFormatException ohno) {
@@ -144,6 +148,49 @@ public class PassengerSet {
 		}
 		return findBooking.get(bookingRef);
 	}
+
+	public int passengerTotalCount() {
+		HashMap<String, Passenger> passengerCount = new HashMap<String, Passenger>();
+		int count = 0;
+		String key = "";
+		for (Passenger p : PassengerSet) {
+			key = p.getBookingReferenceNum();
+			Passenger value = p;
+			passengerCount.put(key, value);
+			if (p.getCheckInStatus() != (false))
+				count++;
+			}
+		return count;
+	}
+	
+	public int passengerFlightCount(String flightCode) {
+		HashMap<String, Passenger> passengerCount = new HashMap<String, Passenger>();
+		int count = 0;
+		String key = "";
+		for (Passenger p : PassengerSet) {
+			key = p.getBookingReferenceNum();
+			Passenger value = p;
+			passengerCount.put(key, value);
+			if (p.getflightCode() == (flightCode) && (p.getCheckInStatus() != (false))) 
+				count++;
+		}
+		return count;
+	}
+	
+	public int passengerFlight(String flightCode) {
+		HashMap<String, Passenger> passengerCount = new HashMap<String, Passenger>();
+		int count = 0;
+		String key = "";
+		for (Passenger p : PassengerSet) {
+			key = p.getBookingReferenceNum();
+			Passenger value = p;
+			passengerCount.put(key, value);
+			if (p.getflightCode() == (flightCode))
+				count++;
+		}
+		return count;
+	}
+
 
 	public Passenger findBooking(String bookingReferenceNum, String LastName)
 			throws NoMatchingBookingReference, InvalidBookingReference, NoMatchingLastNameException {
