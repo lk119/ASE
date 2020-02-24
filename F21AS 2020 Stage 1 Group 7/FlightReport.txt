@@ -1,0 +1,5 @@
+FLIGHT REPORT
+Total Baggage Weight: 22.0
+Total Baggage Volume: 10648.0
+Total Excess Baggage Fees: 60.0
+0

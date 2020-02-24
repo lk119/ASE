@@ -2,10 +2,10 @@
  * @author crs8 baggage constants (weight, volume)
  */
 public enum MaxBaggage {
-	FIRST(45.0, 150.0), BUSINESS(35.0, 100.0), ECONOMY(25.0, 75.0), FLIGHT(1000.0, 2500.0);
+	FIRST(45.0, 150.0), BUSINESS(35.0, 100.0), ECONOMY(25.0, 75.0), FLIGHT(1000.0, 130000000.0);
 
 	private final double weight; // weight is calculated in kilograms (kg)
-	private final double volume; // volume is calculated in litres (Cubic iches)
+	private final double volume; // volume is calculated in Cubic cm
 
 	/**
 	 * constructor

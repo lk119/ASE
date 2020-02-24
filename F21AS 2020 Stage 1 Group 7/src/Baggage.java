@@ -107,6 +107,14 @@ public class Baggage {
 		this.breadth = breadth;
 	}
 
+	public void setPassenger(Passenger passenger) {
+		this.passenger = passenger;
+	}
+
+	public Passenger getPassenger() {
+		return passenger;
+	}
+
 	/**
 	 * Calculates the overall volume of the baggage piece
 	 *
@@ -124,25 +132,36 @@ public class Baggage {
 	 * @return excess baggage weight
 	 */
 	public double excessBaggageWeight() {
+		System.out.println("in");
 		double excess = 0;
-		double maxWeight = getMaxBaggageWeightFlight(); // needs flight association
+		double maxWeight = getMaxBaggageWeightFlight(); 
 		if (weight > maxWeight) {
-			excess = maxWeight - weight;
+			excess = Math.abs(maxWeight - weight);
 		}
+		System.out.println("Your bag is too heavy by:"+ excess);
 		return excess;
 	}
 
 	public double getMaxBaggageWeightFlight() {
 		Passenger p = this.passenger;
-		String clas = p.getpClass();
+		System.out.println("aaa");
+		String clas = p.getpClass().trim().toUpperCase();
 		String result1 = " ";
+		System.out.println("you are in"+ clas+ "class");
 		for (MaxBaggage mx : MaxBaggage.values()) {
-			if (mx.name().equalsIgnoreCase(clas)) {
-				result1 = String.valueOf(mx.getweight());
-			}
+          
+			
+			  if (mx.name().equalsIgnoreCase(clas)) 
+			  { 
+			  result1 = String.valueOf(mx.getweight());
+			  System.out.println (result1); 
+
+			 } 
+			 
 
 		}
-		return Double.parseDouble(result1);
+		double r2=Double.parseDouble(result1);
+		return r2;
 
 	}
 
@@ -153,23 +172,27 @@ public class Baggage {
 	 * @return excess baggage volume
 	 */
 	public double excessBaggageVolume() {
+		
 		double excess = 0;
 		double volume = baggageVolume();
+		System.out.println("your baggage volume is" +volume);
 		double maxVolume = getMaxBaggageVolumeFlight(); // needs flight association
 		// this calculation may need to change
 		if (volume > maxVolume) {
-			excess = maxVolume - volume;
+			excess = Math.abs(maxVolume - volume);
 		}
+		System.out.println("your excess volume is"+ excess);
 		return excess;
 	}
 
 	public double getMaxBaggageVolumeFlight() {
 		Passenger p = this.passenger;
-		String clas = p.getpClass();
+		String clas = p.getpClass().trim().toUpperCase();
 		String result1 = " ";
 		for (MaxBaggage mx : MaxBaggage.values()) {
-			if (mx.name().equalsIgnoreCase(clas)) {
-				result1 = String.valueOf(mx.getvolume());
+		if (mx.name().equalsIgnoreCase(clas)) {
+			result1 = String.valueOf(mx.getvolume());
+				System.out.println("maximum allowable volume is:" + result1);
 			}
 
 		}
@@ -184,7 +207,7 @@ public class Baggage {
 	public double excessWeightFee() {
 		double excessFee = 0;
 		double excessWeight = excessBaggageWeight();
-		excessFee = excessWeight * 5;
+		excessFee = excessWeight * 50;
 		return excessFee;
 	}
 
@@ -199,7 +222,9 @@ public class Baggage {
 		if (excessVolume > 0) {
 			excessFee = 60;
 		}
+		System.out.println("your excess fees are"+ excessFee);
 		return excessFee;
+		
 	}
 
 	/**
@@ -214,5 +239,12 @@ public class Baggage {
 		excessFee = excessWeight + excessVolume;
 		return excessFee;
 	}
+
+//	//alternate method to calculate flight passenger capacity in flight list class 
+//	//for final report
+//	public String updatedCheckInStatus() {
+//		String bc;
+//		return bc = passenger.getCheckInStatus() ;
+//		}
 
 }

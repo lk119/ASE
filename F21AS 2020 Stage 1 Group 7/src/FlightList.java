@@ -1,11 +1,16 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
+
+
 
 /**
  * @author km184
@@ -14,6 +19,7 @@ import java.util.TreeMap;
 
 class FlightList {
 	private ArrayList<Flight> flightList;
+	private Scanner scanner;
 
 	/**
 	 * creating an empty array list to contain the flights
@@ -80,26 +86,25 @@ class FlightList {
 
 	public void readFile(String filename) {
 		try {
-			File f = new File(filename);
-			Scanner scanner = new Scanner(f);
+			File f = new File("flights");
+			scanner = new Scanner(f);
 			while (scanner.hasNextLine()) {
-				// read first line and process it
 				String inputLine = scanner.nextLine();
-				if (inputLine.length() != 0) {// ignored if blank line
+				if (inputLine.length() != 0) {
 					processLine(inputLine);
-
 				}
+
 			}
-		}
-		// if the file is not found, stop with system exit
-		catch (FileNotFoundException fnf) {
+
+		} catch (FileNotFoundException fnf) {
 			System.out.println(filename + " not found ");
 			System.exit(0);
-		} catch (InputMismatchException ex) {
-			System.out.println("Error " + ex);
 		}
-		// Scanner may need to be closed
 	}
+	
+		
+	
+	
 
 	private void processLine(String line) {
 
@@ -113,7 +118,7 @@ class FlightList {
 			cod = cod.trim();
 			String cap = parts[3];
 			int cap1 = Integer.parseInt(cap);
-			Flight f = new Flight(destination, car, cod, cap1);
+			Flight f = new Flight(destination, car, cod, cap1, null, null);
 			this.addFlight(f);
 		}
 		// ignore lines in error and try and carry on
@@ -133,15 +138,127 @@ class FlightList {
 		}
 	}
 
-	public void addingFlights() {
-		Flight p1 = new Flight("Gaborone", "virgin", "BA234", 200);
-		Flight p2 = new Flight("Gaborone", "BA", "BA274", 200);
-		Flight p3 = new Flight("Gaborone", "BA", "BA244", 200);
-		this.addFlight(p3);
-		this.addFlight(p1);
-		this.addFlight(p2);
-	}
+	
+	
+	/**
+	 * Will find number of passengers checked in per flight
+	 * 
+	 * @param check in status from the Passenger Class
+	 * @return frequency 
+	 */
+	//test this method and updated Checkin method for appropriate
+	//output and use one that works (if envisioned correctly 
+	//this will get checkin info from input)
+	/*
+	 * public int flightTotalPassengersCheckedin(PassengerSet passengerSet) { int
+	 * count = passengerSet.getPassengerStatusfromLastName();
+	 * 
+	 * return count; }
+	 */
+	
+	
+	
+	
+	/**
+	 * Will find number of passengers checked in per flight
+	 * 
+	 * @param updated check in status from the Baggage Class
+	 * @return size of the set 
+	 */
+	//test this method and updated Checkin method for appropriate
+	//output and use one that works (if envisioned correctly 
+	//this will get checkin info from Baggage)
+//	public double flightTotalUpdatedPassengersCheckedin() {
+//		for (Flight f : flightList) {
+//			if (f.flightupdatedCheckInStatus() != false) {
+//			}
+//			return flightList.size();
+//			}
+//			return 0;
+//			}
+	
+	
+	/**
+	 * Will find how full the flight is based on total 
+	 * passengers checked in per flight
+	 * 
+	 * @param check in status from the Passenger Class
+	 * @param flight passenger capacity from the Flight Class
+	 * @return percentage 
+	 */
+	//test this method and updated Checkin method for appropriate
+	//output and use one that works (if envisioned correctly 
+	//this will get checkin info from input)
+	/*
+	 * public double flightPassengerCapacityReached(PassengerSet passengerSet) {
+	 * double percentage = 0; for (Flight f : flightList) { //PassengerSet
+	 * passengerSet = null; percentage =
+	 * (((flightTotalPassengersCheckedin(passengerSet))*100)/(f.
+	 * getPassangerCarryingCapacity()));
+	 * 
+	 * } return percentage; }
+	 */
 
+	
+	/**
+	 * Will find how full the flight is based on total 
+	 * updated passengers checked in per flight from Baggage
+	 * 
+	 * @param updated check in status from the Baggage Class
+	 * @param flight passenger capacity from the Flight Class
+	 * @return percentage 
+	 */
+	//test this method and updated Checkin method for appropriate
+	//output and use one that works (if envisioned correctly 
+	//this will get checkin info from Baggage)
+	//public double flightUpdatedPassengerCapacityReached() {
+		//double percentage = 0;
+		//for (Flight f : flightList) 
+				//{
+			//percentage = ((flightTotalUpdatedPassengersCheckedin() / f.getPassangerCarryingCapacity()) * 100);
+		//}
+		//return percentage;
+		//}
+	
+	
+	
+	
+	
+	
+	/**
+	 * writes supplied text to file
+	 * 
+	 * @exception FileNotFoundException if an attempt to open the file denoted by a
+	 *                                  specified pathname has failed
+	 * @exception IOExceptionif         stream to file cannot be written to or
+	 *                                  closed
+	 * @param Report the name of the file to be written to
+	 * @param report the text to be written to file
+	 */
+	//need to finish this code for report
+	public void writeToFile(String Report, String report) {
+		FileWriter fw;
+		try {
+			fw = new FileWriter(Report);
+			fw.write("THE REPORT\n");
+			fw.write("\n" + toString()   
+					);
+			fw.write(report);
+			
+			fw.close();
+		}
+		// if file not found give message and stop
+		catch (FileNotFoundException fnf) {
+			System.out.println(Report + " not found ");
+			System.exit(0);
+		}
+		// stack trace here- stackoverflow - encountered this one too
+		catch (IOException ioe) {
+			ioe.printStackTrace();
+			System.exit(1);
+		}
+	}
+	
 	public HashMap createAMap() {
 		HashMap<String, String> planes = new HashMap<String, String>();
 
@@ -150,5 +267,6 @@ class FlightList {
 		}
 		return planes;
 	}
-
+	
+	
 }

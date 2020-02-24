@@ -1,4 +1,3 @@
-
 /**
  * Advanced Software Engineering - Coursework
  * Creates an ArrayList to store the Baggage objects
@@ -123,11 +122,20 @@ public class BaggageList {
 		return weigh;
 	}
 
-	public void adding() {
-		Flight f1 = new Flight("Gabs", "BA", "BA203", 200);
-		Passenger p1 = new Passenger("zxegvgsvd", "BA203", new Name("Kuda Muagara"), "CheckedIn", "Business");
-		Baggage b1 = new Baggage(45.1, 300.0, 40.3, 40.4, p1, f1);
-		this.addBaggage(b1);
+	public Baggage findByPassenger(Passenger passenger) {
+		for (Baggage b : baggageList) {
+			if (b.getPassenger()== (passenger)) {
+				return b;
+			}
+		}
+		return null;
 	}
+
+	//public void adding() {
+		//Flight f1 = new Flight("Gabs", "BA", "BA203", 200);
+		//Passenger p1 = new Passenger("zxegvgsvd", "BA203", new Name("Kuda Muagara"), "CheckedIn", "Business");
+		//Baggage b1 = new Baggage(45.1, 300.0, 40.3, 40.4, p1, f1);
+		//this.addBaggage(b1);
+	//}
 
 }

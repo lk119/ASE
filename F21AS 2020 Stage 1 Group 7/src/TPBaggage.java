@@ -1,197 +1,552 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DecimalFormat;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.*;
-import javax.swing.text.JTextComponent;
 
-import lekrws1rrp3Assignment2.Competitor;
+public class TPBaggage extends JFrame implements ActionListener {
 
+	private BaggageList baggageList;
+	private PassengerSet passengerSet;
+	private FlightList flightList;
 
-public class TPBaggage extends JFrame {
-
-	private JTextField heightField, widthField, lengthField;
-	private JLabel heightLabel, widthLabel, lengthLabel, imagePin, enterDetailsLabel;
+	private JTextField heightField, widthField, DepthField, bookingRefField, bookingNameField, weightField;
+	private JLabel heightLabel, widthLabel, DepthLabel, imagePin, enterDetailsLabel, bookingRefLabel, weightLabel,
+			bookingNameLabel;
 	private ImageIcon baggage, plane;
-	private JPanel northPanel, centerPanel, centerTopPanel, centerBottomPanel, heightPanel, lengthPanel, widthPanel,
-					eastPanel, westPanel, southPanel;
+	private JPanel northPanel, centerPanel, centerTopPanel, centerBottomPanel, heightPanel, DepthPanel, widthPanel,
+			eastPanel, westPanel, southPanel, bookingDetails, bookingRef, bookingName, containerSouthPanel, weightPanel;
 	private JButton submitCalcButton;
-	
-	
-	public TPBaggage() {
-		// set colours of frame
-		getContentPane().setBackground(Color.WHITE);
-		getContentPane().setLayout(new BorderLayout(0, 0));
-		setSize(600,500);
-		
-		// set colours of dialog box
-		
+	private String bookingReference, bookingLastName;
+
+	public TPBaggage(PassengerSet passengers, FlightList flight, BaggageList baggage) {
+		this.passengerSet = passengers;
+		this.flightList = flight;
+		this.baggageList = baggage;
+
+		// set up window title
+
+		setupNorthPanel();
+		setupEastPanel();
+		setupCenterPanel();
+		setupWestPanel();
+		setupSouthPanel();
+
 		UIManager.put("OptionPane.background", Color.WHITE);
 		UIManager.getLookAndFeelDefaults().put("Panel.background", Color.WHITE);
 		UIManager.put("OptionPane.foreground", new Color(0, 206, 209));
-		
-		
-		
-		
-		/// Setup north panel
-		
-		northPanel = new JPanel();
-		northPanel.setBackground(Color.WHITE);
-		getContentPane().add(northPanel, BorderLayout.NORTH);
-		
-		enterDetailsLabel = new JLabel("Please Enter Your Details Below");
-		enterDetailsLabel.setForeground(new Color(0, 206, 209));
-		northPanel.add(enterDetailsLabel);
-		enterDetailsLabel.setBackground(Color.WHITE);
-		
-		
-		
-		/// Setup center panel
-		
-		centerPanel = new JPanel();
-		centerPanel.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		centerPanel.setBackground(Color.WHITE);
-		getContentPane().add(centerPanel, BorderLayout.CENTER);
-		centerPanel.setLayout(new BorderLayout(0, 0));
-		
-			// setup center top panel
-			
-		centerTopPanel = new JPanel();
-		centerPanel.add(centerTopPanel, BorderLayout.NORTH);
-		centerTopPanel.setBackground(Color.WHITE);
-		centerTopPanel.setAlignmentX(1.0f);
-		centerTopPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-			
-			// setup height sub-panel
-		
-		heightPanel = new JPanel();
-		centerTopPanel.add(heightPanel);
-		heightPanel.setBackground(Color.WHITE);
-		heightPanel.setLayout(new BorderLayout(0, 0));
-		
-		heightLabel = new JLabel("Height");
-		heightLabel.setForeground(new Color(0, 206, 209));
-		heightPanel.add(heightLabel, BorderLayout.NORTH);
-		
-		heightField = new JTextField();
-		heightPanel.add(heightField, BorderLayout.SOUTH);
-		heightField.setToolTipText("Height");
-		heightField.setColumns(1);
-		
-			// setup width sub-panel
-		
-		widthPanel = new JPanel();
-		centerTopPanel.add(widthPanel);
-		widthPanel.setBackground(Color.WHITE);
-		widthPanel.setLayout(new BorderLayout(0, 0));
-		
-		widthLabel = new JLabel("Width");
-		widthLabel.setForeground(new Color(0, 206, 209));
-		widthPanel.add(widthLabel, BorderLayout.NORTH);
-		
-		widthField = new JTextField();
-		widthField.setToolTipText("Height");
-		widthField.setColumns(1);
-		widthPanel.add(widthField, BorderLayout.SOUTH);
-		
-			// setup length sub-panel
-		
-		lengthPanel = new JPanel();
-		centerTopPanel.add(lengthPanel);
 
-		lengthPanel.setBackground(Color.WHITE);
-		lengthPanel.setLayout(new BorderLayout(0, 0));
-		
-		lengthLabel = new JLabel("Length");
-		lengthLabel.setForeground(new Color(0, 206, 209));
-		lengthPanel.add(lengthLabel, BorderLayout.NORTH);
-		
-		lengthField = new JTextField();
-		lengthField.setToolTipText("Height");
-		lengthField.setColumns(1);
-		lengthPanel.add(lengthField, BorderLayout.SOUTH);
-		
-		
-			// setup center bottom panel 
-		
-		centerBottomPanel = new JPanel();
-		centerPanel.add(centerBottomPanel, BorderLayout.SOUTH);
-		centerBottomPanel.setBackground(Color.WHITE);
-		centerBottomPanel.setLayout(new BorderLayout(0, 0));
-		
-		baggage = new ImageIcon(getClass().getResource("suitcase2.png"));
-		imagePin = new JLabel(baggage);
-		centerBottomPanel.add(imagePin);
-		
-		
-		
-		/// setup east panel
-		
-		eastPanel = new JPanel();
-		
-		eastPanel.setBackground(Color.WHITE);
-		eastPanel.setAlignmentX(1.0f);
-		getContentPane().add(eastPanel, BorderLayout.EAST);
-		eastPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		
-		
-		/// setup west panel
-		
-		westPanel = new JPanel();
-		
-		westPanel.setBackground(Color.WHITE);
-		westPanel.setAlignmentX(1.0f);
-		getContentPane().add(westPanel, BorderLayout.WEST);
-		westPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		
-		
-		///setup south panel
-		
-		southPanel = new JPanel();
-		southPanel.setBackground(Color.WHITE);
-		getContentPane().add(southPanel, BorderLayout.SOUTH);
-		
-		submitCalcButton = new JButton("Submit & Calculate");
-		submitCalcButton.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-		submitCalcButton.setForeground(new Color(0, 206, 209));
-		submitCalcButton.setBackground(new Color(0, 206, 209));
-		submitCalcButton.setActionCommand("Submit & Calculate");
+		setTitle("TravelPigeon Check-in");
+		setBackground(Color.WHITE);
+		setSize(600, 500);
+		setLocationRelativeTo(null); // sets position of JFrame to middle of screen
 
-		southPanel.add(submitCalcButton);
-		submitCalcButton.addActionListener(new ActionListener() {
+		// show JOptionpane confirmation when close button pressed
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				JFrame frame = new JFrame();
+				int confirmed = JOptionPane.showConfirmDialog(frame,
+						"Are you sure you want to exit? Please ensure you have completed the checkinProcess",
+						"Exit Programme", JOptionPane.YES_NO_OPTION);
 
-			public void actionPerformed(ActionEvent e) {
-				
-				plane = new ImageIcon(getClass().getResource("Plane2.png"));
-				//imagePin = new JLabel(baggage)
-				
-				JOptionPane.showMessageDialog(null,
-					    "Check-In Successfull. \nPlease head to your departure gate.", 
-					    "Check-In Successfull",
-					    JOptionPane.INFORMATION_MESSAGE, plane);
-						dispose();
+				if (confirmed == JOptionPane.YES_OPTION) {
+					flightReport();
+					System.exit(0);
+				}
 			}
 		});
 	}
-	
-	/**
-	 * Allows the user to input baggage dimensions.
-	 */
-	private void update() {
-		JTextComponent searchField;
+
+	// Setup north panel
+	private void setupNorthPanel() {
+		northPanel = new JPanel();
+		northPanel.setBackground(Color.WHITE);
+		northPanel.setLayout(new BorderLayout(0, 0));
+
+		// Setup booking details panel
+		bookingDetails = new JPanel();
+		bookingDetails.setBackground(Color.WHITE);
+		bookingDetails.setAlignmentX(1.0f);
+		bookingDetails.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+
+		// Setup booking ref panel
+		bookingRef = new JPanel();
+		bookingRef.setLayout(new BorderLayout(0, 0));
+		bookingRef.setForeground(new Color(0, 206, 209));
+		bookingRef.setBackground(Color.WHITE);
+
+		bookingRefLabel = new JLabel("Booking Reference");
+		bookingRefLabel.setForeground(new Color(0, 206, 209));
+
+		bookingRefField = new JTextField();
+		bookingRefField.setEditable(false);
+		bookingRefField.setBackground(Color.WHITE);
+		bookingRefField.setColumns(1);
+
+		// add components to booking ref panel
+		bookingRef.add(bookingRefLabel, BorderLayout.NORTH);
+		bookingRef.add(bookingRefField, BorderLayout.SOUTH);
+
+		// Setup booking name panel
+		bookingName = new JPanel();
+		bookingName.setLayout(new BorderLayout(0, 0));
+		bookingName.setBackground(Color.WHITE);
+
+		bookingNameLabel = new JLabel("Booking Name");
+		bookingNameLabel.setForeground(new Color(0, 206, 209));
+
+		bookingNameField = new JTextField();
+		bookingNameField.setEditable(false);
+		bookingNameField.setBackground(Color.WHITE);
+		bookingNameField.setColumns(1);
+		bookingNameField.setText(getBookingLastName());
+
+		// add components to booking name panel
+		bookingName.add(bookingNameLabel, BorderLayout.NORTH);
+		bookingName.add(bookingNameField, BorderLayout.SOUTH);
+
+		// add components to booking details panel
+		bookingDetails.add(bookingRef, BorderLayout.NORTH);
+		bookingDetails.add(bookingName, BorderLayout.SOUTH);
+
+		// Setup container south panel
+		containerSouthPanel = new JPanel();
+		containerSouthPanel.setBackground(Color.WHITE);
+		containerSouthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+
+		// Setup enter details label
+		enterDetailsLabel = new JLabel("Please Enter Your Baggage Details Below");
+		enterDetailsLabel.setForeground(new Color(0, 206, 209));
+		enterDetailsLabel.setBackground(Color.WHITE);
+
+		// add components to container south panel
+		containerSouthPanel.add(enterDetailsLabel);
+
+		// add components to north panel
+		northPanel.add(bookingDetails, BorderLayout.NORTH);
+		northPanel.add(containerSouthPanel, BorderLayout.SOUTH);
+
+		// add north panel to main border layout
+		this.add(northPanel, BorderLayout.NORTH);
+	}
+
+	// Setup centre panel
+	private void setupCenterPanel() {
+		centerPanel = new JPanel();
+		centerPanel.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		centerPanel.setBackground(Color.WHITE);
+		centerPanel.setLayout(new BorderLayout(0, 0));
+
+		// setup centre top panel
+		centerTopPanel = new JPanel();
+		centerTopPanel.setBackground(Color.WHITE);
+		centerTopPanel.setAlignmentX(1.0f);
+		centerTopPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+
+		// setup height sub-panel
+		heightPanel = new JPanel();
+		heightPanel.setBackground(Color.WHITE);
+		heightPanel.setLayout(new BorderLayout(0, 0));
+
+		heightLabel = new JLabel("Height(cm)");
+		heightLabel.setForeground(new Color(0, 206, 209));
+
+		heightField = new JTextField();
+		heightField.setToolTipText("Height(cm)");
+		heightField.setColumns(1);
+
+		// add components to height panel
+		heightPanel.add(heightLabel, BorderLayout.NORTH);
+		heightPanel.add(heightField, BorderLayout.SOUTH);
+
+		// setup width sub-panel
+		widthPanel = new JPanel();
+		widthPanel.setBackground(Color.WHITE);
+		widthPanel.setLayout(new BorderLayout(0, 0));
+
+		widthLabel = new JLabel("Width(cm)");
+		widthLabel.setForeground(new Color(0, 206, 209));
+
+		widthField = new JTextField();
+		widthField.setToolTipText("Height(cm)");
+		widthField.setColumns(1);
+
+		// add components to width panel
+		widthPanel.add(widthLabel, BorderLayout.NORTH);
+		widthPanel.add(widthField, BorderLayout.SOUTH);
+
+		// setup Depth sub-panel
+		DepthPanel = new JPanel();
+		DepthPanel.setBackground(Color.WHITE);
+		DepthPanel.setLayout(new BorderLayout(0, 0));
+
+		DepthLabel = new JLabel("Depth(cm)");
+		DepthLabel.setForeground(new Color(0, 206, 209));
+
+		DepthField = new JTextField();
+		DepthField.setToolTipText("Height(cm)");
+		DepthField.setColumns(1);
+
+		// add components to Depth panel
+		DepthPanel.add(DepthLabel, BorderLayout.NORTH);
+		DepthPanel.add(DepthField, BorderLayout.SOUTH);
+
+		// setup weight panel
+		weightPanel = new JPanel();
+		weightPanel.setBackground(Color.WHITE);
+		weightPanel.setLayout(new BorderLayout(0, 0));
+
+		weightLabel = new JLabel("Weight(kg)");
+		weightLabel.setForeground(new Color(0, 206, 209));
+
+		weightField = new JTextField();
+		weightField.setToolTipText("Weight(kg)");
+		weightField.setColumns(1);
+
+		weightPanel.add(weightLabel, BorderLayout.NORTH);
+		weightPanel.add(weightField, BorderLayout.SOUTH);
+
+		// add components to centre top panel
+		centerTopPanel.add(heightPanel);
+		centerTopPanel.add(widthPanel);
+		centerTopPanel.add(DepthPanel);
+		centerTopPanel.add(weightPanel);
+
+		// setup centre bottom panel
+		centerBottomPanel = new JPanel();
+		centerBottomPanel.setBackground(Color.WHITE);
+		centerBottomPanel.setLayout(new BorderLayout(0, 0));
+
+		baggage = new ImageIcon(getClass().getResource("suitcase2.png"));
+		imagePin = new JLabel(baggage);
+
+		// add components to centre bottom panel
+		centerBottomPanel.add(imagePin);
+
+		// add components to centre panel
+		centerPanel.add(centerTopPanel, BorderLayout.NORTH);
+		centerPanel.add(centerBottomPanel, BorderLayout.SOUTH);
+
+		// add centre panel to main border layout
+		this.add(centerPanel, BorderLayout.CENTER);
+	}
+
+	// setup east panel
+	private void setupEastPanel() {
+		eastPanel = new JPanel();
+		eastPanel.setBackground(Color.WHITE);
+		eastPanel.setAlignmentX(1.0f);
+		eastPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+
+		// add east panel to main border layout
+		this.add(eastPanel, BorderLayout.EAST);
+	}
+
+	// setup west panel
+	private void setupWestPanel() {
+		westPanel = new JPanel();
+		westPanel.setBackground(Color.WHITE);
+		westPanel.setAlignmentX(1.0f);
+		westPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+
+		// add west panel to main border layout
+		this.add(westPanel, BorderLayout.WEST);
+	}
+
+	// setup south panel
+	private void setupSouthPanel() {
+
+		southPanel = new JPanel();
+		southPanel.setBackground(Color.WHITE);
+
+		submitCalcButton = new JButton("Proceed to Check-In");
+		submitCalcButton.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+		submitCalcButton.setForeground(new Color(0, 0, 0));
+		submitCalcButton.setBackground(new Color(0, 206, 209));
+		submitCalcButton.setActionCommand("Proceed to Checkin");
+		submitCalcButton.addActionListener(this);
+
+		// add components to south panel
+		southPanel.add(submitCalcButton);
+
+		// add south panel to main border layout
+		this.add(southPanel, BorderLayout.SOUTH);
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == submitCalcButton) {
+			
+				input2();
+			
+			excessFeeCheck2();
+		
+	}}
+
+	public String getBookingReference() {
+		return bookingReference;
+	}
+
+	public String getBookingLastName() {
+		return bookingLastName;
+	}
+
+//	public void setBookingReference(String bookingReference) {
+//		this.bookingReference = bookingReference;
+//		bookingRefField.setText(bookingReference);
+//		System.out.println(bookingReference);
+//	}
+
+	public void setBookingName(String bookingLastName, String ref) throws NoMatchingLastNameException {
+		HashMap<String, String> pasengers = passengerSet.createAMap();
+		for (Map.Entry<String, String> fentry : pasengers.entrySet()) {
+			this.bookingLastName = pasengers.get(ref);
+			this.bookingReference = ref;
+			bookingRefField.setText(ref);
+			bookingNameField.setText(pasengers.get(ref));
+		}
+		if (bookingLastName.equalsIgnoreCase(pasengers.get(ref))) {
+			System.out.println("The booking reference number you have entered belongs to:" + pasengers.get(ref));
+		} else {
+			throw new NoMatchingLastNameException(bookingLastName);
+		}
+	}
+
+	// the name and booking reference number should match
+
+	private void input2() {
 		// get input and trim to remove additional spaces
-		String searchString = searchField.getText().trim();
+		String bookingRef = bookingRefField.getText().trim();
+		String bookingName = bookingNameField.getText().trim();
+		
+		
+		
+		Passenger p = passengerSet.findBooking2(bookingRef, bookingName);
+		try {
+			if (p != null) {
+				String flightCode = p.getflightCode();
+				Flight f = flightList.findByCode(flightCode);
 
-		
-		Baggage b = BaggageList.;
-		
+				String weightString = weightField.getText().trim();
+				String heightString = heightField.getText().trim();
+				String widthString = widthField.getText().trim();
+				String DepthString = DepthField.getText().trim();
+
+				double weight = Double.parseDouble(weightString);
+				double height = Double.parseDouble(heightString);
+				double width = Double.parseDouble(widthString);
+				double Depth = Double.parseDouble(DepthString);
+
+				Baggage b = new Baggage(weight, height, width, Depth, p, f);
+				baggageList.addBaggage(b);
+			}
+		} catch (NumberFormatException nf) {
+			JOptionPane.showMessageDialog(null, "One or more feilds may be empty, please fill in the dimensions");
+
+		}
 	}
-		
-		
 
-
+	private void checkIn2()  {
+		// get input and trim to remove additional spaces
+		String bookingRef = bookingRefField.getText();
+		String bookingName = bookingNameField.getText();
+        Passenger p = passengerSet.findBooking2(bookingRef, bookingName);
+		if (p != null) {
+			if (p.getCheckInStatus() != false) {
+				JOptionPane.showMessageDialog(null, "You are already checked-in");
+				flightReport();
+				//System.exit(0);
+			} else {
+				p.setCheckInStatus(true);
+				plane = new ImageIcon(getClass().getResource("Plane2.png"));
+				JOptionPane.showMessageDialog(null,
+						bookingName + " All looks good,Check-In Complete. \nPlease head to your departure gate.",
+						"Check-In Complete", JOptionPane.INFORMATION_MESSAGE, plane);
+				JOptionPane.showMessageDialog(null, "Travel Pigeon whishes you a safe journey");
+				flightReport();
+				//System.exit(0);
+				TPWelcome TPWelcome = new TPWelcome(passengerSet, flightList, baggageList);
+				TPWelcome.setVisible(true);
+				TPWelcome.setLocationRelativeTo(null);
+				dispose();
+			}
+		}
 	}
-	
+
+	private void excessFeeCheck2() {
+		// get input and trim to remove additional spaces
+		String bookingRef = bookingRefField.getText();
+		String bookingName = bookingNameField.getText();
+
+		Passenger p = passengerSet.findBooking2(bookingRef, bookingName);
+
+		try {
+			if (p != null) {
+
+				Baggage b = baggageList.findByPassenger(p);
+				double excessFee = b.excessBaggageFee();
+				JOptionPane.showMessageDialog(null,
+						"Please note you may be charged if your volume and or weight are above the airline threshold"+"\n"+ "Press okay if you agree to the terms and conditions");
+				if (excessFee > 0) {
+					Object[] options = { "Confirm and Check-In", "Return to Baggage Details" };
+					
+					int choice = JOptionPane.showOptionDialog(null,
+							"Excess Baggage Charge Due: �" + excessFee
+									+ ". Please confirm below to proceed with Check-In.",
+							"Excess Baggage Fee", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+							options, options[0]);
+
+					if (choice == JOptionPane.YES_OPTION) {
+						checkIn2();
+					} else {
+						JOptionPane.showMessageDialog(null,
+								"Please re-enter your baggage details in order to check-in.");
+					}
+				} else {
+					checkIn2();
+				}
+			}
+		} catch (NullPointerException npe) {
+			//caught in Input2 method. Hence, no need to display another message
+			//JOptionPane.showMessageDialog(null,
+					//"Dimensions are needed");
+		}
+	}
+
+//	private void input() {
+//		// get input and trim to remove additional spaces
+//		String bookingRef = bookingRefField.getText();
+//		String bookingName = bookingNameField.getText();
+//
+//		Passenger p;
+//		try {
+//			p = passengerSet.findBooking(bookingRef, bookingName);
+//			if (p != null) {
+//				String flightCode = p.getflightCode();
+//				Flight f = flightList.findByCode(flightCode);
+//
+//				String weightString = weightField.getText();
+//				String heightString = heightField.getText();
+//				String widthString = widthField.getText();
+//				String DepthString = DepthField.getText();
+//
+//				double weight = Double.parseDouble(weightString);
+//				double height = Double.parseDouble(heightString);
+//				double width = Double.parseDouble(widthString);
+//				double Depth = Double.parseDouble(DepthString);
+//
+//				Baggage b = new Baggage(weight, height, width, Depth, p, f);
+//				baggageList.addBaggage(b);
+//			}
+//		} catch (NoMatchingBookingReference e) {
+//			JOptionPane.showMessageDialog(null, "Booking Reference not found");
+//		} catch (InvalidBookingReference e) {
+//			JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
+//		} catch (NoMatchingLastNameException e) {
+//			JOptionPane.showMessageDialog(null, "No booking found for that name.");
+//		}
+//	}
+//
+//	private void checkIn() {
+//		// get input and trim to remove additional spaces
+//		String bookingRef = bookingRefField.getText();
+//		String bookingName = bookingNameField.getText();
+//
+//		Passenger p;
+//		try {
+//			p = passengerSet.findBooking(bookingRef, bookingName);
+//			if (p != null) {
+//				if (p.getCheckInStatus() != false) {
+//					JOptionPane.showMessageDialog(null, "You are already checked-in");
+//					flightReport();
+//					System.exit(0);
+//				} else {
+//					p.setCheckInStatus(true);
+//					plane = new ImageIcon(getClass().getResource("Plane2.png"));
+//					JOptionPane.showMessageDialog(null, "Check-In Complete. \nPlease head to your departure gate.",
+//							"Check-In Complete", JOptionPane.INFORMATION_MESSAGE, plane);
+//					flightReport();
+//					System.exit(0);
+//				}
+//			}
+//		} catch (NoMatchingBookingReference e) {
+//			JOptionPane.showMessageDialog(null, "Booking Reference not found");
+//		} catch (InvalidBookingReference e) {
+//			JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
+//		} catch (NoMatchingLastNameException e) {
+//			JOptionPane.showMessageDialog(null, "No booking found for that name.");
+//		}
+//
+//	}
+//
+//	private void excessFeeCheck() {
+//		// get input and trim to remove additional spaces
+//		String bookingRef = bookingRefField.getText();
+//		String bookingName = bookingNameField.getText();
+//
+//		Passenger p;
+//		try {
+//			p = passengerSet.findBooking(bookingRef, bookingName);
+//			if (p != null) {
+//
+//				Baggage b = baggageList.findByPassenger(p);
+//				double excessFee = b.excessBaggageFee();
+//
+//				if (excessFee > 0) {
+//					Object[] options = { "Confirm and Check-In", "Return to Baggage Details" };
+//					int choice = JOptionPane.showOptionDialog(null,
+//							"Excess Baggage Charge Due: £" + excessFee
+//									+ ". Please confirm below to proceed with Check-In.",
+//							"Excess Baggage Fee", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+//							options, options[0]);
+//
+//					if (choice == JOptionPane.YES_OPTION) {
+//						checkIn();
+//					} else {
+//						JOptionPane.showMessageDialog(null,
+//								"Please re-enter your baggage details in order to check-in.");
+//					}
+//				} else {
+//					checkIn();
+//				}
+//			}
+//		} catch (NoMatchingBookingReference e) {
+//			JOptionPane.showMessageDialog(null, "Booking Reference not found");
+//		} catch (InvalidBookingReference e) {
+//			JOptionPane.showMessageDialog(null, "Invalid Booking Reference. Please use the form XX123456");
+//		} catch (NoMatchingLastNameException e) {
+//			JOptionPane.showMessageDialog(null, "No booking found for that name.");
+//		}
+//	}
+
+	private void flightReport() {
+		String flightReport = baggageList.baggageCapacityAnalysis() + "\n" + passengerSet.totalNumberOfPassengersCheckedIn();
+		writeToFile("FlightReport.txt", flightReport);
+	}
+
+	private void writeToFile(String Report, String report) {
+		FileWriter fw;
+		try {
+			fw = new FileWriter(Report);
+			fw.write("FLIGHT REPORT\n");
+			fw.write(report);
+			fw.close();
+		}
+		// if file not found give message and stop
+		catch (FileNotFoundException fnf) {
+			System.out.println(Report + " not found ");
+			System.exit(0);
+		}
+		// stack trace here
+		catch (IOException ioe) {
+			ioe.printStackTrace();
+			System.exit(1);
+		}
+	}
+}
