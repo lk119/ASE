@@ -8,6 +8,12 @@ import static org.junit.Assert.*;
 
 public class TPUTest {
 
+
+/**
+ * Asserts if the getFullName output is correct
+ * @result method gives correct output for both names with middle, and no middle, name.  
+ * 
+ */
 	
 	@Test
 	public void testgetFullName() {
@@ -23,6 +29,13 @@ public class TPUTest {
 		 
 	}
 
+	/**
+	 * Asserts the getLastName output is correct. Method gives correct output from the full name provided, ie just the last name. 
+	 * 
+	 * @result   Last name matches the last name of the full name provided. 
+	 * 
+	 */	
+
 	@Test
 	public void testgetLastName() {
 		 String expected1 = "Stone";
@@ -32,8 +45,16 @@ public class TPUTest {
 	
 	}
 	
+	/**
+	 * Asserts the  output is correct
+	 * @result BookingRef remains the same after processing. 
+	 * @result FlightCode remains the same after processing. 
+	 * @result CheckInStatus remains the same after processing. 
+	 * @result Class remains the same after processing. 
+	 */	
+	
 	@Test
-	public void testgetCheckInStatus() {
+	public void testPassenger() {
 		
 		Passenger testPilot = new Passenger("31251269","QA410",new Name("Bale","Tabina","Olvarado"),true,"Economy");
 		
@@ -54,7 +75,14 @@ public class TPUTest {
 		
 	}
 
-
+	/**
+	 * Asserts the baggage output methods are correct
+	 * @result Weight remains the same after processing. 
+	 * @result Length Code remains the same after processing. 
+	 * @result Width remains the same after processing. 
+	 * @result Breadth remains the same after processing. 
+	 */	
+	
 	@Test
 	public void testBaggage(){
 		Baggage testBag = new Baggage(12.0,22.0,32.0,42.0,new Passenger("31251269","QA410",new Name("Bale","Tabina","Olvarado"),true,"Economy"),new Flight("France","British Airways","BA808",150, null, null));
