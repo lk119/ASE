@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Model.CheckIn;
+import Model.FlightCounterThread;
 
 import javax.swing.JTextPane;
 import javax.swing.KeyStroke;
@@ -182,7 +182,7 @@ public class GUIMain extends JFrame {
 
 	}
 
-	public GUIMain(CheckIn model) {
+	public GUIMain(FlightCounterThread model) {
 		// TODO Auto-generated constructor stub
 	}
 

@@ -1,143 +1,126 @@
 package Model;
 
+import java.util.Random;
+
 /**
- * Advanced Software Engineering - Coursework Class to construct the Passenger
- * object.
- *
- * @author Lynsey Kirk, Kuda Mugara, Rachana Patel, Cameron Scott, Robert Stone
+ * Advanced Software Engineering Assignment Stage 1 GUI to allow the user to
+ * search for a passenger last name and booking reference number to enable
+ * subsequent check-in procedure
+ * 
+ * @author Cameron Scott, Kuda Mugara, Lynsey Kirk, Rachana Patel, Robert Stone
  */
-public class Passenger   {
 
-	private String bookingReferenceNum;
-	private String flightCode;
-	private Name passengerName;
-	private boolean checkInStatus;
-	private String pClass;
-	private Flight passengerFlight;
-	private Baggage passengerBaggage;
+public class Passenger {
 	
-	/**
-	 * Constructor for the Passenger class
-	 *
-	 * @param bookingReferenceNum booking reference number
-	 * @param flightCode          flight code
-	 * @param passengerName       name of the passenger
-	 * @param checkInStatus       passenger checkIn status
-	 * @param pClass              travel class of the passenger
-	 * @param passengerFlight     flight of the passenger
-	 * @param passengerBaggage    baggage of the passenger
-	 * @param PassengersInQueue    passengers in queue shared object
-	 *
-	 * 
-	 */
-	public Passenger(String bookingReferenceNum, String flightCode, Name passengerName, boolean checkInStatus,
-			String pClass, Flight passengerFlight, Baggage passengerBaggage) throws InvalidBookingReference {
-
-		if (!bookingReferenceNum.subSequence(0, 5).equals(flightCode)) {
-			throw new InvalidBookingReference("Booking not correct");
+	private String bookingReferenceNum;
+ 	private String flightCode;
+ 	private Name passengerName;
+ 	private boolean checkInStatus;
+ 	private String pClass;
+ 	final int FLIGHTCAPACITY = 150;
+	
+	
+	public Passenger(String bookingReferenceNum, String flightCode, Name passengerName, boolean checkInStatus, String pClass) throws InvalidBookingReference {
+		
+		if(!bookingReferenceNum.subSequence(0, 5).equals(flightCode)) {
+			throw new InvalidBookingReference(
+					"Booking not correct");
 		}
 		this.bookingReferenceNum = bookingReferenceNum;
 		this.flightCode = flightCode;
 		this.passengerName = passengerName;
 		this.checkInStatus = checkInStatus;
 		this.pClass = pClass;
-		this.passengerFlight = passengerFlight;
-		this.passengerBaggage = passengerBaggage;
-		
-	}
+		}
 
-	// getters
 
-	
-	/**
-	 * Returns the booking reference
-	 * 
-	 * @return booking reference
-	 */
+
+
+
 	public String getBookingReferenceNum() {
 		return bookingReferenceNum;
 	}
 
-	/**
-	 * Returns the flight Code
-	 * 
-	 * @return flight Code
-	 */
+
+	public void setBookingReferenceNum(String bookingRefernceNum) {
+		this.bookingReferenceNum = bookingRefernceNum;
+	}
+
+
 	public String getflightCode() {
 		return flightCode;
 	}
 
-	/**
-	 * Returns the check in status
-	 * 
-	 * @return check in status
-	 */
+
+	public void setflightCode(String flightCode) {
+		this.flightCode = flightCode;
+	}
+
+
+	public Name getPassengerName() {
+		return passengerName;
+	}
+
+
+	public void setPassengerName(Name passengerName) {
+		this.passengerName = passengerName;
+	}
+
 	public boolean getCheckInStatus() {
 		if (checkInStatus == true) {
 		}
-		return checkInStatus;
+			return checkInStatus;
 	}
 
-	/**
-	 * Returns the passenger designated class
-	 * 
-	 * @return passenger class
-	 */
-	public String getpClass() {
-		return pClass;
-	}
 
-	/**
-	 * Returns the Baggage object
-	 * 
-	 * @return passengerBaggage
-	 */
-	public Baggage getBaggage() {
-		return passengerBaggage;
-	}
-
-	/**
-	 * Returns the Flight object
-	 * 
-	 * @return passengerFlight
-	 */
-	public Flight getFlight() {
-		return passengerFlight;
-	}
-
-	/**
-	 * Returns the passenger last name
-	 * 
-	 * @return passenger last name
-	 */
-	public String getLastName() {
-		return passengerName.getLastName();
-	}
-
-	/**
-	 * Returns passenger full name
-	 * 
-	 * @return passenger full name
-	 */
-	public String getFullName() {
-		return passengerName.getFullName();
-	}
-
-	// setters
-
-	/**
-	 * Sets the passenger check-in status
-	 *
-	 * @param checkInStatus the check in status of the passenger
-	 */
 	public void setCheckInStatus(boolean checkInStatus) {
 		this.checkInStatus = checkInStatus;
 	}
 
+	public String getpClass() {
+		
+		return pClass;
+	}
+
+
+	public void setpClass(String pClass) {
+		
+		this.pClass = pClass;
+	}
+
+
+	public String getLastName() {
+		return passengerName.getLastName();
+	}
+
+
+	public String getFullName() {
+		
+		return passengerName.getFullName();
+	}
+
+  public int getflightCapacity() {
+	return FLIGHTCAPACITY;
 	
 
-	
 
-	
+  }
+
+
+//create a simple Bag
+public Baggage createAbag(Passenger p) {
+  Random randomNumber= new Random();
+  double dimension= randomNumber.nextInt(10);
+  double dimensionWeight= randomNumber.nextInt(50);
+
+	Baggage b = new Baggage(dimensionWeight, dimension, dimension, dimension, p);
+	return b;
+	}
+
+
+@Override
+public String toString() {
+	return  "\n"+"passengerName=" + getLastName() + ", pClass=" + pClass;
+}
 
 }

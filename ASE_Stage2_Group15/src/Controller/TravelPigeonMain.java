@@ -17,9 +17,10 @@ public class TravelPigeonMain {
 	 * The application's entry point
 	 * 
 	 * @param args an array of command-line arguments for the application
+	 * @throws InterruptedException 
 	 */
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		TravelPigeonManager Manager = new TravelPigeonManager();
 		Manager.run();
 	}

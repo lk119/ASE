@@ -147,4 +147,13 @@ public class FlightList {
 		}
 		return flyers;
 	}
+
+	
+	
+	public FlightList populate() {
+		FlightList p = new FlightList();
+		p.readFile("Flights");
+		return p;
+
+	}
 }

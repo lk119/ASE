@@ -2,11 +2,16 @@ package Controller;
 
 import java.util.Scanner;
 
-import Model.CheckIn;
+
+import Model.Consumer;
+import Model.EconomyRunnable;
+import Model.FirstRunnable;
+import Model.FlightCounterThread;
 import Model.FlightList;
 import Model.Passenger;
 import Model.PassengerSet;
 import Model.PassengersInQueue;
+import Model.Producer;
 import View.GUIMain;
 
 /**
@@ -21,9 +26,10 @@ import View.GUIMain;
 public class TravelPigeonManager {
 	/**
 	 * Reads the input files and creates the first instance of the GUI
+	 * @throws InterruptedException 
 	 */
 	
-	public void run() {
+	public void run() throws InterruptedException {
 		
 		        // read passenger input file
 				PassengerSet p = new PassengerSet();
@@ -34,24 +40,36 @@ public class TravelPigeonManager {
 				PassengersInQueue q = new PassengersInQueue();
 				
 				
-				//to create passenger thread as the producer
-				Thread passengerThread = new Thread(new PassengerSet(q));
-				passengerThread.start();
-				
+						
 				//to create passenger map
 				p.createAMap();
 				
 				
 				
 				
-				// create new instance of CheckIn
-				//the Modelnull
-				CheckIn Model = new CheckIn(q);   
 				
-						
-				//to create checkIn thread as consumer
-				Thread checkInThread = new Thread(new CheckIn(q));
-				checkInThread.start();
+				FlightCounterThread Model = new FlightCounterThread(q);
+				
+				
+				Thread thread1 = new Thread(new Consumer(q));
+         		Thread thread3 = new Thread(new EconomyRunnable(q));
+         		Thread thread4 = new Thread(new FirstRunnable(q));
+                Thread thread5 = new Thread(new FlightCounterThread(q));
+         		Thread thread2 = new Thread(new Producer(q));
+         		
+         		thread1.start();
+         		thread5.start();
+         		thread2.start();
+         		thread3.start();
+         		thread4.start();
+         		
+         		thread1.join();
+         		thread2.join();
+         		thread3.join();
+         		thread4.join();
+         		thread5.join();
+				
+								
 				
 				// read flight input file
 				FlightList f = new FlightList();
@@ -70,12 +88,24 @@ public class TravelPigeonManager {
 				
 				// create new instance of GUIController
 				//the Controller
-				GUIController Controller = new GUIController (Model, View);
+				//GUIController Controller = new GUIController (Model, View);
 				
 						  
 		         View.setVisible(true);
 	
-		
+		         
+
+		        
+		         		
+
+		         		
+		         		 
+
+		         		
+		         	
+		         		 
+		         		 
+		         	
 	}
 
 }
