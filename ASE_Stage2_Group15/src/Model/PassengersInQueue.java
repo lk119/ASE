@@ -11,7 +11,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class PassengersInQueue {
 
 	private volatile BlockingQueue<Passenger> q = new ArrayBlockingQueue<Passenger>(20);
-	private volatile BlockingQueue<Passenger> boarding = new ArrayBlockingQueue<Passenger>(30);
+	private volatile BlockingQueue<Passenger> security = new ArrayBlockingQueue<Passenger>(165);
+	private volatile BlockingQueue<Passenger> boarding = new ArrayBlockingQueue<Passenger>(165);
 	
 	
 	// our flight fleet
@@ -27,20 +28,31 @@ public class PassengersInQueue {
 	public void puti()
 
 	{
-
 		// current limitation of the method is that it does not eliminate the customer
 		// from the set to avoid picking that person again.
 
 		try {
-			System.out.println("Passengers starting to QUEUE UP");
+			System.out.println("Passengers in Check-in queue");
 
 			while (true) {
 				// inside the the queue place a random customer from the set
 				Passenger p1 = customers1.rando();
 				Baggage b = p1.createAbag(p1);
 				q.put(p1);
-				System.out.println(p1.getflightCode() + "     " + p1.getFullName() + "     " + b.getWeight() + "Kg   "
-						+ b.getHeight() + "x" + b.getWidth() + "x" + b.getBreadth());
+				
+				
+				String column1Format = "%-10.10s";  
+				String column2Format = "%20.20s";  
+				String column3Format = "%10.10s";   
+				String column4Format = "%10.4s";   
+				String column5Format = "%4.4s";   
+				String column6Format = "%4.4s";   
+				String formatInfo = column1Format + " " + column2Format + " " + column3Format + " Kg" 
+						+ column4Format + "x" + column5Format+ "x" + column6Format + " inches";
+				
+				System.out.format(formatInfo, p1.getflightCode(), p1.getFullName(), b.getWeight(), 
+						b.getHeight(),b.getWidth(),b.getBreadth());
+				System.out.println( );
 				
 				// Lets make sure this method also deletes this person from the set
 				// System.out.println("Previous number before the deletion is " +
@@ -82,10 +94,17 @@ public class PassengersInQueue {
 				if (window.getpClass().equalsIgnoreCase("Business")) {
 					p = q.take();
 					p.setCheckInStatus(true);
+					placer();
+					securityQueue(p);
 					boardingPlaneQueue(p);
-
+					Baggage b = p.createAbag(p);
 					System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t:" + p.getFullName() + "is Checking in"
 							+ "Class is: " + p.getpClass() + "At Counter Business");
+					System.out.println(p.getFullName()
+							+ "is checking in" + "Class is: " + p.getpClass() + " at Economy Class counter");
+					System.out.println("The check-in bag weight is " + b.getWeight() +  " Kg and volume is " + b.baggageVolume() + " cubic inches");
+					System.out.println("The check-in bag is overweight by " + b.excessBaggageWeight()+ " kg.");
+					System.out.println("The excess baggage fee is " + b.excessBaggageFee() + " GBP.");
 				}
 
 				// System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tRemaining:" + q.size());
@@ -122,10 +141,15 @@ public class PassengersInQueue {
 				if (window.getpClass().equalsIgnoreCase("economy")) {
 					p = q.take();
 					p.setCheckInStatus(true);
+					placer();
+					securityQueue(p);
 					boardingPlaneQueue(p);
-
-					System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t:" + p.getFullName()
+					Baggage b = p.createAbag(p);
+					System.out.println(p.getFullName()
 							+ "is checking in" + "Class is: " + p.getpClass() + " at Economy Class counter");
+					System.out.println("The check-in bag weight is " + b.getWeight() +  "Kg and volume is " + b.baggageVolume() + " cubic inches");
+					System.out.println("The check-in bag is overweight by " + b.excessBaggageWeight()+ " kg.");
+					System.out.println("The excess baggage fee is " + b.excessBaggageFee() + " GBP.");
 				}
 
 				// System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tRemaining:
@@ -168,12 +192,15 @@ public class PassengersInQueue {
 				if (window.getpClass().equalsIgnoreCase("first")) {
 					p = q.take();
 					p.setCheckInStatus(true);
+					placer();
+					securityQueue(p);
 					boardingPlaneQueue(p);
 					Baggage b = p.createAbag(p);
-					System.out.println(p.getFullName() + "is checking in" + "Class is: " + p.getpClass()
-							+ " at the first class counter");
-					System.out.println("THE BAG DIMENSIONS ARE: " + b.baggageVolume());
-					System.out.println("The bag is overweight by" + b.excessBaggageWeight());
+					System.out.println(p.getFullName()
+							+ "is checking in" + "Class is: " + p.getpClass() + " at Economy Class counter");
+					System.out.println("The check-in bag weight is " + b.getWeight() +  "Kg and volume is " + b.baggageVolume() + " cubic inches");
+					System.out.println("The check-in bag is overweight by " + b.excessBaggageWeight()+ " kg.");
+					System.out.println("The excess baggage fee is " + b.excessBaggageFee() + " GBP.");
 				}
 
 				// System.out.println("Remaining: " + q.size());
@@ -193,14 +220,35 @@ public class PassengersInQueue {
 		}
 		return p;
 	}
+	
+	
 
+	//This method will put customers in a queue following processing	
+		public void securityQueue(Passenger p) {
+		
+			
+			try {
+				security.put(p);
+				System.out.println(p.getFullName());
+			} catch (InterruptedException e) {
+				System.out.println("The process was interrupted");
+			} catch (NullPointerException N) {
+				System.out.println("The queue is empty");
+
+			}
+			
+		}
+	
+	
+	
+	
 //This method will put customers in a queue following processing	
 	public void boardingPlaneQueue(Passenger p) {
 	
 		
 		try {
 			boarding.put(p);
-			//System.out.println("Size is" + boarding.remainingCapacity());
+			System.out.println(p.getFullName());
 		} catch (InterruptedException e) {
 			System.out.println("The process was interrupted");
 		} catch (NullPointerException N) {

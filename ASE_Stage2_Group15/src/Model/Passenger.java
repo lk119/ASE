@@ -110,10 +110,12 @@ public class Passenger {
 //create a simple Bag
 public Baggage createAbag(Passenger p) {
   Random randomNumber= new Random();
-  double dimension= randomNumber.nextInt(10);
-  double dimensionWeight= randomNumber.nextInt(50);
+  double dimensionHeight= randomNumber.nextInt(30)+ 5;
+  double dimensionWidth= randomNumber.nextInt(10)+ 3;
+  double dimensionDepth= randomNumber.nextInt(6) + 1;
+  double dimensionWeight= randomNumber.nextInt(60)+ 2;
 
-	Baggage b = new Baggage(dimensionWeight, dimension, dimension, dimension, p);
+	Baggage b = new Baggage(dimensionWeight, dimensionHeight, dimensionWidth, dimensionDepth, p);
 	return b;
 	}
 

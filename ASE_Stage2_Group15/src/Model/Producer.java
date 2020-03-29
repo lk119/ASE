@@ -19,7 +19,6 @@ public class Producer implements Runnable {
 			Thread.sleep(2000);
 			pas = q.BusinessPicker();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

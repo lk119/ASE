@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 
 import Model.Consumer;
-import Model.EconomyRunnable;
-import Model.FirstRunnable;
+import Model.EconomyCheckIn1Runnable;
+import Model.EconomyCheckIn2Runnable;
+import Model.FirstandBusinessCheckInRunnable;
 import Model.FlightCounterThread;
 import Model.FlightList;
 import Model.Passenger;
@@ -52,9 +53,9 @@ public class TravelPigeonManager {
 				
 				
 				Thread thread1 = new Thread(new Consumer(q));
-         		Thread thread3 = new Thread(new EconomyRunnable(q));
-         		Thread thread4 = new Thread(new FirstRunnable(q));
-                Thread thread5 = new Thread(new FlightCounterThread(q));
+         		Thread thread3 = new Thread(new EconomyCheckIn1Runnable(q));
+         		Thread thread4 = new Thread(new FirstandBusinessCheckInRunnable(q));
+                Thread thread5 = new Thread(new EconomyCheckIn2Runnable(q));
          		Thread thread2 = new Thread(new Producer(q));
          		
          		thread1.start();
@@ -84,14 +85,14 @@ public class TravelPigeonManager {
 							
 				// create new instance of GUIMain
 				//the View
-				GUIMain View = new GUIMain (Model);
+				//GUIMain View = new GUIMain (Model);
 				
 				// create new instance of GUIController
 				//the Controller
 				//GUIController Controller = new GUIController (Model, View);
 				
 						  
-		         View.setVisible(true);
+		        // View.setVisible(true);
 	
 		         
 
