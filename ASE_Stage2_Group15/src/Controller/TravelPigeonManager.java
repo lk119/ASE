@@ -4,9 +4,14 @@ import java.util.Scanner;
 
 
 import Model.Consumer;
+import Model.EconomyBoardingRunnable;
 import Model.EconomyCheckIn1Runnable;
 import Model.EconomyCheckIn2Runnable;
+import Model.EconomyCheckIn3Runnable;
+import Model.EconomySecurityRunnable;
+import Model.FirstandBusinessBoardingRunnable;
 import Model.FirstandBusinessCheckInRunnable;
+import Model.FirstandBusinessSecurityRunnable;
 import Model.FlightCounterThread;
 import Model.FlightList;
 import Model.Passenger;
@@ -53,23 +58,38 @@ public class TravelPigeonManager {
 				
 				
 				Thread thread1 = new Thread(new Consumer(q));
+				Thread thread2 = new Thread(new Producer(q));
          		Thread thread3 = new Thread(new EconomyCheckIn1Runnable(q));
          		Thread thread4 = new Thread(new FirstandBusinessCheckInRunnable(q));
                 Thread thread5 = new Thread(new EconomyCheckIn2Runnable(q));
-         		Thread thread2 = new Thread(new Producer(q));
+                Thread thread6 = new Thread(new EconomyCheckIn3Runnable(q));
+                Thread thread7 = new Thread(new FirstandBusinessSecurityRunnable(q));
+                Thread thread8 = new Thread(new EconomySecurityRunnable(q));
+                Thread thread9 = new Thread(new FirstandBusinessBoardingRunnable(q));
+                Thread thread10 = new Thread(new EconomyBoardingRunnable(q));
+                
          		
          		thread1.start();
          		thread5.start();
          		thread2.start();
          		thread3.start();
          		thread4.start();
+         		thread6.start();
+         		thread7.start();
+         		thread8.start();
+         		thread9.start();
+         		thread10.start();
          		
          		thread1.join();
          		thread2.join();
          		thread3.join();
          		thread4.join();
          		thread5.join();
-				
+         		thread6.join();
+         		thread7.join();
+         		thread8.join();
+         		thread9.join();
+         		thread10.join();
 								
 				
 				// read flight input file

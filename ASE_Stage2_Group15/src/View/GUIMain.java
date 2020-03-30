@@ -6,9 +6,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import Model.FlightCounterThread;
-
 import javax.swing.JTextPane;
 import javax.swing.KeyStroke;
 
@@ -67,7 +64,7 @@ public class GUIMain extends JFrame {
 	// private JTextField ;
 	// private JLabel ;
 	// private ImageIcon ;
-	private JPanel northPanel, centerPanel, southPanel, desk1, desk2, desk3, desk4, buttonPanel1, buttonPanel2,
+	private JPanel northPanel, centerPanel, southPanel, FirstandBusinessDesk, EconomyDesk1, EconomyDesk2, EconomyDesk3, buttonPanel1, buttonPanel2,
 			buttonPanel3, buttonPanel4, flightDisplay1, flightDisplay2, flightDisplay3;
 	private JButton openBtn1, closeBtn1, openBtn2, closeBtn2, openBtn3, closeBtn3, openBtn4, closeBtn4;
 	private JMenuBar menuBar;
@@ -155,8 +152,7 @@ public class GUIMain extends JFrame {
 
 		setupNorthPanel();
 		setupCenterPanel();
-		setupSouthPanel();
-
+		
 		addWindowListener(new WindowAdapter() {
 			/**
 			 * Overrides the standard close operation with JOptionPane allowing the user to
@@ -182,10 +178,6 @@ public class GUIMain extends JFrame {
 
 	}
 
-	public GUIMain(FlightCounterThread model) {
-		// TODO Auto-generated constructor stub
-	}
-
 	private void setupNorthPanel() {
 
 		northPanel = new JPanel();
@@ -198,7 +190,7 @@ public class GUIMain extends JFrame {
 		queueScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		queueScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-		queueTxtArea = new JTextArea(5, 20);
+		queueTxtArea = new JTextArea(15, 20);
 		queueTxtArea.setLineWrap(true);
 		queueTxtArea.setWrapStyleWord(true);
 		queueScroll.setViewportView(queueTxtArea);
@@ -218,148 +210,95 @@ public class GUIMain extends JFrame {
 		centerPanel.setLayout(new GridLayout(0, 4, 0, 0));
 
 		// desk 1
-		desk1 = new JPanel();
+		FirstandBusinessDesk = new JPanel();
 
-		desk1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		centerPanel.add(desk1);
-		desk1.setLayout(new BorderLayout(0, 0));
+		FirstandBusinessDesk.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		centerPanel.add(FirstandBusinessDesk);
+		FirstandBusinessDesk.setLayout(new BorderLayout(0, 0));
 
-		desk1Lbl = new JLabel("Check-In Desk 1");
+		desk1Lbl = new JLabel("First & Business Check-In Desk 1");
 		desk1Lbl.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		desk1.add(desk1Lbl, BorderLayout.NORTH);
+		FirstandBusinessDesk.add(desk1Lbl, BorderLayout.NORTH);
 		desk1TxtArea = new JTextArea();
 		desk1TxtArea.setSize(150, 150);
 		desk1TxtArea.setEditable(false);
-		desk1.add(desk1TxtArea, BorderLayout.CENTER);
+		FirstandBusinessDesk.add(desk1TxtArea, BorderLayout.CENTER);
 
 		buttonPanel1 = new JPanel();
 		openBtn1 = new JButton("Open");
 		closeBtn1 = new JButton("Close");
 		buttonPanel1.add(openBtn1);
 		buttonPanel1.add(closeBtn1);
-		desk1.add(buttonPanel1, BorderLayout.SOUTH);
+		FirstandBusinessDesk.add(buttonPanel1, BorderLayout.SOUTH);
 
 		// desk 2
-		desk2 = new JPanel();
-		desk2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		centerPanel.add(desk2);
-		desk2.setLayout(new BorderLayout(0, 0));
+		EconomyDesk1 = new JPanel();
+		EconomyDesk1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		centerPanel.add(EconomyDesk1);
+		EconomyDesk1.setLayout(new BorderLayout(0, 0));
 
-		desk2lbl = new JLabel("Check-In Desk 2");
+		desk2lbl = new JLabel("Economy Check-In Desk 1");
 		desk2lbl.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		desk2.add(desk2lbl, BorderLayout.NORTH);
+		EconomyDesk1.add(desk2lbl, BorderLayout.NORTH);
 
 		desk2TextArea = new JTextArea();
 		desk2TextArea.setSize(150, 150);
 		desk2TextArea.setEditable(false);
-		desk2.add(desk2TextArea);
+		EconomyDesk1.add(desk2TextArea);
 
 		buttonPanel2 = new JPanel();
 		openBtn2 = new JButton("Open");
 		closeBtn2 = new JButton("Close");
 		buttonPanel2.add(openBtn2);
 		buttonPanel2.add(closeBtn2);
-		desk2.add(buttonPanel2, BorderLayout.SOUTH);
+		EconomyDesk1.add(buttonPanel2, BorderLayout.SOUTH);
 
 		// desk 3
-		desk3 = new JPanel();
-		desk3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		centerPanel.add(desk3);
-		desk3.setLayout(new BorderLayout(0, 0));
+		EconomyDesk2 = new JPanel();
+		EconomyDesk2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		centerPanel.add(EconomyDesk2);
+		EconomyDesk2.setLayout(new BorderLayout(0, 0));
 
-		desk3lbl = new JLabel("Check-In Desk 3");
+		desk3lbl = new JLabel("Economy Check-In Desk 2");
 		desk3lbl.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		desk3.add(desk3lbl, BorderLayout.NORTH);
+		EconomyDesk2.add(desk3lbl, BorderLayout.NORTH);
 
 		desk3TextArea = new JTextArea();
 		desk3TextArea.setSize(150, 150);
 		desk3TextArea.setEditable(false);
-		desk3.add(desk3TextArea);
+		EconomyDesk2.add(desk3TextArea);
 
 		buttonPanel3 = new JPanel();
 		openBtn3 = new JButton("Open");
 		closeBtn3 = new JButton("Close");
 		buttonPanel3.add(openBtn3);
 		buttonPanel3.add(closeBtn3);
-		desk3.add(buttonPanel3, BorderLayout.SOUTH);
+		EconomyDesk2.add(buttonPanel3, BorderLayout.SOUTH);
 
 		// desk 4
-		desk4 = new JPanel();
-		desk4.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		centerPanel.add(desk4);
-		desk4.setLayout(new BorderLayout(0, 0));
+		EconomyDesk3 = new JPanel();
+		EconomyDesk3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		centerPanel.add(EconomyDesk3);
+		EconomyDesk3.setLayout(new BorderLayout(0, 0));
 
-		desk4lbl = new JLabel("Check-In Desk 4");
+		desk4lbl = new JLabel("Economy Check-In Desk 3");
 		desk4lbl.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		desk4.add(desk4lbl, BorderLayout.NORTH);
+		EconomyDesk3.add(desk4lbl, BorderLayout.NORTH);
 
 		desk4TextArea = new JTextArea();
 		desk4TextArea.setSize(150, 150);
 		desk4TextArea.setEditable(false);
-		desk4.add(desk4TextArea);
+		EconomyDesk3.add(desk4TextArea);
 
 		buttonPanel4 = new JPanel();
 		openBtn4 = new JButton("Open");
 		closeBtn4 = new JButton("Close");
 		buttonPanel4.add(openBtn4);
 		buttonPanel4.add(closeBtn4);
-		desk4.add(buttonPanel4, BorderLayout.SOUTH);
+		EconomyDesk3.add(buttonPanel4, BorderLayout.SOUTH);
 
 	}
 
-	private void setupSouthPanel() {
-
-		southPanel = new JPanel();
-		contentPane.add(southPanel, BorderLayout.SOUTH);
-		southPanel.setLayout(new GridLayout(0, 3, 0, 0));
-
-		// setup first flight panel
-		flightDisplay1 = new JPanel();
-		flightDisplay1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		southPanel.add(flightDisplay1);
-		flightDisplay1.setLayout(new BorderLayout(0, 0));
-		flightDisplay1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		flightDisplay1.setLayout(new BorderLayout(0, 0));
-
-		flight1label = new JLabel("Emirates Airlines");
-		flight1label.setIcon(new ImageIcon(GUIMain.class.getResource("/View/em.png")));
-		flight1label.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		flightDisplay1.add(flight1label, BorderLayout.NORTH);
-
-		flight1txtarea = new JTextArea(5, 10);
-		flightDisplay1.add(flight1txtarea, BorderLayout.SOUTH);
-
-		// setup second flight panel
-		flightDisplay2 = new JPanel();
-		flightDisplay2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		southPanel.add(flightDisplay2);
-		flightDisplay2.setLayout(new BorderLayout(0, 0));
-		flightDisplay2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		flightDisplay2.setLayout(new BorderLayout(0, 0));
-
-		flight2label = new JLabel("British Airways");		flight2label.setIcon(new ImageIcon(GUIMain.class.getResource("/View/ba.png")));
-
-		flight2label.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		flightDisplay2.add(flight2label, BorderLayout.NORTH);
-
-		flight2txtarea = new JTextArea(5, 10);
-		flightDisplay2.add(flight2txtarea, BorderLayout.SOUTH);
-
-		// setup third flight panel
-		flightDisplay3 = new JPanel();
-		flightDisplay3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		southPanel.add(flightDisplay3);
-		flightDisplay3.setLayout(new BorderLayout(0, 0));
-		flightDisplay3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		flightDisplay3.setLayout(new BorderLayout(0, 0));
-
-		flight3label = new JLabel("Qatar Airways");
-		flight3label.setIcon(new ImageIcon(GUIMain.class.getResource("/View/qa.png")));
-		flight3label.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		flightDisplay3.add(flight3label, BorderLayout.NORTH);
-
-		flight3txtarea = new JTextArea(5, 10);
-		flightDisplay3.add(flight3txtarea, BorderLayout.SOUTH);
-	}
+	
 
 }

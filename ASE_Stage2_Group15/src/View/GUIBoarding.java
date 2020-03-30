@@ -1,4 +1,5 @@
-package View;
+
+package view;
 
 import java.awt.BorderLayout;
 
@@ -164,7 +165,7 @@ public class GUIBoarding extends JFrame {
 		flightDisplay1.setLayout(new BorderLayout(0, 0));
 
 		flight1label = new JLabel("Emirates Airlines");
-		flight1label.setIcon(new ImageIcon(GUIMain.class.getResource("/View/em.png")));
+		flight1label.setIcon(new ImageIcon(GUIMain.class.getResource("/view/em.png")));
 		flight1label.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		flightDisplay1.add(flight1label, BorderLayout.NORTH);
 
@@ -181,7 +182,7 @@ public class GUIBoarding extends JFrame {
 		flightDisplay2.setLayout(new BorderLayout(0, 0));
 
 		flight2label = new JLabel("British Airways");
-		flight2label.setIcon(new ImageIcon(GUIMain.class.getResource("/View/ba.png")));
+		flight2label.setIcon(new ImageIcon(GUIMain.class.getResource("/view/ba.png")));
 		flight2label.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		flightDisplay2.add(flight2label, BorderLayout.NORTH);
 
@@ -198,7 +199,7 @@ public class GUIBoarding extends JFrame {
 		flightDisplay3.setLayout(new BorderLayout(0, 0));
 
 		flight3label = new JLabel("Qatar Airways");
-		flight3label.setIcon(new ImageIcon(GUIMain.class.getResource("/View/qa.png")));
+		flight3label.setIcon(new ImageIcon(GUIMain.class.getResource("/view/qa.png")));
 		flight3label.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		flightDisplay3.add(flight3label, BorderLayout.NORTH);
 

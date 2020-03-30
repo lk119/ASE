@@ -364,8 +364,6 @@ public class PassengerSet {
 		return true;
 	}
 
-// create a bag for the passanger
-
 
 
 }

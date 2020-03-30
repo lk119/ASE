@@ -1,3 +1,4 @@
+
 package View;
 
 import java.awt.BorderLayout;
@@ -140,7 +141,7 @@ public class GUIReport extends JFrame {
 		});
 
 		setupCenterPanel();
-		setupSouthPanel();
+		
 	}
 
 	private void setupCenterPanel() {
@@ -168,59 +169,5 @@ public class GUIReport extends JFrame {
 		northPanel.add(queueLbl, BorderLayout.NORTH);
 	}
 
-	private void setupSouthPanel() {
-
-		southPanel = new JPanel();
-		contentPane.add(southPanel, BorderLayout.SOUTH);
-		southPanel.setLayout(new GridLayout(0, 3, 0, 0));
-
-		// setup first flight panel
-		flightDisplay1 = new JPanel();
-		flightDisplay1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		southPanel.add(flightDisplay1);
-		flightDisplay1.setLayout(new BorderLayout(0, 0));
-		flightDisplay1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		flightDisplay1.setLayout(new BorderLayout(0, 0));
-
-		flight1label = new JLabel("Emirates Airlines");
-		flight1label.setIcon(new ImageIcon(GUIMain.class.getResource("/View/em.png")));
-		flight1label.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		flightDisplay1.add(flight1label, BorderLayout.NORTH);
-
-		flight1txtarea = new JTextArea(5, 10);
-		flightDisplay1.add(flight1txtarea, BorderLayout.SOUTH);
-
-		// setup second flight panel
-		flightDisplay2 = new JPanel();
-		flightDisplay2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		southPanel.add(flightDisplay2);
-		flightDisplay2.setLayout(new BorderLayout(0, 0));
-		flightDisplay2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		flightDisplay2.setLayout(new BorderLayout(0, 0));
-
-		flight2label = new JLabel("British Airways");
-		flight2label.setIcon(new ImageIcon(GUIMain.class.getResource("/View/ba.png")));
-		flight2label.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		flightDisplay2.add(flight2label, BorderLayout.NORTH);
-
-		flight2txtarea = new JTextArea(5, 10);
-		flightDisplay2.add(flight2txtarea, BorderLayout.SOUTH);
-
-		// setup third flight panel
-		flightDisplay3 = new JPanel();
-		flightDisplay3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		southPanel.add(flightDisplay3);
-		flightDisplay3.setLayout(new BorderLayout(0, 0));
-		flightDisplay3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		flightDisplay3.setLayout(new BorderLayout(0, 0));
-
-		flight3label = new JLabel("Qatar Airways");
-		flight3label.setIcon(new ImageIcon(GUIMain.class.getResource("/View/qa.png")));
-		flight3label.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		flightDisplay3.add(flight3label, BorderLayout.NORTH);
-
-		flight3txtarea = new JTextArea(5, 10);
-		flightDisplay3.add(flight3txtarea, BorderLayout.SOUTH);
-	}
 
 }
