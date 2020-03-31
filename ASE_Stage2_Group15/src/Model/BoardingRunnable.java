@@ -14,7 +14,7 @@ public class BoardingRunnable implements Runnable {
 		Passenger pas = null;
 	
 		try {
-			Thread.sleep(20000);
+			Thread.sleep(5000);
 			pas=  q.PickerforBoarding();
 			
 		} catch (InterruptedException e) {

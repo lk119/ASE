@@ -83,6 +83,21 @@ public class PassengersInQueue {
 		return q;
 	}
 
+	public BlockingQueue<Passenger> getQ1() {
+
+		return Checkedin;
+	}
+
+	public BlockingQueue<Passenger> getQ2() {
+
+		return security;
+	}
+
+	public BlockingQueue<Passenger> getQ3() {
+
+		return boarding;
+	}
+
 	// method to pick Business class passenger form the queue q
 	public Passenger BusinessPicker() {
 
@@ -111,8 +126,8 @@ public class PassengersInQueue {
 					Checkedin(p);
 
 					// get the information needed to display at the check-in desk
-					System.out.println(p.getpClass() + " class passenger, " + p.getFullName()
-							+ " is Checking in at First & Business Class " + "Check-in Desk");
+					System.out.println(p.getpClass() + " class passenger, " + p.getFullName() + " travelling by "
+							+ p.getflightCode() + " is Checking in at First & Business Class " + "Check-in Desk");
 					System.out.println("The check-in bag weight is " + b.getWeight() + " Kg and volume is "
 							+ b.baggageVolume() + " cubic inches");
 					System.out.println("The check-in bag is overweight by " + b.excessBaggageWeight() + " kg.");
@@ -150,8 +165,8 @@ public class PassengersInQueue {
 					p.setCheckInStatus(true);
 					placer();
 					Checkedin(p);
-					System.out.println(p.getpClass() + " class passenger, " + p.getFullName()
-							+ " is Checking in at Economy Class " + "Check-in Desk");
+					System.out.println(p.getpClass() + " class passenger, " + p.getFullName() + " travelling by "
+							+ p.getflightCode() + " is Checking in at Economy Class " + "Check-in Desk");
 					System.out.println("The check-in bag weight is " + b.getWeight() + " Kg and volume is "
 							+ b.baggageVolume() + " cubic inches");
 					System.out.println("The check-in bag is overweight by " + b.excessBaggageWeight() + " kg.");
@@ -186,8 +201,8 @@ public class PassengersInQueue {
 					p.setCheckInStatus(true);
 					placer();
 					Checkedin(p);
-					System.out.println(p.getpClass() + " class passenger, " + p.getFullName()
-							+ " is Checking in at First & Business Class " + "Check-in Desk");
+					System.out.println(p.getpClass() + " class passenger, " + p.getFullName() + " travelling by "
+							+ p.getflightCode() + " is Checking in at First & Business Class " + "Check-in Desk");
 					System.out.println("The check-in bag weight is " + b.getWeight() + " Kg and volume is "
 							+ b.baggageVolume() + " cubic inches");
 					System.out.println("The check-in bag is overweight by " + b.excessBaggageWeight() + " kg.");
@@ -221,22 +236,20 @@ public class PassengersInQueue {
 
 	}
 
-	
 	// This method will put customers in the security queue following check-in
-		public void Checkedin(Passenger p) {
+	public void Checkedin(Passenger p) {
 
-			try {
-				Checkedin.put(p);
+		try {
+			Checkedin.put(p);
 
-			} catch (InterruptedException e) {
-				System.out.println("The process was interrupted");
-			} catch (NullPointerException N) {
-				System.out.println("All passengers have checked-in");
-
-			}
+		} catch (InterruptedException e) {
+			System.out.println("The process was interrupted");
+		} catch (NullPointerException N) {
+			System.out.println("All passengers have checked-in");
 
 		}
-	
+
+	}
 
 	// method to pick passengers form the security queue
 	public Passenger PickerforSecurity() {
@@ -245,14 +258,10 @@ public class PassengersInQueue {
 		try {
 
 			while (true) {
-				Passenger window = Checkedin.peek();
-				if (window.getpClass().equalsIgnoreCase("first")) {
-					p = Checkedin.take();
-					boardingPlaneQueue(p);
-					System.out.println(
-							p.getpClass() + " class passenger, " + p.getFullName() + " is in the security queue.");
-				}
-
+				p = Checkedin.take();
+				boardingPlaneQueue(p);
+				System.out.println(p.getpClass() + " class passenger, " + p.getFullName() + " travelling by "
+						+ p.getflightCode() + " is in the security queue.");
 			}
 
 		} catch (InterruptedException e) {
@@ -264,8 +273,6 @@ public class PassengersInQueue {
 		}
 		return p;
 	}
-
-	
 
 //This method will put customers in a priority boarding queue following security
 	public void boardingPlaneQueue(Passenger p) {
@@ -289,10 +296,9 @@ public class PassengersInQueue {
 		try {
 
 			while (true) {
-				Passenger window = security.peek();
 				p = security.take();
-				System.out.println(
-						p.getpClass() + " class passenger, " + p.getFullName() + " is in the boarding queue.");
+				System.out.println(p.getpClass() + " class passenger, " + p.getFullName() + " travelling by "
+						+ p.getflightCode() + " is in the boarding queue.");
 			}
 
 		} catch (InterruptedException e) {

@@ -14,7 +14,7 @@ public class SecurityRunnable implements Runnable {
 		Passenger pas = null;
 	
 		try {
-			Thread.sleep(15000);
+			Thread.sleep(5000);
 			pas=  q.PickerforSecurity();
 			
 		} catch (InterruptedException e) {

@@ -14,7 +14,7 @@ public class FirstandBusinessCheckInRunnable implements Runnable {
 		Passenger pas = null;
 	
 		try {
-			Thread.sleep(1500);
+			Thread.sleep(1000);
 			pas=  q.firstPicker();
 			pas=  q.BusinessPicker();
 		} catch (InterruptedException e) {

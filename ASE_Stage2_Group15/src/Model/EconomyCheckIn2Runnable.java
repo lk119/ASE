@@ -11,7 +11,7 @@ public class EconomyCheckIn2Runnable implements Runnable {
 			Passenger pas = null;
 			
 			try {
-				Thread.sleep(30000);
+				Thread.sleep(3000);
 				pas=  q.EconomyPicker();
 				
 			} catch (InterruptedException e) {
