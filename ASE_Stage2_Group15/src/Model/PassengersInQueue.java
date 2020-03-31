@@ -13,6 +13,7 @@ public class PassengersInQueue {
 	// declare array blocking queues such that they are stored in main memory and
 	// visible across threads
 	private volatile BlockingQueue<Passenger> q = new ArrayBlockingQueue<Passenger>(20);
+	private volatile BlockingQueue<Passenger> Checkedin = new ArrayBlockingQueue<Passenger>(165);
 	private volatile BlockingQueue<Passenger> security = new ArrayBlockingQueue<Passenger>(165);
 	private volatile BlockingQueue<Passenger> boarding = new ArrayBlockingQueue<Passenger>(165);
 
@@ -107,7 +108,7 @@ public class PassengersInQueue {
 					placer();
 
 					// passenger is placed in security queue
-					securityQueue(p);
+					Checkedin(p);
 
 					// get the information needed to display at the check-in desk
 					System.out.println(p.getpClass() + " class passenger, " + p.getFullName()
@@ -148,7 +149,7 @@ public class PassengersInQueue {
 					Baggage b = p.createAbag(p);
 					p.setCheckInStatus(true);
 					placer();
-					securityQueue(p);
+					Checkedin(p);
 					System.out.println(p.getpClass() + " class passenger, " + p.getFullName()
 							+ " is Checking in at Economy Class " + "Check-in Desk");
 					System.out.println("The check-in bag weight is " + b.getWeight() + " Kg and volume is "
@@ -184,7 +185,7 @@ public class PassengersInQueue {
 					Baggage b = p.createAbag(p);
 					p.setCheckInStatus(true);
 					placer();
-					securityQueue(p);
+					Checkedin(p);
 					System.out.println(p.getpClass() + " class passenger, " + p.getFullName()
 							+ " is Checking in at First & Business Class " + "Check-in Desk");
 					System.out.println("The check-in bag weight is " + b.getWeight() + " Kg and volume is "
@@ -220,19 +221,36 @@ public class PassengersInQueue {
 
 	}
 
-	// method to pick First class passenger form the security queue
-	public Passenger firstPickerforSecurity() {
+	
+	// This method will put customers in the security queue following check-in
+		public void Checkedin(Passenger p) {
+
+			try {
+				Checkedin.put(p);
+
+			} catch (InterruptedException e) {
+				System.out.println("The process was interrupted");
+			} catch (NullPointerException N) {
+				System.out.println("All passengers have checked-in");
+
+			}
+
+		}
+	
+
+	// method to pick passengers form the security queue
+	public Passenger PickerforSecurity() {
 		Passenger p = null;
 
 		try {
 
 			while (true) {
-				Passenger window = q.peek();
+				Passenger window = Checkedin.peek();
 				if (window.getpClass().equalsIgnoreCase("first")) {
-					p = q.take();
+					p = Checkedin.take();
 					boardingPlaneQueue(p);
-					System.out
-							.println(p.getpClass() + " class passenger, " + p.getFullName() + " is in priority security queue.");
+					System.out.println(
+							p.getpClass() + " class passenger, " + p.getFullName() + " is in the security queue.");
 				}
 
 			}
@@ -241,67 +259,15 @@ public class PassengersInQueue {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NullPointerException N) {
-			System.out.println("The priority security queue is empty");
+			System.out.println("The security queue is empty");
 
 		}
 		return p;
 	}
 
-	// method to pick Business class passenger form the security queue
-	public Passenger BusinessPickerforSecurity() {
-		Passenger p = null;
+	
 
-		try {
-
-			while (true) {
-				Passenger window = q.peek();
-				if (window.getpClass().equalsIgnoreCase("Business")) {
-					p = q.take();
-					boardingPlaneQueue(p);
-					System.out
-							.println(p.getpClass() + " class passenger, " + p.getFullName() + " is in priority security queue.");
-				}
-
-			}
-
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NullPointerException N) {
-			System.out.println("The priority security queue is empty");
-
-		}
-		return p;
-	}
-
-	// method to pick Economy class passenger form the security queue
-	public Passenger EconomyPickerforSecurity() {
-		Passenger p = null;
-
-		try {
-
-			while (true) {
-				Passenger window = q.peek();
-				if (window.getpClass().equalsIgnoreCase("Economy")) {
-					p = q.take();
-					boardingPlaneQueue(p);
-					System.out
-							.println(p.getpClass() + " class passenger, " + p.getFullName() + " is in general security queue.");
-				}
-
-			}
-
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NullPointerException N) {
-			System.out.println("The general security queue is empty");
-
-		}
-		return p;
-	}
-
-//This method will put customers in a queue following processing	
+//This method will put customers in a priority boarding queue following security
 	public void boardingPlaneQueue(Passenger p) {
 
 		try {
@@ -310,82 +276,30 @@ public class PassengersInQueue {
 		} catch (InterruptedException e) {
 			System.out.println("The process was interrupted");
 		} catch (NullPointerException N) {
-			System.out.println("The queue is empty");
+			System.out.println("The boarding queue is empty");
 
 		}
 
 	}
 
-	// method to pick First class passenger form the boarding queue
-	public Passenger firstPickerforBoarding() {
+	// method to pick passengers form the boarding queue
+	public Passenger PickerforBoarding() {
 		Passenger p = null;
 
 		try {
 
 			while (true) {
-				Passenger window = q.peek();
-				if (window.getpClass().equalsIgnoreCase("first")) {
-					p = q.take();
-					System.out.println(p.getpClass() + " class passenger, " + p.getFullName() + " is in priority boarding queue.");
-				}
-
+				Passenger window = security.peek();
+				p = security.take();
+				System.out.println(
+						p.getpClass() + " class passenger, " + p.getFullName() + " is in the boarding queue.");
 			}
 
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NullPointerException N) {
-			System.out.println("All first class passengers have boarded");
-
-		}
-		return p;
-	}
-
-	// method to pick Business class passenger form the boarding queue
-	public Passenger BusinessPickerforBoarding() {
-		Passenger p = null;
-
-		try {
-
-			while (true) {
-				Passenger window = q.peek();
-				if (window.getpClass().equalsIgnoreCase("Business")) {
-					p = q.take();
-					System.out.println(p.getpClass() + " class passenger, " + p.getFullName() + " is in priority boarding queue.");
-				}
-
-			}
-
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NullPointerException N) {
-			System.out.println("All business class passengers have boarded");
-
-		}
-		return p;
-	}
-
-	// method to pick Economy class passenger form the boarding queue
-	public Passenger EconomyPickerforBoarding() {
-		Passenger p = null;
-
-		try {
-
-			while (true) {
-				Passenger window = q.peek();
-				if (window.getpClass().equalsIgnoreCase("Economy")) {
-					p = q.take();
-					System.out.println(p.getpClass() + " class passenger, " + p.getFullName() + " is in general boarding queue.");
-				}
-
-			}
-
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NullPointerException N) {
-			System.out.println("All economy class passengers have boarded");
+			System.out.println("All passengers have boarded");
 
 		}
 		return p;
@@ -400,7 +314,7 @@ public class PassengersInQueue {
 		for (Map.Entry<String, String> fentry : f.entrySet()) {
 			int count = 0;
 
-			for (Passenger p : boarding) {
+			for (Passenger p : Checkedin) {
 				if (fentry.getKey().equalsIgnoreCase(p.getflightCode())) {
 					// count.addAndGet(1);
 					count++;

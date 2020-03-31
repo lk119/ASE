@@ -1,5 +1,5 @@
 
-package view;
+package View;
 
 import java.awt.BorderLayout;
 
