@@ -122,9 +122,9 @@ public class PassengersInQueue {
 					// will move passengers from one queue to another
 					placer();
 
-					// passenger is placed in security queue
+					// passenger is placed in Checkedin queue
 					Checkedin(p);
-
+					
 					// get the information needed to display at the check-in desk
 					System.out.println(p.getpClass() + " class passenger, " + p.getFullName() + " travelling by "
 							+ p.getflightCode() + " is Checking in at First & Business Class " + "Check-in Desk");
@@ -258,12 +258,14 @@ public class PassengersInQueue {
 		try {
 
 			while (true) {
+				Passenger window = Checkedin.peek();
+				if (window.getCheckInStatus()== true) {
 				p = Checkedin.take();
 				boardingPlaneQueue(p);
 				System.out.println(p.getpClass() + " class passenger, " + p.getFullName() + " travelling by "
 						+ p.getflightCode() + " is in the security queue.");
 			}
-
+			}
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -279,8 +281,7 @@ public class PassengersInQueue {
 
 		try {
 			boarding.put(p);
-			System.out.println(p.getFullName());
-		} catch (InterruptedException e) {
+			} catch (InterruptedException e) {
 			System.out.println("The process was interrupted");
 		} catch (NullPointerException N) {
 			System.out.println("The boarding queue is empty");
@@ -296,7 +297,7 @@ public class PassengersInQueue {
 		try {
 
 			while (true) {
-				p = security.take();
+				p = boarding.take();
 				System.out.println(p.getpClass() + " class passenger, " + p.getFullName() + " travelling by "
 						+ p.getflightCode() + " is in the boarding queue.");
 			}
