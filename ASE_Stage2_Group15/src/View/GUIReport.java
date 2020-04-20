@@ -5,6 +5,9 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Model.PassengersInQueue;
+
 import javax.swing.KeyStroke;
 import java.awt.Font;
 import javax.swing.border.BevelBorder;
@@ -30,6 +33,7 @@ import java.awt.GridLayout;
 
 public class GUIReport extends JFrame {
 	private JPanel contentPane;
+	private PassengersInQueue passengersinqueue;
 
 	// private JTextField ;
 	// private ImageIcon ;
@@ -46,7 +50,8 @@ public class GUIReport extends JFrame {
 	 * Create the frame.
 	 */
 
-	public GUIReport() {
+	public GUIReport(PassengersInQueue pq) {
+		this.passengersinqueue = pq;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 700);
 
@@ -75,46 +80,18 @@ public class GUIReport extends JFrame {
 
 			// action listener for this menu item
 			public void actionPerformed(ActionEvent e) {
-				GUIMain GUIMain = new GUIMain();
+				GUIMain GUIMain = new GUIMain(passengersinqueue);
 				GUIMain.setVisible(true);
 				dispose();
 			}
 		});
 
-		// security item for menu
-		menuSecurity = new JMenuItem("View Customers In Security", KeyEvent.VK_T);
-		menuSecurity.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
-		menuSecurity.getAccessibleContext().setAccessibleDescription("This doesn't really do anything");
-		menu.add(menuSecurity);
+	
 
-		// add menu action listener for security option
-		menuSecurity.addActionListener(new ActionListener() {
+		
 
-			// action listener for this menu item
-			public void actionPerformed(ActionEvent e) {
-				GUISecurity GUISecurity = new GUISecurity();
-				GUISecurity.setVisible(true);
-				dispose();
-			}
-		});
-
-		// passenger boarding item for menu
-		menuBoarding = new JMenuItem("View Passengers In Boarding", KeyEvent.VK_T);
-		menuBoarding.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, ActionEvent.ALT_MASK));
-		menuBoarding.getAccessibleContext().setAccessibleDescription("This doesn't really do anything");
-		menu.add(menuBoarding);
-
-		// add menu action listener for report
-		menuBoarding.addActionListener(new ActionListener() {
-
-			// action listener for this menu item
-			public void actionPerformed(ActionEvent e) {
-				GUIBoarding GUIBoarding = new GUIBoarding();
-				GUIBoarding.setVisible(true);
-				dispose();
-			}
-		});
-
+			
+		
 		menuBar.add(menu);
 
 		addWindowListener(new WindowAdapter() {
@@ -163,10 +140,15 @@ public class GUIReport extends JFrame {
 		queueTxtArea.setEditable(false);
 		queueTxtArea.setSize(100, 100);
 
-		queueLbl = new JLabel("Passenger Full Report");
+		queueLbl = new JLabel("Flight Capacity Report");
 		queueLbl.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		queueLbl.setHorizontalAlignment(SwingConstants.LEFT);
 		northPanel.add(queueLbl, BorderLayout.NORTH);
+	}
+
+	public void disableProcessButton() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

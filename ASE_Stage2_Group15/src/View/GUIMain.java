@@ -6,6 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Model.Passenger;
+import Model.PassengerSet;
+import Model.PassengersInQueue;
+
 import javax.swing.JTextPane;
 import javax.swing.KeyStroke;
 
@@ -28,6 +33,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -40,49 +49,49 @@ import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.GridLayout;
 
-public class GUIMain extends JFrame {
+public class GUIMain extends JFrame implements Observer{
 
+
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private Passenger passenger;
+	private PassengerSet passengerset;
+	private PassengersInQueue passengersinqueue;
+	
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUIMain frame = new GUIMain();
-					frame.setBackground(new Color(0, 206, 209));
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
+	
+	
+	
 	// private JTextField ;
 	// private JLabel ;
 	// private ImageIcon ;
-	private JPanel northPanel, centerPanel, southPanel, FirstandBusinessDesk, EconomyDesk1, EconomyDesk2, EconomyDesk3, buttonPanel1, buttonPanel2,
-			buttonPanel3, buttonPanel4, flightDisplay1, flightDisplay2, flightDisplay3;
-	private JButton openBtn1, closeBtn1, openBtn2, closeBtn2, openBtn3, closeBtn3, openBtn4, closeBtn4;
+	private JPanel northPanel, centerPanel, southPanel, FirstandBusinessDesk, EconomyDesk1, EconomyDesk2, EconomyDesk3,
+			buttonPanel1, buttonPanel2, buttonPanel3, buttonPanel4, checkinQueue, securityQueue, bQ;
+	private JButton openBtn1, closeBtn1, openBtn2, closeBtn2, openBtn3, closeBtn3, openBtn4, closeBtn4, processButton;
 	private JMenuBar menuBar;
 	private JMenu menu;
 	private JMenuItem menuReport, menuSecurity, menuBoarding;
-	private JTextArea desk1TxtArea, desk2TextArea, desk3TextArea, desk4TextArea, queueTxtArea;
+	private JTextArea desk1TxtArea, desk2TextArea, desk3TextArea, desk4TextArea, checkinQueueTxtArea,
+			securityQueueTxtArea, bTxtArea;
 	private ImageIcon em, ba, qa, plane;
-	private JScrollPane queueScroll;
-	private JLabel queueLbl, desk1Lbl, desk2lbl, desk3lbl, desk4lbl, flight1label, flight2label, flight3label;
-	private JTextArea flight1txtarea, flight2txtarea, flight3txtarea; 
+	private JScrollPane checkinQueueScroll, securityQueueScroll, bQS;
+	private JLabel desk1Lbl, desk2lbl, desk3lbl, desk4lbl, checkinQueuelabel, securityQueuelabel,
+			bQL;
 	
+
 	/**
 	 * Create the frame.
+	 * @param pq 
+	 * @param p 
+	 * @param ps 
 	 */
-
-	public GUIMain() {
+	
+	public GUIMain (PassengersInQueue pq) {
+		  this.passengersinqueue = pq;
+	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 700);
+		setBounds(200, 200, 1500, 1500);
 
 		menuBar = new JMenuBar();
 		menuBar.setForeground(new Color(0, 206, 209));
@@ -98,8 +107,11 @@ public class GUIMain extends JFrame {
 		// menuBar.setMnemonic(KeyEvent.VK_A);
 		menuBar.getAccessibleContext().setAccessibleDescription("The only menu in this program that has menu items");
 
+		
+
+		
 		// report item for menu
-		menuReport = new JMenuItem("Overall Passenger Report", KeyEvent.VK_T);
+		menuReport = new JMenuItem("Flight Capacity Report", KeyEvent.VK_T);
 		menuReport.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
 		menuReport.getAccessibleContext().setAccessibleDescription("This doesn't really do anything");
 		menu.add(menuReport);
@@ -109,41 +121,8 @@ public class GUIMain extends JFrame {
 
 			// action listener for this menu item
 			public void actionPerformed(ActionEvent e) {
-				GUIReport GUIReport = new GUIReport();
+				GUIReport GUIReport = new GUIReport(pq);
 				GUIReport.setVisible(true);
-				dispose();
-			}
-		});
-
-		// security item for menu
-		menuSecurity = new JMenuItem("View Customers In Security", KeyEvent.VK_T);
-		menuSecurity.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
-		menuSecurity.getAccessibleContext().setAccessibleDescription("This doesn't really do anything");
-		menu.add(menuSecurity);
-
-		menuSecurity.addActionListener(new ActionListener() {
-
-			// action listener for this menu item
-			public void actionPerformed(ActionEvent e) {
-				GUISecurity GUISecurity = new GUISecurity();
-				GUISecurity.setVisible(true);
-				dispose();
-			}
-		});
-
-		// passenger boarding item for menu
-		menuBoarding = new JMenuItem("View Passengers In Boarding", KeyEvent.VK_T);
-		menuBoarding.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, ActionEvent.ALT_MASK));
-		menuBoarding.getAccessibleContext().setAccessibleDescription("This doesn't really do anything");
-		menu.add(menuBoarding);
-
-		// add menu action listener for report
-		menuBoarding.addActionListener(new ActionListener() {
-
-			// action listener for this menu item
-			public void actionPerformed(ActionEvent e) {
-				GUIBoarding GUIBoarding = new GUIBoarding();
-				GUIBoarding.setVisible(true);
 				dispose();
 			}
 		});
@@ -152,7 +131,8 @@ public class GUIMain extends JFrame {
 
 		setupNorthPanel();
 		setupCenterPanel();
-		
+		setupSouthPanel();
+
 		addWindowListener(new WindowAdapter() {
 			/**
 			 * Overrides the standard close operation with JOptionPane allowing the user to
@@ -178,29 +158,19 @@ public class GUIMain extends JFrame {
 
 	}
 
+	
 	private void setupNorthPanel() {
 
+		// create the basic structure of north panel
 		northPanel = new JPanel();
-		northPanel.setSize(150, 150);
+		//northPanel.setSize(0, 0);
 		contentPane.add(northPanel, BorderLayout.NORTH);
-		northPanel.setLayout(new BorderLayout(0, 0));
 
-		queueScroll = new JScrollPane();
-		northPanel.add(queueScroll);
-		queueScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		queueScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		// create the button to initiate the programme
+		processButton = new JButton("Open Check-In");
+		processButton.setSize(1, 1);
+		northPanel.add(processButton);
 
-		queueTxtArea = new JTextArea(15, 20);
-		queueTxtArea.setLineWrap(true);
-		queueTxtArea.setWrapStyleWord(true);
-		queueScroll.setViewportView(queueTxtArea);
-		queueTxtArea.setEditable(false);
-		queueTxtArea.setSize(100, 100);
-
-		queueLbl = new JLabel("Check-In Queue");
-		queueLbl.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		queueLbl.setHorizontalAlignment(SwingConstants.LEFT);
-		northPanel.add(queueLbl, BorderLayout.NORTH);
 	}
 
 	private void setupCenterPanel() {
@@ -211,7 +181,6 @@ public class GUIMain extends JFrame {
 
 		// desk 1
 		FirstandBusinessDesk = new JPanel();
-
 		FirstandBusinessDesk.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		centerPanel.add(FirstandBusinessDesk);
 		FirstandBusinessDesk.setLayout(new BorderLayout(0, 0));
@@ -220,7 +189,7 @@ public class GUIMain extends JFrame {
 		desk1Lbl.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		FirstandBusinessDesk.add(desk1Lbl, BorderLayout.NORTH);
 		desk1TxtArea = new JTextArea();
-		desk1TxtArea.setSize(150, 150);
+		desk1TxtArea.setSize(60, 60);
 		desk1TxtArea.setEditable(false);
 		FirstandBusinessDesk.add(desk1TxtArea, BorderLayout.CENTER);
 
@@ -230,6 +199,10 @@ public class GUIMain extends JFrame {
 		buttonPanel1.add(openBtn1);
 		buttonPanel1.add(closeBtn1);
 		FirstandBusinessDesk.add(buttonPanel1, BorderLayout.SOUTH);
+		
+		// add info to be displayed
+		//passengersinqueue.BusinessPicker();
+		//passengersinqueue.firstPicker();
 
 		// desk 2
 		EconomyDesk1 = new JPanel();
@@ -242,7 +215,7 @@ public class GUIMain extends JFrame {
 		EconomyDesk1.add(desk2lbl, BorderLayout.NORTH);
 
 		desk2TextArea = new JTextArea();
-		desk2TextArea.setSize(150, 150);
+		desk2TextArea.setSize(60, 60);
 		desk2TextArea.setEditable(false);
 		EconomyDesk1.add(desk2TextArea);
 
@@ -252,6 +225,9 @@ public class GUIMain extends JFrame {
 		buttonPanel2.add(openBtn2);
 		buttonPanel2.add(closeBtn2);
 		EconomyDesk1.add(buttonPanel2, BorderLayout.SOUTH);
+		
+		// add info to be displayed
+		//passengersinqueue.EconomyPicker();
 
 		// desk 3
 		EconomyDesk2 = new JPanel();
@@ -264,7 +240,7 @@ public class GUIMain extends JFrame {
 		EconomyDesk2.add(desk3lbl, BorderLayout.NORTH);
 
 		desk3TextArea = new JTextArea();
-		desk3TextArea.setSize(150, 150);
+		desk3TextArea.setSize(60, 60);
 		desk3TextArea.setEditable(false);
 		EconomyDesk2.add(desk3TextArea);
 
@@ -274,6 +250,9 @@ public class GUIMain extends JFrame {
 		buttonPanel3.add(openBtn3);
 		buttonPanel3.add(closeBtn3);
 		EconomyDesk2.add(buttonPanel3, BorderLayout.SOUTH);
+		
+		// add info to be displayed
+		//passengersinqueue.EconomyPicker();
 
 		// desk 4
 		EconomyDesk3 = new JPanel();
@@ -286,7 +265,7 @@ public class GUIMain extends JFrame {
 		EconomyDesk3.add(desk4lbl, BorderLayout.NORTH);
 
 		desk4TextArea = new JTextArea();
-		desk4TextArea.setSize(150, 150);
+		desk4TextArea.setSize(60, 60);
 		desk4TextArea.setEditable(false);
 		EconomyDesk3.add(desk4TextArea);
 
@@ -296,9 +275,127 @@ public class GUIMain extends JFrame {
 		buttonPanel4.add(openBtn4);
 		buttonPanel4.add(closeBtn4);
 		EconomyDesk3.add(buttonPanel4, BorderLayout.SOUTH);
+		
+		// add info to be displayed
+		//passengersinqueue.EconomyPicker();
 
 	}
 
-	
+	private void setupSouthPanel() {
+
+		southPanel = new JPanel();
+		southPanel.setSize(600, 600);
+		contentPane.add(southPanel, BorderLayout.SOUTH);
+		southPanel.setLayout(new GridLayout(0, 3, 0, 0));
+
+		// set up passengers in check-in queue panel
+		checkinQueue = new JPanel();
+		checkinQueue.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		southPanel.add(checkinQueue);
+		checkinQueue.setLayout(new BorderLayout(0, 0));
+
+		// create relevant labels
+		checkinQueuelabel = new JLabel("Passengers in Check-In Queue");
+		checkinQueuelabel.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		checkinQueue.add(checkinQueuelabel, BorderLayout.NORTH);
+
+		// create text area
+		checkinQueueTxtArea = new JTextArea(40, 50);
+		checkinQueueTxtArea.setLineWrap(true);
+		checkinQueueTxtArea.setWrapStyleWord(true);
+		checkinQueueTxtArea.setEditable(false);
+		checkinQueueTxtArea.setSize(100, 100);
+		checkinQueue.add(checkinQueueTxtArea, BorderLayout.CENTER);
+
+		// create scroll bar
+		checkinQueueScroll = new JScrollPane();
+		checkinQueue.add(checkinQueueScroll);
+		checkinQueueScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		checkinQueueScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		checkinQueueScroll.setViewportView(checkinQueueTxtArea);
+		
+		
+		//add info to be displayed
+		//passengersinqueue.puti();
+		
+		
+		
+
+		// set up passengers in security queue panel
+		securityQueue = new JPanel();
+		securityQueue.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		southPanel.add(securityQueue);
+		securityQueue.setLayout(new BorderLayout(0, 0));
+
+		// create relevant labels
+		securityQueuelabel = new JLabel("Passengers in Security Queue");
+		securityQueuelabel.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		securityQueue.add(securityQueuelabel, BorderLayout.NORTH);
+
+		// create text area
+		securityQueueTxtArea = new JTextArea(15, 20);
+		securityQueueTxtArea.setLineWrap(true);
+		securityQueueTxtArea.setWrapStyleWord(true);
+		securityQueueTxtArea.setEditable(false);
+		securityQueueTxtArea.setSize(100, 100);
+		securityQueue.add(securityQueueTxtArea, BorderLayout.CENTER);
+
+		// create scroll bar
+		securityQueueScroll = new JScrollPane();
+		securityQueue.add(securityQueueScroll);
+		securityQueueScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		securityQueueScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		securityQueueScroll.setViewportView(securityQueueTxtArea);
+		
+		// add info to be displayed
+		//passengersinqueue.PickerforSecurity();
+		
+		
+
+		// set up passengers in boarding queue
+		bQ = new JPanel();
+		bQ.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		southPanel.add(bQ);
+		bQ.setLayout(new BorderLayout(0, 0));
+
+		bQL = new JLabel("Passengers in Boarding Queue");
+		bQL.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		bQ.add(bQL, BorderLayout.NORTH);
+
+		bTxtArea = new JTextArea(15, 20);
+		bTxtArea.setLineWrap(true);
+		bTxtArea.setWrapStyleWord(true);
+		bTxtArea.setEditable(false);
+		bTxtArea.setSize(100, 100);
+		bQ.add(bTxtArea, BorderLayout.CENTER);
+
+		bQS = new JScrollPane();
+		bQ.add(bQS);
+		bQS.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		bQS.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		bQS.setViewportView(bTxtArea);
+		
+		// add info to be displayed
+		//passengersinqueue.PickerforBoarding();
+
+	}
+
+/////////////////////////////////////////////////////
+//MVC pattern - allows listeners to be added
+	public void addGUIMainListener(ActionListener al) {
+		processButton.addActionListener(al);
+	}
+
+	public void disableProcessButton() {
+		processButton.setEnabled(false);
+
+	}
+
+
+	@Override
+	public void update(Observable o, Object arg) {
+		passengersinqueue.puti();
+		
+	}
 
 }

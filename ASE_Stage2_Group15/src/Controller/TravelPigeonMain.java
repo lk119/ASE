@@ -1,6 +1,9 @@
 
 
 package Controller;
+
+import Model.InvalidBookingReference;
+
 /**
  * Advanced Software Engineering - Coursework Stage 2 Main class to initiate the
  * application
@@ -17,6 +20,7 @@ public class TravelPigeonMain {
 	 * The application's entry point
 	 * 
 	 * @param args an array of command-line arguments for the application
+	 * @throws InvalidBookingReference 
 	 * @throws InterruptedException 
 	 */
 
