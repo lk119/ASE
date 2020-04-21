@@ -8,6 +8,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import View.GUIMain;
+
 public class PassengersInQueue {
 
 	// declare array blocking queues such that they are stored in main memory and
@@ -30,8 +32,9 @@ public class PassengersInQueue {
 	// This method will add a person from the pool of the customer set and ensure
 	// that it updates the set so as to avoid picking the same customer again.
 	public void puti()
-
+     
 	{
+		//String report = null;
 		try {
 			System.out.println("Passengers in Check-in queue");
 
@@ -57,10 +60,11 @@ public class PassengersInQueue {
 				String formatInfo = column1Format + " " + column2Format + " " + column3Format + " Kg" + column4Format
 						+ "x" + column5Format + "x" + column6Format + " inches";
 
-				// column information to be printed
 				System.out.format(formatInfo, p1.getflightCode(), p1.getFullName(), b.getWeight(), b.getHeight(),
 						b.getWidth(), b.getBreadth());
 				System.out.println();
+
+				
 
 				// remove the passenger from the set to avoid duplication
 				if (customers1.cont(p1)) {
@@ -75,8 +79,26 @@ public class PassengersInQueue {
 		}
 
 		System.out.println("The Check-in queue size is " + q.remainingCapacity());
+	
+		
 
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
 
 	public BlockingQueue<Passenger> getQ() {
 
@@ -331,6 +353,11 @@ public class PassengersInQueue {
 			System.out.println(fentry.getKey() + "  " + count + "   " + "Checked In");
 
 		}
+	}
+
+	public void addObserver(GUIMain guiMain) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

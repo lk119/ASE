@@ -61,7 +61,7 @@ public class TravelPigeonManager {
 				Producer model9 = new Producer(model1);
 				
 				// view
-				GUIMain   view1  = new GUIMain  (model1);
+				GUIMain   view1  = new GUIMain  (model1, model2, model3, model4, model5, model6, model7, model8, model9);
 			    GUIReport view2  = new GUIReport(model1);
 				
 				

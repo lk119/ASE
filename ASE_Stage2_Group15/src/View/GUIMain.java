@@ -7,9 +7,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Model.BoardingRunnable;
+import Model.Consumer;
+import Model.EconomyCheckIn1Runnable;
+import Model.EconomyCheckIn2Runnable;
+import Model.EconomyCheckIn3Runnable;
+import Model.FirstandBusinessCheckInRunnable;
 import Model.Passenger;
 import Model.PassengerSet;
 import Model.PassengersInQueue;
+import Model.Producer;
+import Model.SecurityRunnable;
 
 import javax.swing.JTextPane;
 import javax.swing.KeyStroke;
@@ -33,6 +41,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -42,27 +53,42 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.GridLayout;
 
-public class GUIMain extends JFrame implements Observer{
-
+public class GUIMain extends JFrame implements Observer {
 
 	private static final long serialVersionUID = 1L;
+
 	private JPanel contentPane;
-	private Passenger passenger;
-	private PassengerSet passengerset;
+
 	private PassengersInQueue passengersinqueue;
-	
 
+	private EconomyCheckIn1Runnable ec1;
+	private EconomyCheckIn2Runnable ec2;
+	private EconomyCheckIn3Runnable ec3;
+	private FirstandBusinessCheckInRunnable fc;
+	private SecurityRunnable s;
+	private BoardingRunnable b;
+	private Consumer con;
+	private Producer prod;
 
-	
-	
-	
+	private String reportC;
+	private String reportS;
+	private String reportB;
+	private String reportFC;
+	private String reportEC1;
+	private String reportEC2;
+	private String reportEC3;
+
 	// private JTextField ;
 	// private JLabel ;
 	// private ImageIcon ;
@@ -76,20 +102,31 @@ public class GUIMain extends JFrame implements Observer{
 			securityQueueTxtArea, bTxtArea;
 	private ImageIcon em, ba, qa, plane;
 	private JScrollPane checkinQueueScroll, securityQueueScroll, bQS;
-	private JLabel desk1Lbl, desk2lbl, desk3lbl, desk4lbl, checkinQueuelabel, securityQueuelabel,
-			bQL;
-	
+	private JLabel desk1Lbl, desk2lbl, desk3lbl, desk4lbl, checkinQueuelabel, securityQueuelabel, bQL;
 
 	/**
 	 * Create the frame.
-	 * @param pq 
-	 * @param p 
-	 * @param ps 
+	 * 
+	 * @param pq
+	 * @param p
+	 * @param ps
 	 */
-	
-	public GUIMain (PassengersInQueue pq) {
-		  this.passengersinqueue = pq;
-	
+
+	public GUIMain(PassengersInQueue pq, EconomyCheckIn1Runnable model2, EconomyCheckIn2Runnable model3,
+			EconomyCheckIn3Runnable model4, FirstandBusinessCheckInRunnable model5, SecurityRunnable model6,
+			BoardingRunnable model7, Consumer model8, Producer model9) {
+
+		passengersinqueue = pq;
+		pq.addObserver(this);
+		ec1 = model2;
+		ec2 = model3;
+		ec3 = model4;
+		fc = model5;
+		this.s = model6;
+		this.b = model7;
+		con = model8;
+		prod = model9;
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 1500, 1500);
 
@@ -107,9 +144,6 @@ public class GUIMain extends JFrame implements Observer{
 		// menuBar.setMnemonic(KeyEvent.VK_A);
 		menuBar.getAccessibleContext().setAccessibleDescription("The only menu in this program that has menu items");
 
-		
-
-		
 		// report item for menu
 		menuReport = new JMenuItem("Flight Capacity Report", KeyEvent.VK_T);
 		menuReport.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
@@ -158,12 +192,11 @@ public class GUIMain extends JFrame implements Observer{
 
 	}
 
-	
 	private void setupNorthPanel() {
 
 		// create the basic structure of north panel
 		northPanel = new JPanel();
-		//northPanel.setSize(0, 0);
+		// northPanel.setSize(0, 0);
 		contentPane.add(northPanel, BorderLayout.NORTH);
 
 		// create the button to initiate the programme
@@ -191,6 +224,12 @@ public class GUIMain extends JFrame implements Observer{
 		desk1TxtArea = new JTextArea();
 		desk1TxtArea.setSize(60, 60);
 		desk1TxtArea.setEditable(false);
+
+		// to view threads on the text area (need to work towards making this
+		// functional)
+		reportFC = passengersinqueue.BusinessPicker() + "" + passengersinqueue.firstPicker() + "";
+		desk1TxtArea.append(reportFC);
+
 		FirstandBusinessDesk.add(desk1TxtArea, BorderLayout.CENTER);
 
 		buttonPanel1 = new JPanel();
@@ -199,10 +238,6 @@ public class GUIMain extends JFrame implements Observer{
 		buttonPanel1.add(openBtn1);
 		buttonPanel1.add(closeBtn1);
 		FirstandBusinessDesk.add(buttonPanel1, BorderLayout.SOUTH);
-		
-		// add info to be displayed
-		//passengersinqueue.BusinessPicker();
-		//passengersinqueue.firstPicker();
 
 		// desk 2
 		EconomyDesk1 = new JPanel();
@@ -217,6 +252,12 @@ public class GUIMain extends JFrame implements Observer{
 		desk2TextArea = new JTextArea();
 		desk2TextArea.setSize(60, 60);
 		desk2TextArea.setEditable(false);
+
+		// to view threads on the text area (need to work towards making this
+		// functional)
+		reportEC1 = passengersinqueue.EconomyPicker() + "";
+		desk2TextArea.append(reportEC1);
+
 		EconomyDesk1.add(desk2TextArea);
 
 		buttonPanel2 = new JPanel();
@@ -225,9 +266,9 @@ public class GUIMain extends JFrame implements Observer{
 		buttonPanel2.add(openBtn2);
 		buttonPanel2.add(closeBtn2);
 		EconomyDesk1.add(buttonPanel2, BorderLayout.SOUTH);
-		
+
 		// add info to be displayed
-		//passengersinqueue.EconomyPicker();
+		// passengersinqueue.EconomyPicker();
 
 		// desk 3
 		EconomyDesk2 = new JPanel();
@@ -242,6 +283,12 @@ public class GUIMain extends JFrame implements Observer{
 		desk3TextArea = new JTextArea();
 		desk3TextArea.setSize(60, 60);
 		desk3TextArea.setEditable(false);
+
+		// to view threads on the text area (need to work towards making this
+		// functional)
+		reportEC2 = passengersinqueue.EconomyPicker() + "";
+		desk3TextArea.append(reportEC2);
+
 		EconomyDesk2.add(desk3TextArea);
 
 		buttonPanel3 = new JPanel();
@@ -250,9 +297,9 @@ public class GUIMain extends JFrame implements Observer{
 		buttonPanel3.add(openBtn3);
 		buttonPanel3.add(closeBtn3);
 		EconomyDesk2.add(buttonPanel3, BorderLayout.SOUTH);
-		
+
 		// add info to be displayed
-		//passengersinqueue.EconomyPicker();
+		// passengersinqueue.EconomyPicker();
 
 		// desk 4
 		EconomyDesk3 = new JPanel();
@@ -267,6 +314,12 @@ public class GUIMain extends JFrame implements Observer{
 		desk4TextArea = new JTextArea();
 		desk4TextArea.setSize(60, 60);
 		desk4TextArea.setEditable(false);
+
+		// to view threads on the text area (need to work towards making this
+		// functional)
+		reportEC3 = passengersinqueue.EconomyPicker() + "";
+		desk4TextArea.append(reportEC3);
+
 		EconomyDesk3.add(desk4TextArea);
 
 		buttonPanel4 = new JPanel();
@@ -275,9 +328,9 @@ public class GUIMain extends JFrame implements Observer{
 		buttonPanel4.add(openBtn4);
 		buttonPanel4.add(closeBtn4);
 		EconomyDesk3.add(buttonPanel4, BorderLayout.SOUTH);
-		
+
 		// add info to be displayed
-		//passengersinqueue.EconomyPicker();
+		// passengersinqueue.EconomyPicker();
 
 	}
 
@@ -300,11 +353,13 @@ public class GUIMain extends JFrame implements Observer{
 		checkinQueue.add(checkinQueuelabel, BorderLayout.NORTH);
 
 		// create text area
-		checkinQueueTxtArea = new JTextArea(40, 50);
+		checkinQueueTxtArea = new JTextArea();
 		checkinQueueTxtArea.setLineWrap(true);
 		checkinQueueTxtArea.setWrapStyleWord(true);
 		checkinQueueTxtArea.setEditable(false);
 		checkinQueueTxtArea.setSize(100, 100);
+		reportC = passengersinqueue.toString() + "";
+		checkinQueueTxtArea.append(reportC);
 		checkinQueue.add(checkinQueueTxtArea, BorderLayout.CENTER);
 
 		// create scroll bar
@@ -313,13 +368,6 @@ public class GUIMain extends JFrame implements Observer{
 		checkinQueueScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		checkinQueueScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		checkinQueueScroll.setViewportView(checkinQueueTxtArea);
-		
-		
-		//add info to be displayed
-		//passengersinqueue.puti();
-		
-		
-		
 
 		// set up passengers in security queue panel
 		securityQueue = new JPanel();
@@ -338,6 +386,8 @@ public class GUIMain extends JFrame implements Observer{
 		securityQueueTxtArea.setWrapStyleWord(true);
 		securityQueueTxtArea.setEditable(false);
 		securityQueueTxtArea.setSize(100, 100);
+		reportS = passengersinqueue.toString() + "";
+		securityQueueTxtArea.append(reportS);
 		securityQueue.add(securityQueueTxtArea, BorderLayout.CENTER);
 
 		// create scroll bar
@@ -346,11 +396,9 @@ public class GUIMain extends JFrame implements Observer{
 		securityQueueScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		securityQueueScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		securityQueueScroll.setViewportView(securityQueueTxtArea);
-		
+
 		// add info to be displayed
-		//passengersinqueue.PickerforSecurity();
-		
-		
+		// passengersinqueue.PickerforSecurity();
 
 		// set up passengers in boarding queue
 		bQ = new JPanel();
@@ -367,6 +415,8 @@ public class GUIMain extends JFrame implements Observer{
 		bTxtArea.setWrapStyleWord(true);
 		bTxtArea.setEditable(false);
 		bTxtArea.setSize(100, 100);
+		reportB = passengersinqueue.toString() + "";
+		bTxtArea.append(reportB);
 		bQ.add(bTxtArea, BorderLayout.CENTER);
 
 		bQS = new JScrollPane();
@@ -374,9 +424,9 @@ public class GUIMain extends JFrame implements Observer{
 		bQS.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		bQS.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		bQS.setViewportView(bTxtArea);
-		
+
 		// add info to be displayed
-		//passengersinqueue.PickerforBoarding();
+		// passengersinqueue.PickerforBoarding();
 
 	}
 
@@ -391,11 +441,54 @@ public class GUIMain extends JFrame implements Observer{
 
 	}
 
-
 	@Override
 	public void update(Observable o, Object arg) {
+		con.run();
+		prod.run();
 		passengersinqueue.puti();
-		
+		passengersinqueue.BusinessPicker();
+		passengersinqueue.firstPicker();
+		passengersinqueue.EconomyPicker();
+		passengersinqueue.PickerforSecurity();
+		passengersinqueue.PickerforBoarding();
+
+	}
+
+	// The idea of the following two methods updateTextAre() and
+	// redirectSystemStreams() is to direct the text printed on the console to the
+	// GUI text area
+	// But both of the following do not seem to work
+	// It has been suggested to declare redirectSystemStreams() as an independent
+	// thread which needed to be tested out
+
+	private void updateTextArea(final String text) {
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				checkinQueueTxtArea.append(text);
+			}
+		});
+	}
+
+	public void redirectSystemStreams() {
+		OutputStream out = new OutputStream() {
+			@Override
+			public void write(int b) throws IOException {
+				updateTextArea(String.valueOf((char) b));
+			}
+
+			@Override
+			public void write(byte[] b, int off, int len) throws IOException {
+				updateTextArea(new String(b, off, len));
+			}
+
+			@Override
+			public void write(byte[] b) throws IOException {
+				write(b, 0, b.length);
+			}
+		};
+
+		System.setOut(new PrintStream(out, true));
+		System.setErr(new PrintStream(out, true));
 	}
 
 }

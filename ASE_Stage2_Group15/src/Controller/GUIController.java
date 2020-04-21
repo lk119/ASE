@@ -143,6 +143,8 @@ public class GUIController {
 					e1.printStackTrace();
 				}
          		
+         		view1.redirectSystemStreams();
+         		
          		
 	        }
 		

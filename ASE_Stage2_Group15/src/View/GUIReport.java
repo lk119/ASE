@@ -80,7 +80,7 @@ public class GUIReport extends JFrame {
 
 			// action listener for this menu item
 			public void actionPerformed(ActionEvent e) {
-				GUIMain GUIMain = new GUIMain(passengersinqueue);
+				GUIMain GUIMain = new GUIMain(passengersinqueue, null, null, null, null, null, null, null, null);
 				GUIMain.setVisible(true);
 				dispose();
 			}
