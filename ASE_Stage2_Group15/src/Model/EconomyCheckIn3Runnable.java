@@ -1,14 +1,34 @@
 package Model;
 
-public class EconomyCheckIn3Runnable implements Runnable {
+import java.util.Observable;
+
+import View.GUIMain;
+
+public class EconomyCheckIn3Runnable extends Observable implements Runnable {
+	
+	private GUIMain view1;
+	private boolean Finish = false;
+	
 	PassengersInQueue q;
 	  public EconomyCheckIn3Runnable(PassengersInQueue  c) {
 			q=c;
 		}
+	  
+	  public boolean isFinished() {
+			return Finish;
+		}
+		
+		//indicates end of auction
+		public void setFinished() {
+			Finish = true;
+
+		}
+
+		
 		
 		public void run() {
 			Passenger pas = null;
-			
+						
 			try {
 				Thread.sleep(50000);
 				pas=  q.EconomyPicker();
@@ -17,7 +37,8 @@ public class EconomyCheckIn3Runnable implements Runnable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+            System.out.println("ECONOMY CHECK-IN DESK3 FINISHED");
+			Finish = true;
 		} 
 
 }

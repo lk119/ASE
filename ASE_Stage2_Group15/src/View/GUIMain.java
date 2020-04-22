@@ -441,8 +441,11 @@ public class GUIMain extends JFrame implements Observer {
 
 	}
 
+	
+	//this update method needs to be fixed at this moment it is non-functional
 	@Override
 	public void update(Observable o, Object arg) {
+		
 		con.run();
 		prod.run();
 		passengersinqueue.puti();

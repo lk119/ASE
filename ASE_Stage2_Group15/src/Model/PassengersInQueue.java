@@ -319,11 +319,13 @@ public class PassengersInQueue {
 		try {
 
 			while (true) {
+				Passenger window = Checkedin.peek();
+				if (window.getCheckInStatus()== true) {
 				p = boarding.take();
 				System.out.println(p.getpClass() + " class passenger, " + p.getFullName() + " travelling by "
 						+ p.getflightCode() + " is in the boarding queue.");
 			}
-
+			}
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

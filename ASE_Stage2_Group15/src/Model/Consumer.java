@@ -1,22 +1,27 @@
 package Model;
 
 import java.util.Iterator;
+import java.util.Observable;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-public class Consumer implements Runnable{
+import View.GUIMain;
+
+public class Consumer extends Observable implements Runnable {
+
+	private GUIMain view1;
+	private boolean Finish = false;
 
 	/*
 	 * PassengerSet customers; FlightList planes; volatile BlockingQueue<Passenger>
 	 * q= new ArrayBlockingQueue<Passenger>(20);
 	 */
 	PassengersInQueue q;
-	private volatile boolean exit = false;
-	public Consumer(PassengersInQueue  c) {
-		q=c;
+	
+	public Consumer(PassengersInQueue c) {
+		q = c;
 	}
-	
-	
+
 	/*
 	 * public void run() { customers.readFile("passengers");
 	 * planes.readFile("flights"); while(true) {
@@ -30,28 +35,32 @@ public class Consumer implements Runnable{
 	 * }
 	 * 
 	 * }
-	 */ 
+	 */
+	public boolean isFinished() {
+		return Finish;
+	}
+	
+	//indicates end of auction
+	public void setFinished() {
+		Finish = true;
 
-
+	}
+	
 
 	@Override
 	public void run() {
-		
-		try {
-		
-			 q.puti();
-			 
-		} catch(NullPointerException N) {
-			System.out.println("The queue is empty");
-			
-		}
-		 
-		
-		
-		
-	}
-	
-}
-	
 
+		
+			try {
+
+				q.puti();
+
+			} catch (NullPointerException N) {
+				System.out.println("The queue is empty");
+
+			}
+			Finish = true;
+		}
+
+	}
 
