@@ -43,12 +43,11 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 
 import Model.BoardingRunnable;
-import Model.Consumer;
+
 import Model.EconomyCheckIn1Runnable;
 import Model.EconomyCheckIn2Runnable;
 import Model.EconomyCheckIn3Runnable;
 import Model.FirstandBusinessCheckInRunnable;
-
 import Model.Passenger;
 import Model.PassengersInQueue;
 import Model.SecurityRunnable;
@@ -67,7 +66,8 @@ public class GUIMain extends JFrame implements Observer {
 	private FirstandBusinessCheckInRunnable fc;
 	private SecurityRunnable s;
 	private BoardingRunnable b;
-	private Consumer con;
+	
+	
 	
 
 	private String reportC;
@@ -101,12 +101,12 @@ public class GUIMain extends JFrame implements Observer {
 	 * @param ps
 	 */
 
-	public GUIMain(PassengersInQueue pq, Passenger p, EconomyCheckIn1Runnable model2, EconomyCheckIn2Runnable model3,
+	public GUIMain(PassengersInQueue pq, EconomyCheckIn1Runnable model2, EconomyCheckIn2Runnable model3,
 			EconomyCheckIn3Runnable model4, FirstandBusinessCheckInRunnable model5, SecurityRunnable model6,
-			BoardingRunnable model7, Consumer model8) {
+			BoardingRunnable model7) {
 
 		passengersinqueue = pq;
-		passenger =p;
+		
 		pq.addObserver(this);
 		ec1 = model2;
 		ec2 = model3;
@@ -114,7 +114,7 @@ public class GUIMain extends JFrame implements Observer {
 		fc = model5;
 		this.s = model6;
 		this.b = model7;
-		con = model8;
+	
 		
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -182,9 +182,6 @@ public class GUIMain extends JFrame implements Observer {
 
 	}
 
-	public GUIMain(String string) {
-		// TODO Auto-generated constructor stub
-	}
 
 	private void setupNorthPanel() {
 
@@ -425,53 +422,21 @@ public class GUIMain extends JFrame implements Observer {
 /////////////////////////////////////////////////////
 //MVC pattern - allows listeners to be added
 	public void addGUIMainListener(ActionListener al) {
-		
 		processButton.addActionListener(al);
-					
 	}
 
 	
-	
+	public void appendText(String text) {
+		checkinQueueTxtArea.append(text);
+	}
 	
 	
 	public void disableProcessButton() {
 		
 		processButton.setEnabled(false);
 		
-		/*SwingWorker <Passenger, String> workercheckin = new SwingWorker <Passenger, String> (){
-			
-						
-				
-			
-			@Override
-			protected Passenger doInBackground() throws Exception {
-				
-				
-				
-				//Thread thread8 = new Thread(new BoardingRunnable(passengersinqueue));
-				   
-		       
-				   			    
-				        		       		
-         		return passenger;
-		}
-
-			@Override
-			protected void process(List<String> chunks) {
-				String reportB = chunks.get(chunks.size()-1);
-				bTxtArea.append(reportB);
-			}
-
-			
-        
-			
-
-		};
-			workercheckin.execute();	*/	
-		} 
-	
 		
-
+	}
 	
 	
 	//this update method needs to be fixed at this moment it is non-functional
@@ -490,6 +455,7 @@ public class GUIMain extends JFrame implements Observer {
 	// thread which needed to be tested out
 
 	
+
  
 
 }

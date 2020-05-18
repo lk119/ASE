@@ -1,6 +1,9 @@
 package Controller;
 
 import java.util.Scanner;
+
+import javax.swing.SwingUtilities;
+
 import Model.BoardingRunnable;
 
 import Model.EconomyCheckIn1Runnable;
@@ -42,6 +45,8 @@ public class TravelPigeonManager {
 		// shared object in producer/consumer model
 		PassengersInQueue q = new PassengersInQueue();
 
+		Passenger p;
+
 		// models
 		PassengersInQueue model1 = new PassengersInQueue();
 		EconomyCheckIn1Runnable model2 = new EconomyCheckIn1Runnable(model1);
@@ -53,14 +58,14 @@ public class TravelPigeonManager {
 		Producer model8 = new Producer(model1);
 
 		// view
-		// GUIMain view1 = new GUIMain (model1, null, model2, model3, model4, model5,
+		GUIMain view1 = new GUIMain(model1, model2, model3, model4, model5, model6, model7);
+
 		// model6, model7, model8);
 		GUIReport view2 = new GUIReport(model1);
 
 		// controller
-		// GUIController controller = new GUIController(model1, model2, model3, model4,
-		// model5, model6, model7, model8, view1, view2);
-		// view1.setVisible(true);
+		GUIController controller = new GUIController(model1, model2, model3, model4, model5, model6, model7, view1,
+				view2);
 
 		// read flight input file
 		FlightList f = new FlightList();
@@ -72,37 +77,11 @@ public class TravelPigeonManager {
 		// close the scanner
 		sc.close();
 
-		Thread thread1 = new Thread(new Producer(q));
-		Thread thread2 = new Thread(new EconomyCheckIn1Runnable(q));
-		Thread thread3 = new Thread(new FirstandBusinessCheckInRunnable(q));
-		Thread thread4 = new Thread(new EconomyCheckIn2Runnable(q));
-		Thread thread5 = new Thread(new EconomyCheckIn3Runnable(q));
-		Thread thread6 = new Thread(new SecurityRunnable(q));
-		Thread thread7 = new Thread(new BoardingRunnable(q));
-		
-		
-		thread1.start();
-		thread2.start();
-		thread3.start();
-		thread4.start();
-		thread5.start();
-		thread6.start();
-		thread7.start();
-
-		try {
-			
-			thread1.join();
-			thread2.join();
-			thread3.join();
-			thread4.join();
-			thread5.join();
-			thread6.join();
-			thread7.join();
-			
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				view1.setVisible(true);
+			}
+		});
 
 	}
 

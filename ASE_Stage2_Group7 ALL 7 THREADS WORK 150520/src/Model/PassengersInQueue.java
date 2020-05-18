@@ -38,6 +38,8 @@ public class PassengersInQueue {
 	// security
 	private volatile LinkedList<Passenger> boarding = new LinkedList<Passenger>();
 
+	private ArrayList<Message> messages = new ArrayList<Message>();
+
 	// our flight fleet
 	// FlightList planes = new FlightList().populate();
 
@@ -80,6 +82,11 @@ public class PassengersInQueue {
 				String name = p1.getFullName();
 				Log log = Log.getInstance();
 				log.logCheckInQueue(name);
+
+				String message = new String();
+				String queue = "waiting";
+				message = name + " is waiting in the queue.";
+				messages.add(new Message(queue, message));
 
 				// remove the passenger from the set to avoid duplication
 				if (customers1.cont(p1)) {
@@ -284,14 +291,14 @@ public class PassengersInQueue {
 						lock.wait();
 					}
 
-					// for loop to go through the linked list 
+					// for loop to go through the linked list
 					for (int i = 0; i <= forSecurity.size(); i++) {
 
 						// Passenger object p is the first element in the linked list
 						// remove() method will remove the object from the linked list
 						Passenger p = forSecurity.removeFirst();
-						
-						//if the passengers have checked in
+
+						// if the passengers have checked in
 						if (p.getCheckInStatus() == true) {
 							// the passenger is added in the linked list security
 							clearedSecurity.add(p);
@@ -341,7 +348,7 @@ public class PassengersInQueue {
 						lock.wait();
 					}
 
-					// for loop to go through the linked list 
+					// for loop to go through the linked list
 					for (int i = 0; i <= clearedSecurity.size(); i++) {
 
 						// Passenger object p is the first element in the linked list
@@ -401,6 +408,10 @@ public class PassengersInQueue {
 
 	public LinkedList<Passenger> getQ3() {
 		return boarding;
+	}
+
+	public ArrayList<Message> getMessages() {
+		return messages;
 	}
 
 	public void addObserver(GUIMain guiMain) {
