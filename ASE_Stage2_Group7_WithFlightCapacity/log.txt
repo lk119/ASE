@@ -1,0 +1,356 @@
+PROGRESS LOG:
+
+Cruz Cordell Villarreal has joined the check-in queue
+
+Carmela Bertha Brown has joined the check-in queue
+
+Lorene Israel Pineda has joined the check-in queue
+
+Stacey Eula Sparks has joined the check-in queue
+
+Marlin Alphonse Reese has joined the check-in queue
+
+Ronald Phyllis Reynolds has joined the check-in queue
+
+Lilly Whitney Camacho has joined the check-in queue
+
+Kevin Jeremy Rice has joined the check-in queue
+
+Dave Mindy Randolph has joined the check-in queue
+
+Enrique Lonnie Bradshaw has joined the check-in queue
+
+Cruz Cordell Villarreal (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Ronald Phyllis Reynolds (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Kevin Jeremy Rice (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Dave Mindy Randolph (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Enrique Lonnie Bradshaw (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Son Edwardo Shelton has joined the check-in queue
+
+Son Edwardo Shelton (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Joel Martin Johanson has joined the check-in queue
+
+Ed Lilia Barnett has joined the check-in queue
+
+Arnoldo Shakita Sheppard has joined the check-in queue
+
+Cyril Walter Marsh has joined the check-in queue
+
+Kathrine Sue Pineda has joined the check-in queue
+
+Joel Martin Johanson (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Ed Lilia Barnett (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Arnoldo Shakita Sheppard (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Cyril Walter Marsh (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Kathrine Sue Pineda (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Carmela Bertha Brown (Flight: QA410, Business Class) is now at the Economy Check-In desk
+
+Lorene Israel Pineda (Flight: QA410, First Class) is now at the Economy Check-In desk
+
+Stacey Eula Sparks (Flight: BA808, Business Class) is now at the Economy Check-In desk
+
+Marlin Alphonse Reese (Flight: BA808, Business Class) is now at the Economy Check-In desk
+
+Lilly Whitney Camacho (Flight: BA808, Business Class) is now at the Economy Check-In desk
+
+Daryl Bernie Cisneros has joined the check-in queue
+
+Barney Tobias Aguirre has joined the check-in queue
+
+Dallas Gale Green has joined the check-in queue
+
+Garrett Earlene Savage has joined the check-in queue
+
+Cecil Marisa Strong has joined the check-in queue
+
+Von Valeria Lucero has joined the check-in queue
+
+Barney Tobias Aguirre (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Dallas Gale Green (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Garrett Earlene Savage (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Cecil Marisa Strong (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Von Valeria Lucero (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Santo Darlene Walls has joined the check-in queue
+
+Jewel Ramiro Santiago has joined the check-in queue
+
+Sheldon Clinton Chavez has joined the check-in queue
+
+Amalia Lincoln Martinez has joined the check-in queue
+
+Trina Franklyn Espinoza has joined the check-in queue
+
+Harley Roxie Cordova has joined the check-in queue
+
+Natasha Kip Donaldson has joined the check-in queue
+
+Santo Darlene Walls (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Jewel Ramiro Santiago (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Sheldon Clinton Chavez (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Amalia Lincoln Martinez (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Trina Franklyn Espinoza (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Daryl Bernie Cisneros (Flight: QA410, Business Class) is now at the Economy Check-In desk
+
+Harley Roxie Cordova (Flight: QA410, First Class) is now at the Economy Check-In desk
+
+Natasha Kip Donaldson (Flight: QA410, First Class) is now at the Economy Check-In desk
+
+Olga Jared Saunders has joined the check-in queue
+
+Brooks Dexter Nielsen has joined the check-in queue
+
+Esther Katherine Malone has joined the check-in queue
+
+Hallie Eleanor Ho has joined the check-in queue
+
+Erwin Selma Gallagher has joined the check-in queue
+
+Demetrius Jordon Keith has joined the check-in queue
+
+Mac Luke Frye has joined the check-in queue
+
+Harley Eleonora Owen has joined the check-in queue
+
+Hallie Eleanor Ho (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Erwin Selma Gallagher (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Demetrius Jordon Keith (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Mac Luke Frye (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Harley Eleonora Owen (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Davis Ken Bass has joined the check-in queue
+
+Rachel James Haney has joined the check-in queue
+
+Forest Brooks Brennan has joined the check-in queue
+
+Abraham Wayne Fernandez has joined the check-in queue
+
+Celeste Katelyn Carroll has joined the check-in queue
+
+Carolyn Esther Hatfield has joined the check-in queue
+
+Davis Ken Bass (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Rachel James Haney (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Forest Brooks Brennan (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Abraham Wayne Fernandez (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Celeste Katelyn Carroll (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Olga Jared Saunders (Flight: EA203, Business Class) is now at the Economy Check-In desk
+
+Brooks Dexter Nielsen (Flight: EA203, First Class) is now at the Economy Check-In desk
+
+Esther Katherine Malone (Flight: EA203, First Class) is now at the Economy Check-In desk
+
+Carolyn Esther Hatfield (Flight: EA203, First Class) is now at the Economy Check-In desk
+
+Cecile Joaquin Vargas has joined the check-in queue
+
+Jeffrey Maynard Stanton has joined the check-in queue
+
+Kara Otha Valentine has joined the check-in queue
+
+Trenton Lamar Watkins has joined the check-in queue
+
+Juliet Oswaldo Mora has joined the check-in queue
+
+Robyn Willie Benjamin has joined the check-in queue
+
+Nichole Benjamin Maddox has joined the check-in queue
+
+Frances Georgia Underwood has joined the check-in queue
+
+Gale Sabina Alvarado has joined the check-in queue
+
+Rosanna Rosemarie Shields has joined the check-in queue
+
+Robyn Willie Benjamin (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Nichole Benjamin Maddox (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Frances Georgia Underwood (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Gale Sabina Alvarado (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Rosanna Rosemarie Shields (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Tuan Horacio Adkins has joined the check-in queue
+
+Gorgie Dustin Gurge has joined the check-in queue
+
+Tuan Horacio Adkins (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Gorgie Dustin Gurge (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Cecile Joaquin Vargas (Flight: EA203, Business Class) is now at the Economy Check-In desk
+
+Jeffrey Maynard Stanton (Flight: BA808, Business Class) is now at the Economy Check-In desk
+
+Kara Otha Valentine (Flight: BA808, Business Class) is now at the Economy Check-In desk
+
+Trenton Lamar Watkins (Flight: QA410, First Class) is now at the Economy Check-In desk
+
+Juliet Oswaldo Mora (Flight: BA808, Business Class) is now at the Economy Check-In desk
+
+Bonnie Dorothea Sutton has joined the check-in queue
+
+Gale Jamie Riddle has joined the check-in queue
+
+Alexandra Ferdinand Forbes has joined the check-in queue
+
+Savannah Araceli Beck has joined the check-in queue
+
+Benita Lynette Chandler has joined the check-in queue
+
+Bonnie Dorothea Sutton (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Gale Jamie Riddle (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Alexandra Ferdinand Forbes (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Savannah Araceli Beck (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Benita Lynette Chandler (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Floyd Eva Moore has joined the check-in queue
+
+Philip Berta Thornton has joined the check-in queue
+
+Lloyd Tammera Silva has joined the check-in queue
+
+Emanuel Kim Oconnell has joined the check-in queue
+
+David Lamar Leach has joined the check-in queue
+
+Soo Necole Austin has joined the check-in queue
+
+Henrietta Diego Hobbs has joined the check-in queue
+
+Calvin Rita Arnold has joined the check-in queue
+
+Floyd Eva Moore (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Philip Berta Thornton (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Lloyd Tammera Silva (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Emanuel Kim Oconnell (Flight: EA203, First Class) is now at the Economy Check-In desk
+
+David Lamar Leach (Flight: BA808, First Class) is now at the Economy Check-In desk
+
+Soo Necole Austin (Flight: QA410, Business Class) is now at the Economy Check-In desk
+
+Henrietta Diego Hobbs (Flight: BA808, First Class) is now at the Economy Check-In desk
+
+Calvin Rita Arnold (Flight: QA410, First Class) is now at the Economy Check-In desk
+
+Gilda Marcellus Mercer has joined the check-in queue
+
+Alton Anibal Riddle has joined the check-in queue
+
+Eunice Kris Buck has joined the check-in queue
+
+Mae Cecilia Kaiser has joined the check-in queue
+
+Clinton Isreal Schaefer has joined the check-in queue
+
+Joaquin Garth Henson has joined the check-in queue
+
+Alton Anibal Riddle (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Eunice Kris Buck (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Mae Cecilia Kaiser (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Clinton Isreal Schaefer (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Joaquin Garth Henson (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Fred Cleveland Watts has joined the check-in queue
+
+Marion Cathryn Jarvis has joined the check-in queue
+
+Nolan Augustus Cabrera has joined the check-in queue
+
+Jody Cedrick Mcpherson has joined the check-in queue
+
+Dena Justin Dawson has joined the check-in queue
+
+Percy Viola Little has joined the check-in queue
+
+Ronnie Melvin Hooper has joined the check-in queue
+
+Fred Cleveland Watts (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Marion Cathryn Jarvis (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Nolan Augustus Cabrera (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Gilda Marcellus Mercer (Flight: QA410, Business Class) is now at the Economy Check-In desk
+
+Jody Cedrick Mcpherson (Flight: QA410, First Class) is now at the Economy Check-In desk
+
+Dena Justin Dawson (Flight: EA203, Business Class) is now at the Economy Check-In desk
+
+Percy Viola Little (Flight: BA808, Business Class) is now at the Economy Check-In desk
+
+Ronnie Melvin Hooper (Flight: BA808, First Class) is now at the Economy Check-In desk
+
+Wendy Lindsey Lowery has joined the check-in queue
+
+Fermin Tamika Mcmillan has joined the check-in queue
+
+David Essie May has joined the check-in queue
+
+Ezra Graham Benton has joined the check-in queue
+
+Ronda Drucilla Frost has joined the check-in queue
+
+Erna Delmar Garrison has joined the check-in queue
+
+Drew Bennie Lucas has joined the check-in queue
+
+Tyrell Courtney Nixon has joined the check-in queue
+
+Eliseo Jude Wang has joined the check-in queue
+
+Twanna Tanisha Lam has joined the check-in queue
+
+Erna Delmar Garrison (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Drew Bennie Lucas (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Tyrell Courtney Nixon (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Eliseo Jude Wang (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Twanna Tanisha Lam (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
