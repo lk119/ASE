@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.Observable;
+import java.util.TimerTask;
 
 import View.GUIMain;
 
@@ -33,7 +34,7 @@ public class SecurityRunnable extends Observable implements Runnable {
 		
 
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(2000);
 				pas = q.securityPicker() ;
 
 			} catch (InterruptedException e) {

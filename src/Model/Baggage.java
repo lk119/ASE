@@ -215,7 +215,7 @@ public class Baggage {
 	public double excessWeightFee() {
 		double excessFee = 0;
 		double excessWeight = excessBaggageWeight();
-		excessFee = excessWeight * 20;
+		excessFee = excessWeight * 10;
 		return excessFee;
 	}
 

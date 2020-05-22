@@ -19,6 +19,7 @@ public class Passenger {
  	private String pClass;
  	private Baggage baggage;
  	final int FLIGHTCAPACITY = 150;
+ 	private PassengersInQueue piq;
 	
 	
 	public Passenger(String bookingReferenceNum, String flightCode, Name passengerName, boolean checkInStatus, String pClass, Baggage b) throws InvalidBookingReference {
@@ -114,9 +115,20 @@ public class Passenger {
 	}
 
   
+
   
-  
-  
+	public String getQueueList() {
+		String report = "";
+		if (piq.getQ().size() == 0 ) {
+			report += " No passengers currently in queue\n";
+		}
+		else {
+			for (Passenger p : piq.getQ()) {
+				report += piq.getReport() + "\n";
+			}
+		}
+		return report;
+	}
   
 
 //create a simple Bag

@@ -1,14 +1,24 @@
 package Controller;
 
+import java.awt.AWTEvent;
+import java.awt.Component;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
+import Model.Airport;
 import Model.BoardingRunnable;
-
+import Model.EcoProducer;
 import Model.EconomyCheckIn1Runnable;
 import Model.EconomyCheckIn2Runnable;
 import Model.EconomyCheckIn3Runnable;
+import Model.FirstProducer;
 import Model.FirstandBusinessCheckInRunnable;
 
 import Model.FlightList;
@@ -16,8 +26,9 @@ import Model.InvalidBookingReference;
 import Model.Passenger;
 import Model.PassengerSet;
 import Model.PassengersInQueue;
-import Model.Producer;
+
 import Model.SecurityRunnable;
+import View.GUIDemo;
 import View.GUIMain;
 import View.GUIReport;
 
@@ -29,23 +40,30 @@ import View.GUIReport;
  */
 
 public class TravelPigeonManager {
-	/**
-	 * Reads the input files and creates the first instance of the GUI
-	 * 
-	 * @throws InterruptedException
-	 * @throws InvalidBookingReference
-	 */
+
+	public void addpopup () {
+		JFrame frame = new JFrame();
+		JOptionPane.showMessageDialog(frame, "GATES CLOSED.");
+	}
+	
+	
+
 
 	public void run() throws InterruptedException {
 
 		// read passenger input file
 		PassengerSet ps = new PassengerSet();
-		ps.readFile("passengers");
 
 		// shared object in producer/consumer model
 		PassengersInQueue q = new PassengersInQueue();
 
-		Passenger p;
+		ps.readFile("passengers");
+
+		// open the scanner
+		Scanner sc = new Scanner(System.in);
+
+		// close the scanner
+		sc.close();
 
 		// models
 		PassengersInQueue model1 = new PassengersInQueue();
@@ -55,34 +73,87 @@ public class TravelPigeonManager {
 		FirstandBusinessCheckInRunnable model5 = new FirstandBusinessCheckInRunnable(model1);
 		SecurityRunnable model6 = new SecurityRunnable(model1);
 		BoardingRunnable model7 = new BoardingRunnable(model1);
-		Producer model8 = new Producer(model1);
-
+		EcoProducer model8 = new EcoProducer(model1);
+		FirstProducer model9 = new FirstProducer(model1);
+		
+		
 		// view
-		GUIMain view1 = new GUIMain(model1, model2, model3, model4, model5, model6, model7);
-
-		// model6, model7, model8);
-		GUIReport view2 = new GUIReport(model1);
+		//GUIMain view1 = new GUIMain(model1, null, model2, model3, model4, model5,
+		//model6, model7, model8, model9);
+		// GUIReport view2 = new GUIReport(model1);
 
 		// controller
-		GUIController controller = new GUIController(model1, model2, model3, model4, model5, model6, model7, view1,
-				view2);
+		// GUIController controller = new GUIController(model1, model2, model3, model4,
+		// model5, model6, model7, model8,
+		// model9, view1);
+		//view1.setVisible(true);
 
-		// read flight input file
-		FlightList f = new FlightList();
-		f.readFile("flight");
-
-		// open the scanner
-		Scanner sc = new Scanner(System.in);
-
-		// close the scanner
-		sc.close();
-
+		// GUIDemo GUIDemo = new GUIDemo(toString());view2 = v2;
+		
+			
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
+				GUIMain view1 = new GUIMain(model1, model2, model3, model4, model5, model6, model7, model8, model9);
+				GUIController controller = new GUIController(model1, model2, model3, model4, model5, model6, model7, model8, model9, view1);
 				view1.setVisible(true);
 			}
 		});
+		
+
+
+		
+
+		
+
+		
+
+	
 
 	}
 
+	/*
+	 * try {
+	 * 
+	 * Thread.sleep(2000);
+	 * 
+	 * }catch (InterruptedException ex) {}
+	 * 
+	 * 
+	 * timer.cancel();
+	 */
+
+	/*
+	 * timer2.schedule(new TimerTask() {
+	 * 
+	 * @Override public void run() { System.out.println("TIME CHECK"); Thread
+	 * thread2 = new Thread(new FirstProducer(q)); thread2.start(); try {
+	 * thread2.join(); } catch (InterruptedException e) { // TODO Auto-generated
+	 * catch block e.printStackTrace(); }
+	 * 
+	 * }
+	 * 
+	 * }, 10, 60000);
+	 */
+	/*
+	 * timer3.schedule(new TimerTask() {
+	 * 
+	 * @Override public void run() { System.out.println("TIME CHECK"); Thread
+	 * thread3 = new Thread(new EconomyCheckIn1Runnable(q)); thread3.start(); try {
+	 * thread3.join(); } catch (InterruptedException e) { // TODO Auto-generated
+	 * catch block e.printStackTrace(); }
+	 * 
+	 * }
+	 * 
+	 * }, 10, 60000);
+	 */
+
+	/*
+	 * SwingUtilities.invokeLater(new Runnable() {
+	 * 
+	 * @Override public void run() { // new GUIDemo (null);
+	 * 
+	 * }
+	 * 
+	 * });
+	 */
 }

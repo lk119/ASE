@@ -2,7 +2,12 @@ package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.ExecutionException;
 
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
@@ -10,26 +15,25 @@ import javax.swing.SwingWorker;
 import Model.EconomyCheckIn1Runnable;
 import Model.EconomyCheckIn2Runnable;
 import Model.EconomyCheckIn3Runnable;
+import Model.FirstProducer;
 import Model.FirstandBusinessCheckInRunnable;
 import Model.Log;
-import Model.Name;
 import Model.BoardingRunnable;
-import Model.Message;
-
+import Model.EcoProducer;
 import Model.SecurityRunnable;
 import Model.PassengersInQueue;
-import Model.Producer;
+import Model.Airport;
 import Model.Passenger;
 import Model.PassengerSet;
 
 import View.GUIMain;
 import View.GUIReport;
 
+
 public class GUIController {
 
-	private Passenger passenger;
 	private PassengersInQueue passengersinqueue;
-	private PassengerSet passengerset;
+	private PassengerSet ps;
 	private EconomyCheckIn1Runnable desk1;
 	private EconomyCheckIn2Runnable desk2;
 	private EconomyCheckIn3Runnable desk3;
@@ -38,15 +42,16 @@ public class GUIController {
 	private BoardingRunnable boarding;
 	private GUIMain view1;
 	private GUIReport view2;
-	private Name passengerName;
-
+	private EcoProducer ecoprod;
+	private FirstProducer firstprod;
+	private Airport airport;
+	private int numPassengers;
 	private Log log;
 
 	public GUIController(PassengersInQueue q, EconomyCheckIn1Runnable d1, EconomyCheckIn2Runnable d2,
 			EconomyCheckIn3Runnable d3, FirstandBusinessCheckInRunnable f, SecurityRunnable s, BoardingRunnable b,
-			GUIMain v1, GUIReport v2) {
+			EcoProducer ep, FirstProducer fp, GUIMain v1) {
 
-		// passenger = p;
 		passengersinqueue = q;
 		desk1 = d1;
 		desk2 = d2;
@@ -55,110 +60,144 @@ public class GUIController {
 		security = s;
 		boarding = b;
 		view1 = v1;
-		view2 = v2;
+		ecoprod = ep;
+		firstprod = fp;
 
-		// prod = pd;
 		// this.log = log;
 		view1.addGUIMainListener(new GUIMainController());
 		// view2.addGUIReportListener(new GUIReportController());
 
 	}
 
+//	public void update(LinkedList<Passenger> queue) {
+//		SwingUtilities.invokeLater(new Runnable() {
+//
+//			public void run() {
+//				for (Passenger p : queue) {
+//					String print = p.getFullName();
+//					view1.appendText(print + "\n");
+//					System.out.print("SIZE OF LIST IS THIS: " + queue.size());
+//					System.out.print("SIZE OF THE OTHER LIST IS THIS: " + passengersinqueue.getQ1().size());
+//				}
+//
+//			}
+//		});
+//	}
+
 	class GUIMainController implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			
+
 			System.out.println("THE BUTTON HAS BEEN PRESSED");
 			
+			List<String> queueList = new ArrayList<String>();
+
 			view1.disableProcessButton();
 
 			SwingUtilities.invokeLater(new Runnable() {
 
+				@Override
 				public void run() {
 
-					SwingWorker<Void, String> worker = new SwingWorker<Void, String>() {
+					Timer airportTimer = new Timer();
+					Thread airportthread = new Thread(new Airport(passengersinqueue));
+
+					airportTimer.schedule(new TimerTask() {
+
+						@Override
+						public void run() {
+
+							System.out.println("GATES CLOSING SOON");
+
+							try {
+								Thread.sleep(4000);
+							} catch (InterruptedException e) {
+							}
+
+							System.out.println("FINAL BOARDING CALL");
+							System.out.println("GATES CLOSED");
+	
+
+							// Runtime.getRuntime().exit(0);
+							// Runtime.getRuntime().halt(0);
+
+						}
+
+					}, 60000);
+
+					airportthread.start();
+
+					SwingWorker<List<String>, String> worker = new SwingWorker<List<String>, String>() {
 
 						// we need this but i dunno what to put in it yet
 						@Override
 						protected void done() {
 
-							System.out.println("ALL PROCESSES COMPLETE");
-
+							try {
+								List<String> queueList = get();
+								System.out.println("ALL PROCESSES COMPLETE" + queueList.size() + " processed");
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (ExecutionException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 
 						// this appends what gets published during doInBackground to the
 						// GUI field. This will need modified when appending to the different fields
-						// as well as the appendText function in GUIMain. 
+						// as well as the appendText function in GUIMain.
 						@Override
 						protected void process(List<String> chunks) {
 
 							for (String chunk : chunks) {
+
 								view1.appendText(chunk + "\n");
+								
+								System.out.print("SIZE OF LIST IS THIS: " + chunks.size());
+								System.out.print("SIZE OF THE OTHER LIST IS THIS: " + passengersinqueue.getQ().size());
 
 							}
+
+	//					String passengers = chunks.get(0);
+	//					update(passengers);
 						}
 
-						// this is where the magic is happening - starts the threads in the background on the EDT
-						protected Void doInBackground() throws Exception {
+						// this is where the magic is happening - starts the threads in the background
+						// on the EDT
+						protected List<String> doInBackground() throws Exception {
 							System.out.println("BANANAS BANANANS BANANANANANANANANAS IM IN THE BACKGROUND");
 
-							Thread thread1 = new Thread(new Producer(passengersinqueue));
-							Thread thread2 = new Thread(new EconomyCheckIn1Runnable(passengersinqueue));
-							Thread thread3 = new Thread(new FirstandBusinessCheckInRunnable(passengersinqueue));
-							Thread thread4 = new Thread(new EconomyCheckIn2Runnable(passengersinqueue));
-							Thread thread5 = new Thread(new EconomyCheckIn3Runnable(passengersinqueue));
-							Thread thread6 = new Thread(new SecurityRunnable(passengersinqueue));
-							Thread thread7 = new Thread(new BoardingRunnable(passengersinqueue));
 
-							thread1.start();
-							thread2.start();
-							thread3.start();
-							thread4.start();
-							thread5.start();
-							thread6.start();
-							thread7.start();
 
-							// this is the only place I've figured I can put this where it will publish something
-							// but it just publishes the first person in the Q over and over
-							// so obviously not working correctly
-							// will also need changed as it's only looking at the one Q
-							// I think we need an overall list like I had done before - (see below)
-							// but if you run that it only runs the first guy but at least it only runs it once
-							// but that overall list would also help when appending to the correct field
-							
 							while (!isCancelled()) {
 
-								for (Passenger passenger : passengersinqueue.getQ1()) {
+
+								numPassengers = passengersinqueue.getQ().size();
+										
+								for (int i = 0; i < numPassengers; i++) {
+								
+									String report = ps.get(i).getQueueList();
+									
 									System.out.println("I GOT HERE");
-									publish(passenger.getFullName());
-									System.out.println("I'M BEING PUBLISHED..." + passenger.getFullName());
+
+								//	queueList.add(passenger);
+
+									publish(report);
+								//	System.out.println("I'M BEING PUBLISHED..." + passenger.getFullName());
 								}
 							}
-							
-//							while (!isCancelled()) {
-//
-//								for (Message message : passengersinqueue.getMessages()) {
-//									System.out.println("I GOT HERE");
-//									publish(message.getContents());
-//									System.out.println("I'M BEING PUBLISHED..." + message.getContents());
+
+//								while (!isCancelled()) {
+							//
+//									for (Message message : passengersinqueue.getMessages()) {
+//										System.out.println("I GOT HERE");
+//										publish(message.getContents());
+//										System.out.println("I'M BEING PUBLISHED..." + message.getContents());
+//									}
 //								}
-//							}
 
-							try {
-
-								thread1.join();
-								thread2.join();
-								thread3.join();
-								thread4.join();
-								thread5.join();
-								thread6.join();
-								thread7.join();
-
-							} catch (InterruptedException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}
-
-							return null;
+							return queueList;
 						}
 
 					};

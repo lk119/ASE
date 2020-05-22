@@ -33,6 +33,10 @@ public class PassengerSet {
 		return PassengerSet.size();
 
 	}
+	
+	public Passenger get(int i) {
+		return PassengerSet.get(i);
+	}
 
 	// return random passenger for the set of customers
 	public Passenger rando() {

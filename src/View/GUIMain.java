@@ -43,11 +43,13 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 
 import Model.BoardingRunnable;
-
+import Model.EcoProducer;
 import Model.EconomyCheckIn1Runnable;
 import Model.EconomyCheckIn2Runnable;
 import Model.EconomyCheckIn3Runnable;
+import Model.FirstProducer;
 import Model.FirstandBusinessCheckInRunnable;
+
 import Model.Passenger;
 import Model.PassengersInQueue;
 import Model.SecurityRunnable;
@@ -59,16 +61,17 @@ public class GUIMain extends JFrame implements Observer {
 	private JPanel contentPane;
 
 	private PassengersInQueue passengersinqueue;
-    private Passenger passenger;
+	private Passenger passenger;
 	private EconomyCheckIn1Runnable ec1;
 	private EconomyCheckIn2Runnable ec2;
 	private EconomyCheckIn3Runnable ec3;
 	private FirstandBusinessCheckInRunnable fc;
 	private SecurityRunnable s;
 	private BoardingRunnable b;
-	
-	
-	
+	private EcoProducer ecoprod;
+	private FirstProducer firstprod;
+
+	private int numPassengers;
 
 	private String reportC;
 	private String reportS;
@@ -103,10 +106,10 @@ public class GUIMain extends JFrame implements Observer {
 
 	public GUIMain(PassengersInQueue pq, EconomyCheckIn1Runnable model2, EconomyCheckIn2Runnable model3,
 			EconomyCheckIn3Runnable model4, FirstandBusinessCheckInRunnable model5, SecurityRunnable model6,
-			BoardingRunnable model7) {
+			BoardingRunnable model7, EcoProducer model8, FirstProducer model9) {
 
 		passengersinqueue = pq;
-		
+
 		pq.addObserver(this);
 		ec1 = model2;
 		ec2 = model3;
@@ -114,8 +117,8 @@ public class GUIMain extends JFrame implements Observer {
 		fc = model5;
 		this.s = model6;
 		this.b = model7;
-	
-		
+		ecoprod = model8;
+		firstprod = model9;
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 1500, 1500);
@@ -182,6 +185,9 @@ public class GUIMain extends JFrame implements Observer {
 
 	}
 
+	public GUIMain(String string) {
+		// TODO Auto-generated constructor stub
+	}
 
 	private void setupNorthPanel() {
 
@@ -218,7 +224,7 @@ public class GUIMain extends JFrame implements Observer {
 
 		// to view threads on the text area (need to work towards making this
 		// functional)
-		//reportFC = passengersinqueue.BusinessFirstPicker() + "";
+		// reportFC = passengersinqueue.BusinessFirstPicker() + "";
 		desk1TxtArea.append(reportFC);
 
 		FirstandBusinessDesk.add(desk1TxtArea, BorderLayout.CENTER);
@@ -246,7 +252,7 @@ public class GUIMain extends JFrame implements Observer {
 
 		// to view threads on the text area (need to work towards making this
 		// functional)
-		//reportEC1 = passengersinqueue.EconomyPicker() + "";
+		// reportEC1 = passengersinqueue.EconomyPicker() + "";
 		desk2TextArea.append(reportEC1);
 
 		EconomyDesk1.add(desk2TextArea);
@@ -277,7 +283,7 @@ public class GUIMain extends JFrame implements Observer {
 
 		// to view threads on the text area (need to work towards making this
 		// functional)
-		//reportEC2 = passengersinqueue.EconomyPicker() + "";
+		// reportEC2 = passengersinqueue.EconomyPicker() + "";
 		desk3TextArea.append(reportEC2);
 
 		EconomyDesk2.add(desk3TextArea);
@@ -308,7 +314,7 @@ public class GUIMain extends JFrame implements Observer {
 
 		// to view threads on the text area (need to work towards making this
 		// functional)
-		//reportEC3 = passengersinqueue.EconomyPicker() + "";
+		// reportEC3 = passengersinqueue.EconomyPicker() + "";
 		desk4TextArea.append(reportEC3);
 
 		EconomyDesk3.add(desk4TextArea);
@@ -349,8 +355,8 @@ public class GUIMain extends JFrame implements Observer {
 		checkinQueueTxtArea.setWrapStyleWord(true);
 		checkinQueueTxtArea.setEditable(false);
 		checkinQueueTxtArea.setSize(100, 100);
-		//reportC = passengersinqueue.toString() + "";
-		//checkinQueueTxtArea.append(reportC);
+		// reportC = passengersinqueue.toString() + "";
+		// checkinQueueTxtArea.append(reportC);
 		checkinQueue.add(checkinQueueTxtArea, BorderLayout.CENTER);
 
 		// create scroll bar
@@ -377,8 +383,8 @@ public class GUIMain extends JFrame implements Observer {
 		securityQueueTxtArea.setWrapStyleWord(true);
 		securityQueueTxtArea.setEditable(false);
 		securityQueueTxtArea.setSize(100, 100);
-		//reportS = passengersinqueue.toString() + "";
-		//securityQueueTxtArea.append(reportS);
+		// reportS = passengersinqueue.toString() + "";
+		// securityQueueTxtArea.append(reportS);
 		securityQueue.add(securityQueueTxtArea, BorderLayout.CENTER);
 
 		// create scroll bar
@@ -406,7 +412,7 @@ public class GUIMain extends JFrame implements Observer {
 		bTxtArea.setWrapStyleWord(true);
 		bTxtArea.setEditable(false);
 		bTxtArea.setSize(100, 100);
-		
+
 		bTxtArea.append(reportB);
 		bQ.add(bTxtArea, BorderLayout.CENTER);
 		bQS = new JScrollPane();
@@ -414,8 +420,6 @@ public class GUIMain extends JFrame implements Observer {
 		bQS.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		bQS.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		bQS.setViewportView(bTxtArea);
-
-		
 
 	}
 
@@ -425,27 +429,22 @@ public class GUIMain extends JFrame implements Observer {
 		processButton.addActionListener(al);
 	}
 
-	
+	public void disableProcessButton() {
+		processButton.setEnabled(false);
+	}
+
+	// allows txt to be appended
 	public void appendText(String text) {
 		checkinQueueTxtArea.append(text);
 	}
-	
-	
-	public void disableProcessButton() {
-		
-		processButton.setEnabled(false);
-		
-		
-	}
-	
-	
-	//this update method needs to be fixed at this moment it is non-functional
+
+	// this update method needs to be fixed at this moment it is non-functional
 	@Override
-	public void update(Observable o, Object arg) {
-		
-	//reportB = passengersinqueue.getBoardingReport();
+	public synchronized void update(Observable o, Object arg) {
 
 	}
+
+	// reportB = passengersinqueue.getBoardingReport();
 
 	// The idea of the following two methods updateTextAre() and
 	// redirectSystemStreams() is to direct the text printed on the console to the
@@ -453,9 +452,5 @@ public class GUIMain extends JFrame implements Observer {
 	// But both of the following do not seem to work
 	// It has been suggested to declare redirectSystemStreams() as an independent
 	// thread which needed to be tested out
-
-	
-
- 
 
 }

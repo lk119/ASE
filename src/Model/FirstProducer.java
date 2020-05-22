@@ -2,12 +2,13 @@ package Model;
 
 import java.util.Iterator;
 import java.util.Observable;
+import java.util.TimerTask;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 import View.GUIMain;
 
-public class Producer extends Observable implements Runnable {
+public class FirstProducer extends Observable implements Runnable {
 
 	private GUIMain view1;
 	private boolean Finish = false;
@@ -18,24 +19,11 @@ public class Producer extends Observable implements Runnable {
 	 */
 	PassengersInQueue q;
 	
-	public Producer(PassengersInQueue c) {
+	public FirstProducer(PassengersInQueue c) {
 		q = c;
 	}
 
-	/*
-	 * public void run() { customers.readFile("passengers");
-	 * planes.readFile("flights"); while(true) {
-	 * System.out.println(customers.rando()); try { q.put(customers.rando()); }
-	 * catch (InterruptedException e) { // TODO Auto-generated catch block
-	 * e.printStackTrace(); }
-	 * 
-	 * 
-	 * System.out.println("THE queue SIZE IS " + q.size());
-	 * 
-	 * }
-	 * 
-	 * }
-	 */
+	
 	public boolean isFinished() {
 		return Finish;
 	}
@@ -48,10 +36,10 @@ public class Producer extends Observable implements Runnable {
 		
 			try {
 				Thread.sleep(300);
-				q.puti();
+				q.firstbusinessQueueputi();
 
 			} catch (NullPointerException | InterruptedException N) {
-				System.out.println("The queue is empty");
+				System.out.println("The first and business class check-in queue is empty");
 
 			}
 			
@@ -59,4 +47,5 @@ public class Producer extends Observable implements Runnable {
 		}
 
 	}
+
 
