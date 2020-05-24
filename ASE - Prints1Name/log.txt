@@ -1,0 +1,30 @@
+PROGRESS LOG:
+
+Olga Katrina Sheppard has joined the check-in queue
+
+Lloyd Tammera Silva has joined the check-in queue
+
+Calvin Rita Arnold has joined the check-in queue
+
+Juliet Oswaldo Mora has joined the check-in queue
+
+Judson Harriet Henson has joined the check-in queue
+
+Stacey Eula Sparks has joined the check-in queue
+
+Elsie Lance Atkinson has joined the check-in queue
+
+Olga Katrina Sheppard (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Lloyd Tammera Silva (Flight: EA203, Economy Class) is now at the Economy Check-In desk
+
+Calvin Rita Arnold (Flight: QA410, First Class) is now at the Economy Check-In desk
+
+Juliet Oswaldo Mora (Flight: BA808, Business Class) is now at the Economy Check-In desk
+
+Judson Harriet Henson (Flight: QA410, Business Class) is now at the Economy Check-In desk
+
+Stacey Eula Sparks (Flight: BA808, Business Class) is now at the Economy Check-In desk
+
+Elsie Lance Atkinson (Flight: EA203, Business Class) is now at the Economy Check-In desk
+
