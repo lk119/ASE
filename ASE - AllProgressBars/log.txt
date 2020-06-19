@@ -1,0 +1,34 @@
+PROGRESS LOG:
+
+Ed Lilia Barnett has joined the check-in queue
+
+Mariana Hyman Marks has joined the check-in queue
+
+Benjamin Savannah Roth has joined the check-in queue
+
+Calvin Rita Arnold has joined the check-in queue
+
+Alexander Eloise Orozco has joined the check-in queue
+
+Bonnie Dorothea Sutton has joined the check-in queue
+
+Forest Brooks Brennan has joined the check-in queue
+
+Ed Lilia Barnett (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Benjamin Savannah Roth (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Alexander Eloise Orozco (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
+Mariana Hyman Marks (Flight: EA203, First Class) is now at the Economy Check-In desk
+
+Calvin Rita Arnold (Flight: QA410, First Class) is now at the Economy Check-In desk
+
+Bonnie Dorothea Sutton (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Forest Brooks Brennan (Flight: BA808, Economy Class) is now at the Economy Check-In desk
+
+Cornelius Javier Saunders has joined the check-in queue
+
+Cornelius Javier Saunders (Flight: QA410, Economy Class) is now at the Economy Check-In desk
+
