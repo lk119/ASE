@@ -1,0 +1,1028 @@
+PROGRESS LOG:
+
+Economy class passenger Gale Sabina Alvarado ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Economy class passenger Kesha Mindy Casey ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Business class passenger Soo Necole Austin ,travelling by flight QA410 has joined the Business class check-in queue
+
+Business class passenger Morris Junior Costa ,travelling by flight QA410 has joined the Business class check-in queue
+
+First class passenger Allan Thea Hobbs ,travelling by flight QA410 has joined the First class check-in queue
+
+Economy class passenger Denise Celina Sharp ,travelling by flight QA410 has joined the Economy class check-in queue
+
+First class passenger Ardelia Salome Edwards ,travelling by flight QA410 has joined the First class check-in queue
+
+Economy class passenger Hugh Sudie Snyder ,travelling by flight QA410 has joined the Economy class check-in queue
+
+First class passenger Davida Mellissa Weeks ,travelling by flight QA410 has joined the First class check-in queue
+
+Economy class passenger Eliseo Jude Wang ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Soo Necole Austin (Flight: QA410, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 21.0 X 2.0 X 7.0 cubic inches. The bag weight is 5.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Morris Junior Costa (Flight: QA410, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 17.0 X 3.0 X 9.0 cubic inches. The bag weight is 31.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Allan Thea Hobbs (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 6.0 X 1.0 X 11.0 cubic inches. The bag weight is 31.0 Kg.
+
+The excess baggage fees collected is 0.0 GBP.
+
+Ardelia Salome Edwards (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 23.0 X 1.0 X 11.0 cubic inches. The bag weight is 15.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Davida Mellissa Weeks (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 6.0 X 5.0 X 8.0 cubic inches. The bag weight is 44.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Gale Sabina Alvarado (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 14.0 X 5.0 X 9.0 cubic inches. The bag weight is 36.0 Kg.
+
+The excess baggage fees collected is 130.0 GBP.
+
+Kesha Mindy Casey (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 14.0 X 6.0 X 5.0 cubic inches. The bag weight is 8.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Denise Celina Sharp (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 20.0 X 2.0 X 8.0 cubic inches. The bag weight is 19.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Hugh Sudie Snyder (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 9.0 X 4.0 X 3.0 cubic inches. The bag weight is 6.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Eliseo Jude Wang (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 23.0 X 1.0 X 6.0 cubic inches. The bag weight is 44.0 Kg.
+
+The excess baggage fees collected is 210.0 GBP.
+
+Economy class passenger Rachel James Haney ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Economy class passenger Kathrine Sue Pineda ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Business class passenger Lilly Whitney Camacho ,travelling by flight BA808 has joined the Business class check-in queue
+
+Business class passenger Marlin Alphonse Reese ,travelling by flight BA808 has joined the Business class check-in queue
+
+Lilly Whitney Camacho (Flight: BA808, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 30.0 X 2.0 X 11.0 cubic inches. The bag weight is 6.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Marlin Alphonse Reese (Flight: BA808, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 12.0 X 1.0 X 7.0 cubic inches. The bag weight is 56.0 Kg.
+
+The excess baggage fees collected is 210.0 GBP.
+
+Rachel James Haney (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 7.0 X 1.0 X 11.0 cubic inches. The bag weight is 31.0 Kg.
+
+The excess baggage fees collected is 80.0 GBP.
+
+Kathrine Sue Pineda (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 34.0 X 6.0 X 5.0 cubic inches. The bag weight is 23.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Economy class passenger Ed Lilia Barnett ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Economy class passenger Dave Mindy Randolph ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Economy class passenger Demetrius Jordon Keith ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Business class passenger Mervin Bonita Hart ,travelling by flight EA203 has joined the Business class check-in queue
+
+Business class passenger Cesar Cristopher Duran ,travelling by flight EA203 has joined the Business class check-in queue
+
+Mervin Bonita Hart (Flight: EA203, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 19.0 X 5.0 X 11.0 cubic inches. The bag weight is 5.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Cesar Cristopher Duran (Flight: EA203, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 15.0 X 5.0 X 12.0 cubic inches. The bag weight is 48.0 Kg.
+
+The excess baggage fees collected is 150.0 GBP.
+
+Ed Lilia Barnett (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 19.0 X 1.0 X 11.0 cubic inches. The bag weight is 37.0 Kg.
+
+The excess baggage fees collected is 140.0 GBP.
+
+Dave Mindy Randolph (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 9.0 X 3.0 X 4.0 cubic inches. The bag weight is 20.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+First class passenger Brooks Dexter Nielsen ,travelling by flight EA203 has joined the First class check-in queue
+
+Economy class passenger Santo Darlene Walls ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Economy class passenger Sheldon Clinton Chavez ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Economy class passenger Jamey Valarie Shaffer ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Economy class passenger Benita Lynette Chandler ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Brooks Dexter Nielsen (Flight: EA203, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 7.0 X 1.0 X 8.0 cubic inches. The bag weight is 56.0 Kg.
+
+The excess baggage fees collected is 110.0 GBP.
+
+Demetrius Jordon Keith (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 19.0 X 1.0 X 5.0 cubic inches. The bag weight is 38.0 Kg.
+
+The excess baggage fees collected is 150.0 GBP.
+
+Santo Darlene Walls (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 34.0 X 5.0 X 5.0 cubic inches. The bag weight is 8.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Sheldon Clinton Chavez (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 7.0 X 4.0 X 3.0 cubic inches. The bag weight is 46.0 Kg.
+
+The excess baggage fees collected is 230.0 GBP.
+
+Jamey Valarie Shaffer (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 7.0 X 1.0 X 6.0 cubic inches. The bag weight is 36.0 Kg.
+
+The excess baggage fees collected is 110.0 GBP.
+
+Benita Lynette Chandler (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 29.0 X 4.0 X 4.0 cubic inches. The bag weight is 26.0 Kg.
+
+The excess baggage fees collected is 30.0 GBP.
+
+Economy class passenger Mitzi Werner Boone ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Business class passenger Mikel Jody Marks ,travelling by flight BA808 has joined the Business class check-in queue
+
+Mikel Jody Marks (Flight: BA808, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 7.0 X 5.0 X 3.0 cubic inches. The bag weight is 61.0 Kg.
+
+The excess baggage fees collected is 280.0 GBP.
+
+Mitzi Werner Boone (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 26.0 X 3.0 X 7.0 cubic inches. The bag weight is 40.0 Kg.
+
+The excess baggage fees collected is 170.0 GBP.
+
+Business class passenger Percy Viola Little ,travelling by flight BA808 has joined the Business class check-in queue
+
+Percy Viola Little (Flight: BA808, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 18.0 X 1.0 X 6.0 cubic inches. The bag weight is 29.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Economy class passenger Cecile Juana Kennedy ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Economy class passenger Olga Katrina Sheppard ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Economy class passenger Nolan Augustus Cabrera ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Cecile Juana Kennedy (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 26.0 X 3.0 X 7.0 cubic inches. The bag weight is 22.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Olga Katrina Sheppard (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 6.0 X 5.0 X 12.0 cubic inches. The bag weight is 19.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Nolan Augustus Cabrera (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 6.0 X 2.0 X 9.0 cubic inches. The bag weight is 38.0 Kg.
+
+The excess baggage fees collected is 150.0 GBP.
+
+Business class passenger Sherman Terra Horne ,travelling by flight BA808 has joined the Business class check-in queue
+
+Business class passenger Shira Isidro Oconnell ,travelling by flight QA410 has joined the Business class check-in queue
+
+Economy class passenger Harry Nora Berry ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Economy class passenger Alexander Eloise Orozco ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Economy class passenger Cornelius Javier Saunders ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Sherman Terra Horne (Flight: BA808, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 28.0 X 1.0 X 6.0 cubic inches. The bag weight is 9.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Shira Isidro Oconnell (Flight: QA410, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 12.0 X 5.0 X 10.0 cubic inches. The bag weight is 59.0 Kg.
+
+The excess baggage fees collected is 260.0 GBP.
+
+Harry Nora Berry (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 29.0 X 1.0 X 5.0 cubic inches. The bag weight is 47.0 Kg.
+
+The excess baggage fees collected is 240.0 GBP.
+
+Alexander Eloise Orozco (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 33.0 X 3.0 X 3.0 cubic inches. The bag weight is 18.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Cornelius Javier Saunders (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 5.0 X 2.0 X 6.0 cubic inches. The bag weight is 27.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Business class passenger Stan Annie Camacho ,travelling by flight QA410 has joined the Business class check-in queue
+
+Economy class passenger Mac Luke Frye ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Stan Annie Camacho (Flight: QA410, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 16.0 X 2.0 X 12.0 cubic inches. The bag weight is 8.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Mac Luke Frye (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 14.0 X 2.0 X 10.0 cubic inches. The bag weight is 26.0 Kg.
+
+The excess baggage fees collected is 30.0 GBP.
+
+First class passenger Herminia Hollie Garrett ,travelling by flight QA410 has joined the First class check-in queue
+
+Herminia Hollie Garrett (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 33.0 X 4.0 X 5.0 cubic inches. The bag weight is 60.0 Kg.
+
+The excess baggage fees collected is 170.0 GBP.
+
+First class passenger Natasha Kip Donaldson ,travelling by flight QA410 has joined the First class check-in queue
+
+Natasha Kip Donaldson (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 29.0 X 2.0 X 4.0 cubic inches. The bag weight is 2.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+First class passenger Wendy Lindsey Lowery ,travelling by flight QA410 has joined the First class check-in queue
+
+First class passenger Calvin Rita Arnold ,travelling by flight QA410 has joined the First class check-in queue
+
+Economy class passenger Barney Tobias Aguirre ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Wendy Lindsey Lowery (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 30.0 X 4.0 X 6.0 cubic inches. The bag weight is 46.0 Kg.
+
+The excess baggage fees collected is 30.0 GBP.
+
+Calvin Rita Arnold (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 22.0 X 1.0 X 11.0 cubic inches. The bag weight is 3.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Barney Tobias Aguirre (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 33.0 X 4.0 X 9.0 cubic inches. The bag weight is 15.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Economy class passenger Ronald Phyllis Reynolds ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Business class passenger Judson Harriet Henson ,travelling by flight QA410 has joined the Business class check-in queue
+
+Judson Harriet Henson (Flight: QA410, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 6.0 X 6.0 X 10.0 cubic inches. The bag weight is 60.0 Kg.
+
+The excess baggage fees collected is 270.0 GBP.
+
+Ronald Phyllis Reynolds (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 11.0 X 4.0 X 6.0 cubic inches. The bag weight is 61.0 Kg.
+
+The excess baggage fees collected is 380.0 GBP.
+
+Business class passenger Daryl Bernie Cisneros ,travelling by flight QA410 has joined the Business class check-in queue
+
+Economy class passenger Von Valeria Lucero ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Daryl Bernie Cisneros (Flight: QA410, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 26.0 X 6.0 X 5.0 cubic inches. The bag weight is 29.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Von Valeria Lucero (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 31.0 X 6.0 X 3.0 cubic inches. The bag weight is 8.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Economy class passenger Cleo Edgardo Preston ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Economy class passenger Ethan Chad Small ,travelling by flight QA410 has joined the Economy class check-in queue
+
+First class passenger David Essie May ,travelling by flight EA203 has joined the First class check-in queue
+
+First class passenger Carolyn Esther Hatfield ,travelling by flight EA203 has joined the First class check-in queue
+
+David Essie May (Flight: EA203, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 7.0 X 1.0 X 6.0 cubic inches. The bag weight is 24.0 Kg.
+
+The excess baggage fees collected is 0.0 GBP.
+
+Carolyn Esther Hatfield (Flight: EA203, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 19.0 X 4.0 X 3.0 cubic inches. The bag weight is 59.0 Kg.
+
+The excess baggage fees collected is 160.0 GBP.
+
+Cleo Edgardo Preston (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 19.0 X 4.0 X 6.0 cubic inches. The bag weight is 37.0 Kg.
+
+The excess baggage fees collected is 140.0 GBP.
+
+Ethan Chad Small (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 33.0 X 6.0 X 3.0 cubic inches. The bag weight is 10.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Economy class passenger Eunice Kris Buck ,travelling by flight EA203 has joined the Economy class check-in queue
+
+First class passenger Emanuel Kim Oconnell ,travelling by flight EA203 has joined the First class check-in queue
+
+Emanuel Kim Oconnell (Flight: EA203, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 7.0 X 3.0 X 6.0 cubic inches. The bag weight is 15.0 Kg.
+
+The excess baggage fees collected is 0.0 GBP.
+
+Eunice Kris Buck (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 17.0 X 6.0 X 7.0 cubic inches. The bag weight is 28.0 Kg.
+
+The excess baggage fees collected is 50.0 GBP.
+
+Economy class passenger Bernardo Aimee Sherman ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Business class passenger Romeo Chang Bryan ,travelling by flight EA203 has joined the Business class check-in queue
+
+Economy class passenger Frances Georgia Underwood ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Economy class passenger Hallie Eleanor Ho ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Economy class passenger Kevin Jeremy Rice ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Economy class passenger Philip Berta Thornton ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Romeo Chang Bryan (Flight: EA203, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 12.0 X 2.0 X 7.0 cubic inches. The bag weight is 37.0 Kg.
+
+The excess baggage fees collected is 40.0 GBP.
+
+Bernardo Aimee Sherman (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 30.0 X 2.0 X 4.0 cubic inches. The bag weight is 59.0 Kg.
+
+The excess baggage fees collected is 360.0 GBP.
+
+Frances Georgia Underwood (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 34.0 X 1.0 X 4.0 cubic inches. The bag weight is 37.0 Kg.
+
+The excess baggage fees collected is 140.0 GBP.
+
+Hallie Eleanor Ho (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 30.0 X 6.0 X 9.0 cubic inches. The bag weight is 23.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Kevin Jeremy Rice (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 24.0 X 2.0 X 6.0 cubic inches. The bag weight is 14.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Philip Berta Thornton (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 6.0 X 6.0 X 12.0 cubic inches. The bag weight is 9.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Economy class passenger Tyrell Courtney Nixon ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Business class passenger Brant Kurtis English ,travelling by flight QA410 has joined the Business class check-in queue
+
+Economy class passenger Terrie Lesley Hinton ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Economy class passenger Willian Becky Harvey ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Brant Kurtis English (Flight: QA410, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 25.0 X 3.0 X 4.0 cubic inches. The bag weight is 57.0 Kg.
+
+The excess baggage fees collected is 240.0 GBP.
+
+Tyrell Courtney Nixon (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 20.0 X 5.0 X 4.0 cubic inches. The bag weight is 47.0 Kg.
+
+The excess baggage fees collected is 240.0 GBP.
+
+Terrie Lesley Hinton (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 20.0 X 5.0 X 8.0 cubic inches. The bag weight is 52.0 Kg.
+
+The excess baggage fees collected is 290.0 GBP.
+
+Willian Becky Harvey (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 9.0 X 1.0 X 4.0 cubic inches. The bag weight is 10.0 Kg.
+
+The excess baggage fees collected is 0.0 GBP.
+
+Economy class passenger Margarita Dwain Bird ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Business class passenger Gilda Marcellus Mercer ,travelling by flight QA410 has joined the Business class check-in queue
+
+Business class passenger Clarice Wesley Burch ,travelling by flight QA410 has joined the Business class check-in queue
+
+Gilda Marcellus Mercer (Flight: QA410, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 18.0 X 4.0 X 5.0 cubic inches. The bag weight is 25.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Clarice Wesley Burch (Flight: QA410, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 18.0 X 4.0 X 10.0 cubic inches. The bag weight is 58.0 Kg.
+
+The excess baggage fees collected is 250.0 GBP.
+
+Margarita Dwain Bird (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 24.0 X 2.0 X 4.0 cubic inches. The bag weight is 20.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+First class passenger Annie Darrin Maddox ,travelling by flight QA410 has joined the First class check-in queue
+
+Economy class passenger Erwin Selma Gallagher ,travelling by flight QA410 has joined the Economy class check-in queue
+
+First class passenger Lorene Israel Pineda ,travelling by flight QA410 has joined the First class check-in queue
+
+Economy class passenger Trina Franklyn Espinoza ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Annie Darrin Maddox (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 20.0 X 5.0 X 8.0 cubic inches. The bag weight is 60.0 Kg.
+
+The excess baggage fees collected is 170.0 GBP.
+
+Lorene Israel Pineda (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 12.0 X 5.0 X 11.0 cubic inches. The bag weight is 35.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Erwin Selma Gallagher (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 8.0 X 5.0 X 10.0 cubic inches. The bag weight is 13.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Trina Franklyn Espinoza (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 5.0 X 2.0 X 12.0 cubic inches. The bag weight is 48.0 Kg.
+
+The excess baggage fees collected is 250.0 GBP.
+
+First class passenger Jody Cedrick Mcpherson ,travelling by flight QA410 has joined the First class check-in queue
+
+Economy class passenger Daryl Frederic Cameron ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Business class passenger Mae Elvia Rich ,travelling by flight QA410 has joined the Business class check-in queue
+
+Economy class passenger Tamra Hai Lamb ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Jody Cedrick Mcpherson (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 13.0 X 2.0 X 6.0 cubic inches. The bag weight is 27.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Mae Elvia Rich (Flight: QA410, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 5.0 X 5.0 X 12.0 cubic inches. The bag weight is 7.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Daryl Frederic Cameron (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 33.0 X 1.0 X 10.0 cubic inches. The bag weight is 2.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Tamra Hai Lamb (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 22.0 X 4.0 X 6.0 cubic inches. The bag weight is 56.0 Kg.
+
+The excess baggage fees collected is 330.0 GBP.
+
+Economy class passenger Garrett Earlene Savage ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Business class passenger Carmela Bertha Brown ,travelling by flight QA410 has joined the Business class check-in queue
+
+Economy class passenger Fred Cleveland Watts ,travelling by flight QA410 has joined the Economy class check-in queue
+
+First class passenger Harley Roxie Cordova ,travelling by flight QA410 has joined the First class check-in queue
+
+First class passenger Graciela Noel Villarreal ,travelling by flight QA410 has joined the First class check-in queue
+
+Economy class passenger Dora Marie Herring ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Carmela Bertha Brown (Flight: QA410, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 5.0 X 2.0 X 3.0 cubic inches. The bag weight is 13.0 Kg.
+
+The excess baggage fees collected is 0.0 GBP.
+
+Harley Roxie Cordova (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 24.0 X 3.0 X 6.0 cubic inches. The bag weight is 28.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Garrett Earlene Savage (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 22.0 X 5.0 X 7.0 cubic inches. The bag weight is 19.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Fred Cleveland Watts (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 11.0 X 5.0 X 8.0 cubic inches. The bag weight is 8.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Dora Marie Herring (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 20.0 X 6.0 X 7.0 cubic inches. The bag weight is 15.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Graciela Noel Villarreal (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 30.0 X 3.0 X 5.0 cubic inches. The bag weight is 10.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Business class passenger Kara Otha Valentine ,travelling by flight BA808 has joined the Business class check-in queue
+
+Economy class passenger Davis Ken Bass ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Economy class passenger Joaquin Garth Henson ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Kara Otha Valentine (Flight: BA808, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 23.0 X 5.0 X 7.0 cubic inches. The bag weight is 3.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Davis Ken Bass (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 25.0 X 6.0 X 3.0 cubic inches. The bag weight is 14.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Joaquin Garth Henson (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 24.0 X 4.0 X 5.0 cubic inches. The bag weight is 55.0 Kg.
+
+The excess baggage fees collected is 320.0 GBP.
+
+Economy class passenger Floyd Eva Moore ,travelling by flight BA808 has joined the Economy class check-in queue
+
+First class passenger Markus Estela Coffey ,travelling by flight BA808 has joined the First class check-in queue
+
+First class passenger Trenton Lamar Watkins ,travelling by flight QA410 has joined the First class check-in queue
+
+Markus Estela Coffey (Flight: BA808, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 14.0 X 5.0 X 11.0 cubic inches. The bag weight is 34.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Trenton Lamar Watkins (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 17.0 X 5.0 X 10.0 cubic inches. The bag weight is 33.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Floyd Eva Moore (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 24.0 X 6.0 X 6.0 cubic inches. The bag weight is 16.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Economy class passenger Erna Delmar Garrison ,travelling by flight QA410 has joined the Economy class check-in queue
+
+First class passenger Fermin Tamika Mcmillan ,travelling by flight QA410 has joined the First class check-in queue
+
+Economy class passenger Cyril Walter Marsh ,travelling by flight QA410 has joined the Economy class check-in queue
+
+Economy class passenger Joel Martin Johanson ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Business class passenger Arnaud Christian Blomme ,travelling by flight EA203 has joined the Business class check-in queue
+
+Fermin Tamika Mcmillan (Flight: QA410, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 6.0 X 3.0 X 8.0 cubic inches. The bag weight is 53.0 Kg.
+
+The excess baggage fees collected is 80.0 GBP.
+
+Arnaud Christian Blomme (Flight: EA203, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 29.0 X 6.0 X 10.0 cubic inches. The bag weight is 57.0 Kg.
+
+The excess baggage fees collected is 240.0 GBP.
+
+Erna Delmar Garrison (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 11.0 X 6.0 X 11.0 cubic inches. The bag weight is 8.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Cyril Walter Marsh (Flight: QA410, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 26.0 X 3.0 X 5.0 cubic inches. The bag weight is 51.0 Kg.
+
+The excess baggage fees collected is 280.0 GBP.
+
+Joel Martin Johanson (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 19.0 X 4.0 X 11.0 cubic inches. The bag weight is 13.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Economy class passenger Gorgie Dustin Gurge ,travelling by flight EA203 has joined the Economy class check-in queue
+
+First class passenger Elliott Deedra Noble ,travelling by flight EA203 has joined the First class check-in queue
+
+First class passenger Irmgard  Greene ,travelling by flight EA203 has joined the First class check-in queue
+
+Economy class passenger Twanna Tanisha Lam ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Elliott Deedra Noble (Flight: EA203, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 32.0 X 3.0 X 6.0 cubic inches. The bag weight is 27.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Irmgard  Greene (Flight: EA203, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 23.0 X 1.0 X 8.0 cubic inches. The bag weight is 35.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Gorgie Dustin Gurge (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 22.0 X 3.0 X 4.0 cubic inches. The bag weight is 29.0 Kg.
+
+The excess baggage fees collected is 60.0 GBP.
+
+Twanna Tanisha Lam (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 13.0 X 3.0 X 4.0 cubic inches. The bag weight is 29.0 Kg.
+
+The excess baggage fees collected is 60.0 GBP.
+
+Economy class passenger Lloyd Tammera Silva ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Business class passenger Olga Jared Saunders ,travelling by flight EA203 has joined the Business class check-in queue
+
+Business class passenger Ronda Drucilla Frost ,travelling by flight EA203 has joined the Business class check-in queue
+
+Olga Jared Saunders (Flight: EA203, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 29.0 X 5.0 X 10.0 cubic inches. The bag weight is 60.0 Kg.
+
+The excess baggage fees collected is 270.0 GBP.
+
+Ronda Drucilla Frost (Flight: EA203, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 23.0 X 1.0 X 10.0 cubic inches. The bag weight is 25.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Lloyd Tammera Silva (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 32.0 X 1.0 X 12.0 cubic inches. The bag weight is 2.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Economy class passenger Amalia Lincoln Martinez ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Economy class passenger Son Edwardo Shelton ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Economy class passenger Cecil Marisa Strong ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Economy class passenger Mae Cecilia Kaiser ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Economy class passenger Buck Janette Zimmerman ,travelling by flight EA203 has joined the Economy class check-in queue
+
+First class passenger Esther Katherine Malone ,travelling by flight EA203 has joined the First class check-in queue
+
+Esther Katherine Malone (Flight: EA203, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 21.0 X 2.0 X 10.0 cubic inches. The bag weight is 2.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Amalia Lincoln Martinez (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 11.0 X 2.0 X 4.0 cubic inches. The bag weight is 54.0 Kg.
+
+The excess baggage fees collected is 310.0 GBP.
+
+Son Edwardo Shelton (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 27.0 X 5.0 X 3.0 cubic inches. The bag weight is 20.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Cecil Marisa Strong (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 13.0 X 6.0 X 8.0 cubic inches. The bag weight is 51.0 Kg.
+
+The excess baggage fees collected is 280.0 GBP.
+
+Mae Cecilia Kaiser (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 8.0 X 1.0 X 8.0 cubic inches. The bag weight is 31.0 Kg.
+
+The excess baggage fees collected is 60.0 GBP.
+
+Buck Janette Zimmerman (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 8.0 X 2.0 X 10.0 cubic inches. The bag weight is 27.0 Kg.
+
+The excess baggage fees collected is 40.0 GBP.
+
+Economy class passenger Alton Anibal Riddle ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Business class passenger Monte Jared Heath ,travelling by flight EA203 has joined the Business class check-in queue
+
+Economy class passenger Emilia Millard Park ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Business class passenger Elsie Lance Atkinson ,travelling by flight EA203 has joined the Business class check-in queue
+
+Business class passenger Jewell Warner Hale ,travelling by flight EA203 has joined the Business class check-in queue
+
+First class passenger Mariana Hyman Marks ,travelling by flight EA203 has joined the First class check-in queue
+
+Monte Jared Heath (Flight: EA203, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 13.0 X 3.0 X 4.0 cubic inches. The bag weight is 29.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Elsie Lance Atkinson (Flight: EA203, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 19.0 X 5.0 X 8.0 cubic inches. The bag weight is 34.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Jewell Warner Hale (Flight: EA203, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 11.0 X 3.0 X 5.0 cubic inches. The bag weight is 57.0 Kg.
+
+The excess baggage fees collected is 240.0 GBP.
+
+Mariana Hyman Marks (Flight: EA203, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 15.0 X 3.0 X 7.0 cubic inches. The bag weight is 58.0 Kg.
+
+The excess baggage fees collected is 150.0 GBP.
+
+Alton Anibal Riddle (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 21.0 X 1.0 X 8.0 cubic inches. The bag weight is 49.0 Kg.
+
+The excess baggage fees collected is 260.0 GBP.
+
+Emilia Millard Park (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 11.0 X 2.0 X 11.0 cubic inches. The bag weight is 35.0 Kg.
+
+The excess baggage fees collected is 120.0 GBP.
+
+Economy class passenger Alexandra Ferdinand Forbes ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Economy class passenger Hollis Burt Warner ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Economy class passenger Tuan Horacio Adkins ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Alexandra Ferdinand Forbes (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 31.0 X 2.0 X 6.0 cubic inches. The bag weight is 60.0 Kg.
+
+The excess baggage fees collected is 370.0 GBP.
+
+Hollis Burt Warner (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 27.0 X 3.0 X 12.0 cubic inches. The bag weight is 26.0 Kg.
+
+The excess baggage fees collected is 30.0 GBP.
+
+Tuan Horacio Adkins (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 32.0 X 6.0 X 5.0 cubic inches. The bag weight is 42.0 Kg.
+
+The excess baggage fees collected is 190.0 GBP.
+
+Business class passenger Bert Alphonso York ,travelling by flight EA203 has joined the Business class check-in queue
+
+Business class passenger Cecile Joaquin Vargas ,travelling by flight EA203 has joined the Business class check-in queue
+
+Economy class passenger Celeste Katelyn Carroll ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Celeste Katelyn Carroll (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 33.0 X 5.0 X 5.0 cubic inches. The bag weight is 3.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Bert Alphonso York (Flight: EA203, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 19.0 X 1.0 X 10.0 cubic inches. The bag weight is 19.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Cecile Joaquin Vargas (Flight: EA203, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 12.0 X 1.0 X 10.0 cubic inches. The bag weight is 22.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Business class passenger Dena Justin Dawson ,travelling by flight EA203 has joined the Business class check-in queue
+
+Economy class passenger Enrique Lonnie Bradshaw ,travelling by flight EA203 has joined the Economy class check-in queue
+
+Enrique Lonnie Bradshaw (Flight: EA203, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 5.0 X 1.0 X 3.0 cubic inches. The bag weight is 40.0 Kg.
+
+The excess baggage fees collected is 150.0 GBP.
+
+Dena Justin Dawson (Flight: EA203, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 26.0 X 3.0 X 11.0 cubic inches. The bag weight is 41.0 Kg.
+
+The excess baggage fees collected is 80.0 GBP.
+
+First class passenger Ezra Graham Benton ,travelling by flight EA203 has joined the First class check-in queue
+
+First class passenger Terese Haley Hall ,travelling by flight BA808 has joined the First class check-in queue
+
+Economy class passenger Harley Eleonora Owen ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Harley Eleonora Owen (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 17.0 X 6.0 X 3.0 cubic inches. The bag weight is 3.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Ezra Graham Benton (Flight: EA203, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 21.0 X 6.0 X 3.0 cubic inches. The bag weight is 38.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Terese Haley Hall (Flight: BA808, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 15.0 X 2.0 X 12.0 cubic inches. The bag weight is 34.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+First class passenger Kerri Shantae Contreras ,travelling by flight BA808 has joined the First class check-in queue
+
+Economy class passenger Alesia Jude West ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Business class passenger Krista Ilona Pena ,travelling by flight BA808 has joined the Business class check-in queue
+
+Alesia Jude West (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 13.0 X 2.0 X 6.0 cubic inches. The bag weight is 6.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Kerri Shantae Contreras (Flight: BA808, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 16.0 X 1.0 X 3.0 cubic inches. The bag weight is 4.0 Kg.
+
+The excess baggage fees collected is 0.0 GBP.
+
+Krista Ilona Pena (Flight: BA808, Business Class) is now at Business class Check-In desk
+
+The bag dimenssions are 32.0 X 6.0 X 8.0 cubic inches. The bag weight is 56.0 Kg.
+
+The excess baggage fees collected is 230.0 GBP.
+
+Economy class passenger Arnoldo Shakita Sheppard ,travelling by flight BA808 has joined the Economy class check-in queue
+
+First class passenger Jamee  Giles ,travelling by flight BA808 has joined the First class check-in queue
+
+First class passenger Roxane Lynelle Carney ,travelling by flight BA808 has joined the First class check-in queue
+
+Economy class passenger Joey Hilton Chandler ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Arnoldo Shakita Sheppard (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 30.0 X 2.0 X 10.0 cubic inches. The bag weight is 9.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Joey Hilton Chandler (Flight: BA808, Economy Class) is now at Economy class Check-In desk
+
+The bag dimenssions are 21.0 X 6.0 X 6.0 cubic inches. The bag weight is 44.0 Kg.
+
+The excess baggage fees collected is 210.0 GBP.
+
+Jamee  Giles (Flight: BA808, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 7.0 X 5.0 X 10.0 cubic inches. The bag weight is 26.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+Roxane Lynelle Carney (Flight: BA808, First Class) is now at First class Check-In desk
+
+The bag dimenssions are 29.0 X 2.0 X 7.0 cubic inches. The bag weight is 16.0 Kg.
+
+The excess baggage fees collected is 20.0 GBP.
+
+First class passenger Carry Janyce Romero ,travelling by flight BA808 has joined the First class check-in queue
+
+Economy class passenger Georgetta  Gardner ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Economy class passenger Tim Zulma Waller ,travelling by flight BA808 has joined the Economy class check-in queue
+
+Business class passenger Lennie Faviola Dyer ,travelling by flight BA808 has joined the Business class check-in queue
+
+Economy class passenger Marion Cathryn Jarvis ,travelling by flight BA808 has joined the Economy class check-in queue
+
