@@ -1,0 +1,4 @@
+PROGRESS LOG:
+
+Economy class passenger Test Example McTesterson ,travelling by flight QA410 has joined the Economy class check-in queue
+
